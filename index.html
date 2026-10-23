@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>아르쎄에스테틱 | 김해 장유 윤곽관리 · 조막얼굴메소드®</title>
+<meta name="description" content="26년 윤곽 한 길, 조외현 대표원장이 직접 진단하고 관리하는 김해 장유 아르쎄에스테틱. 해부학 기반 조막얼굴메소드®.">
+<meta property="og:title" content="아르쎄에스테틱 | 26년, 윤곽 한 길.">
+<meta property="og:description" content="얼굴을 더하지 않습니다. 흩어진 균형을 제자리로.">
+<meta property="og:image" content="assets/corridor.webp">
+<meta name="theme-color" content="#1E3A4C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preload" as="image" href="assets/corridor.webp">
+<style>
+:root{
+  color-scheme:light;
+  --cream:#EFE6DD;
+  --ink:#1E3A4C;
+  --teal:#2A7D78;
+  --sky:#8FD0C9;
+  --mint:#8FD0C9;
+  --mint-soft:#D2EDE9;
+  --white:#FFFFFF;
+  --mist:#F2F4F3;
+  --text:#16201E;
+  --sub:#5C6664;
+  --mute:#C5CDCB;
+  --line:#DDE3E2;
+  --kakao:#FEE500; --kakao-ink:#191919;
+  --sans:"Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --mark:"Marcellus", Georgia, serif;
+  --gutter:max(20px, env(safe-area-inset-left, 0px), 4vw);
+  --ease:cubic-bezier(0.23,1,0.32,1);
+  --ease-io:cubic-bezier(0.77,0,0.175,1);
+  --hh:72px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1360px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+.num{font-variant-numeric:tabular-nums}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 32px;border-radius:999px;font-weight:600;font-size:16px;transition:background-color .15s var(--ease), color .15s var(--ease), transform .12s var(--ease);-webkit-tap-highlight-color:transparent}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn--kakao{background:var(--kakao);color:var(--kakao-ink)}
+.btn--ink{background:var(--ink);color:#fff}
+.btn--line{border:1px solid currentColor}
+@media (hover:hover) and (pointer:fine){
+  .btn--kakao:hover{background:#F2DA00}
+  .btn--ink:hover{background:var(--teal)}
+  .btn--line:hover{background:var(--text);color:#fff;border-color:var(--text)}
+}
+
+.hdr{position:fixed;inset:0 0 auto;z-index:50;height:calc(var(--hh) + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);transition:background-color .25s var(--ease), transform .3s var(--ease), box-shadow .25s var(--ease)}
+.hdr.solid{background:var(--white);box-shadow:0 1px 0 var(--line)}
+.hdr.hide{transform:translateY(-100%)}
+.hdr__in{height:var(--hh);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:var(--mark);font-size:26px;letter-spacing:.14em;line-height:1;display:flex;align-items:center;min-height:48px}
+.logo small{font-size:10px;letter-spacing:.4em;margin-left:12px;color:var(--sub)}
+.nav{display:none;gap:40px;font-size:15px;font-weight:500}
+.nav a{padding:12px 0;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .2s var(--ease)}
+@media (hover:hover) and (pointer:fine){.nav a:hover::after{transform:scaleX(1)}}
+.hdr__cta{display:none;height:46px;padding:0 24px;font-size:15px}
+.burger{width:48px;height:48px;display:grid;place-items:center;margin-right:-12px}
+.burger i{display:block;width:24px;height:1.5px;background:var(--text);transition:transform .25s var(--ease)}
+.burger i+i{margin-top:7px}
+.burger span{display:flex;flex-direction:column}
+.burger[aria-expanded="true"] i:first-child{transform:translateY(4.25px) rotate(45deg)}
+.burger[aria-expanded="true"] i:last-child{transform:translateY(-4.25px) rotate(-45deg)}
+@media (min-width:1024px){.nav,.hdr__cta{display:flex}.burger{display:none}}
+.drawer{position:fixed;inset:0;z-index:49;background:var(--white);padding:calc(var(--hh) + 32px + env(safe-area-inset-top,0px)) var(--gutter) calc(32px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px;opacity:0;visibility:hidden;transition:opacity .2s var(--ease), visibility 0s .2s}
+.drawer.open{opacity:1;visibility:visible;transition:opacity .25s var(--ease)}
+.drawer a.dl{font-size:36px;font-weight:700;letter-spacing:-.04em;padding:8px 0;transform:translateY(8px);transition:transform .35s var(--ease)}
+.drawer.open a.dl{transform:none}
+.drawer__cta{margin-top:auto;display:grid;gap:8px}
+
+.hero{position:relative;min-height:100svh;background:var(--ink);color:#fff;overflow:hidden;isolation:isolate;display:flex;align-items:flex-end}
+.hero__bg{position:absolute;inset:0;z-index:-2}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.06);transition:transform 1.8s var(--ease)}
+.loaded .hero__bg img{transform:scale(1)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(24,50,66,.35) 0%,rgba(24,50,66,.15) 30%,rgba(24,50,66,.55) 60%,rgba(24,50,66,.92) 100%)}
+.hero__copy{padding-top:var(--hh);padding-bottom:calc(48px + env(safe-area-inset-bottom,0px))}
+.hero__who{font-size:15px;font-weight:600;margin:0 0 12px;display:flex;gap:12px;align-items:center}
+.hero__who span{font-weight:400;color:rgba(255,255,255,.75)}
+.hero h1{margin:0;font-size:clamp(48px,7.4vw,112px);font-weight:700;line-height:1.08;letter-spacing:-.05em}
+.ln{display:block;overflow:hidden;padding-bottom:.04em}
+.ln>span{display:block;transform:translateY(102%);transition:transform 1s var(--ease);transition-delay:calc(var(--d,0) * 100ms + 200ms)}
+.loaded .ln>span{transform:none}
+.hero__sub{margin:20px 0 0;font-size:clamp(16px,1.2vw + 10px,20px);color:rgba(255,255,255,.85);max-width:22em}
+.hero__cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
+.hero__cta .btn{flex:1 1 180px}
+.hero .btn--line{color:#fff}
+.cue{display:none}
+@media (min-width:900px){
+  .hero::before{background:linear-gradient(90deg,rgba(24,50,66,.88) 0%,rgba(24,50,66,.55) 40%,rgba(24,50,66,.1) 75%),linear-gradient(180deg,rgba(24,50,66,.3) 0%,rgba(24,50,66,0) 25%)}
+  .hero__bg img{object-position:50% 42%}
+  .hero{align-items:center}
+  .hero__copy{padding-bottom:0}
+  .hero__cta .btn{flex:0 0 auto}
+  @media (hover:hover) and (pointer:fine){.hero .btn--line:hover{background:#fff;color:var(--text);border-color:#fff}}
+  .cue{display:flex;position:absolute;left:var(--gutter);bottom:32px;gap:12px;align-items:center;font-size:12px;letter-spacing:.24em;color:rgba(255,255,255,.7)}
+  .cue i{display:block;width:56px;height:1px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+  .cue i::after{content:"";position:absolute;inset:0;background:#fff;animation:cue 2.4s var(--ease-io) infinite}
+}
+.hdr:not(.solid){color:#fff}
+.hdr:not(.solid) .logo small{color:rgba(255,255,255,.7)}
+.hdr:not(.solid) .burger i{background:#fff}
+.hdr:not(.solid) .hdr__cta{background:#fff;color:var(--ink)}
+@keyframes cue{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+
+.say{padding:clamp(120px,16vw,240px) 0}
+.say__t{margin:0;font-size:clamp(34px,5.6vw,88px);font-weight:700;line-height:1.22;letter-spacing:-.045em;max-width:13em}
+.say__t .w{color:var(--mute);transition:color .25s var(--ease)}
+.say__t .w.on{color:var(--text)}
+.say__s{margin:40px 0 0;font-size:clamp(16px,1.2vw + 10px,22px);color:var(--sub)}
+
+.method{background:var(--mint-soft);color:var(--text);padding:clamp(96px,11vw,160px) 0;overflow:hidden}
+.method__grid{display:grid;gap:48px;align-items:center}
+.method h2{margin:0;font-size:clamp(36px,4.4vw,64px);font-weight:700;letter-spacing:-.045em;line-height:1.15}
+.method h2 sup{font-size:.4em;font-weight:400;vertical-align:top;margin-left:2px}
+.method__sub{margin:16px 0 0;color:var(--sub);font-size:clamp(15px,.6vw + 12px,18px);max-width:24em}
+.steps{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.steps button{width:100%;text-align:left;padding:16px 0 8px;min-height:64px;color:var(--sub);transition:color .2s var(--ease)}
+.steps button[aria-selected="true"]{color:var(--text)}
+.bar{display:block;height:2px;background:rgba(30,58,76,.12);overflow:hidden;margin-bottom:16px}
+.bar i{display:block;height:100%;background:var(--teal);transform:scaleX(0);transform-origin:left}
+.steps button.done .bar i{transform:scaleX(1)}
+.steps button[aria-selected="true"] .bar i{animation:fill var(--dur,5s) linear forwards}
+.paused .steps button[aria-selected="true"] .bar i{animation:none;transform:scaleX(1)}
+@keyframes fill{to{transform:scaleX(1)}}
+.steps .n{display:block;font-size:13px;font-variant-numeric:tabular-nums;letter-spacing:.08em}
+.steps .t{display:block;font-size:17px;font-weight:600;margin-top:2px}
+.step-copy{margin-top:40px;min-height:150px}
+.step-copy__t{margin:0;font-size:clamp(48px,6vw,96px);font-weight:700;letter-spacing:-.05em;line-height:1}
+.step-copy__d{margin:20px 0 0;font-size:clamp(16px,.8vw + 12px,20px);color:var(--sub);max-width:22em}
+.swap{animation:swap .4s var(--ease)}
+@keyframes swap{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.mphoto{margin:0;width:100%;max-width:480px;justify-self:center;aspect-ratio:4/5;overflow:hidden;background:var(--white)}
+.mphoto img{width:100%;height:100%;object-fit:cover;transform-origin:70% 75%;transition:transform 1.4s var(--ease-io), object-position 1.4s var(--ease-io)}
+.mphoto[data-s="0"] img{transform:scale(1);object-position:50% 50%}
+.mphoto[data-s="1"] img{transform:scale(1.35);object-position:50% 60%}
+.mphoto[data-s="2"] img{transform:scale(1.7);object-position:50% 70%}
+.mphoto[data-s="3"] img{transform:scale(1.15);object-position:50% 40%}
+@media (min-width:900px){.method__grid{grid-template-columns:7fr 5fr;gap:80px}}
+
+.eq{padding:clamp(120px,14vw,200px) 0;background:var(--mist)}
+.eq__head h2{margin:0;font-size:clamp(36px,4.4vw,64px);font-weight:700;letter-spacing:-.045em;line-height:1.15}
+.eq__head p{margin:16px 0 0;color:var(--sub);font-size:clamp(15px,.6vw + 12px,18px);max-width:28em}
+.eq__tabs{display:flex;gap:8px;margin:40px 0 0;overflow-x:auto;scrollbar-width:none}
+.eq__tabs::-webkit-scrollbar{display:none}
+.eq__tab{flex:none;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid var(--line);background:var(--white);font-size:15px;font-weight:600;color:var(--sub);transition:background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease)}
+.eq__tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.eq__body{display:grid;gap:32px;margin-top:32px;align-items:center}
+.eq__stage{position:relative;aspect-ratio:1/1;max-height:640px;width:100%;display:grid;place-items:center;overflow:hidden;background:radial-gradient(closest-side,var(--mint-soft) 0%,var(--mint-soft) 62%,rgba(210,237,233,0) 100%)}
+.eq__stage img{max-width:72%;max-height:84%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 24px 32px rgba(24,50,66,.16));animation:eqIn .6s var(--ease)}
+@keyframes eqIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.eq__brand{font-size:13px;color:var(--teal);font-weight:600;letter-spacing:.04em}
+.eq__name{margin:8px 0 0;font-size:clamp(36px,4vw,56px);font-weight:700;letter-spacing:-.045em;line-height:1.1}
+.eq__one{margin:16px 0 0;font-size:clamp(17px,.8vw + 13px,22px);line-height:1.6;max-width:24em}
+.eq__facts{margin:32px 0 0;display:grid;gap:0;border-top:1px solid var(--line)}
+.eq__facts div{display:grid;grid-template-columns:88px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.eq__facts dt{color:var(--teal);font-weight:600}
+.eq__facts dd{margin:0;color:var(--sub)}
+.eq__text{animation:swap .4s var(--ease)}
+@media (min-width:900px){.eq__body{grid-template-columns:6fr 5fr;gap:80px}}
+
+.dir{padding:clamp(120px,14vw,200px) 0}
+.dir__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,44%);grid-template-areas:'top photo' 'rest rest';gap:32px 20px;align-items:start}
+.dir__top{grid-area:top;min-width:0}.dir__rest{grid-area:rest;min-width:0}.dir__photo{grid-area:photo}
+.dir__photo{position:relative;margin:0;aspect-ratio:4/5;max-width:520px;width:100%;overflow:hidden;background:var(--cream)}
+.dir__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0;transform:scale(1.04);transition:transform 1.2s var(--ease)}
+.dir__photo.in img{transform:none}
+.dir__photo figcaption{position:absolute;left:20px;bottom:16px;font-family:var(--mark);font-size:13px;letter-spacing:.24em;color:var(--text)}
+.big26{margin:0 0 32px;font-size:clamp(112px,13vw,200px);font-weight:200;letter-spacing:-.07em;line-height:.8;color:var(--teal);font-variant-numeric:tabular-nums;display:flex;align-items:flex-end}
+.big26 small{font-family:var(--mark);font-size:clamp(13px,1vw,18px);letter-spacing:.3em;color:var(--text);font-weight:400;margin:0 0 .5em 16px;line-height:1.6}
+.dir__name{margin:0;font-size:clamp(36px,3.6vw,56px);font-weight:700;letter-spacing:-.04em;line-height:1.1}
+.dir__name span{font-size:.42em;font-weight:500;color:var(--sub);letter-spacing:0;margin-left:12px}
+.dir__q{margin:24px 0 0;font-size:clamp(18px,1vw + 12px,24px);line-height:1.6;max-width:20em}
+.dir__list{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:12px;font-size:16px;color:var(--sub)}
+.dir__list b{color:var(--text);font-weight:600}
+.dir .btn{margin-top:40px;height:52px}
+@media (min-width:600px){.dir__grid{grid-template-columns:minmax(0,1fr) minmax(0,42%);grid-template-areas:'top photo' 'rest photo';grid-template-rows:auto 1fr;column-gap:clamp(32px,6vw,96px)}.dir__photo{align-self:center}}
+@media (min-width:1100px){.dir__grid{grid-template-columns:minmax(0,560px) minmax(0,460px);justify-content:center;column-gap:80px}}
+@media (max-width:599px){.big26{font-size:88px;margin-bottom:20px}.dir__name{font-size:30px}.dir__name span{display:block;margin:8px 0 0}.dir__q{font-size:16px}.dir__photo figcaption{display:none}}
+
+.cv{border:0;padding:0;width:min(680px,calc(100% - 32px));max-height:calc(100% - 64px);border-radius:24px;background:var(--white);color:var(--text)}
+.cv::backdrop{background:rgba(24,50,66,.5)}
+.cv[open]{animation:pop .25s var(--ease)}
+.cv[open]::backdrop{animation:fade .2s var(--ease)}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.cv__in{padding:40px 32px 32px;display:grid;gap:32px}
+.cv__head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.cv h3{margin:0;font-size:28px;letter-spacing:-.03em}
+.cv h4{margin:0 0 12px;font-size:14px;color:var(--teal)}
+.cv ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px;color:var(--sub)}
+.cv ul ul{margin-top:6px;padding-left:16px;gap:4px;font-size:14px}
+.cv__x{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--mist);flex:none}
+
+.prog{position:relative}
+.prog__head{padding-top:clamp(96px,10vw,140px);padding-bottom:40px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
+.prog__head h2{margin:0;font-size:clamp(36px,4.4vw,64px);font-weight:700;letter-spacing:-.045em;line-height:1.15}
+.ctrl{display:flex;gap:8px;align-items:center}
+.ctrl button{width:56px;height:56px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background-color .15s var(--ease), opacity .15s var(--ease)}
+.ctrl button:disabled{opacity:.3;cursor:default}
+@media (hover:hover) and (pointer:fine){.ctrl button:not(:disabled):hover{background:var(--mist)}}
+.ctrl__n{font-size:15px;font-variant-numeric:tabular-nums;min-width:64px;text-align:center;color:var(--sub)}
+.ctrl__n b{color:var(--text);font-weight:600}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.ps{flex:0 0 100%;scroll-snap-align:start;min-height:min(84svh,800px);position:relative;overflow:hidden;display:flex;align-items:flex-end;isolation:isolate}
+.ps--1{background:var(--sky)}
+.ps--2{background:var(--sky)}
+.ps--3{background:var(--sky)}
+.ps--4{background:var(--sky)}
+.ps__in{padding-top:72px;padding-bottom:clamp(56px,7vw,96px)}
+.ps__n{font-size:14px;font-variant-numeric:tabular-nums;opacity:.7}
+.ps__t{margin:16px 0 0;font-size:clamp(52px,8.4vw,128px);font-weight:700;letter-spacing:-.055em;line-height:1.02}
+.ps__d{margin:24px 0 0;font-size:clamp(17px,1vw + 12px,24px);max-width:20em;opacity:.85}
+.ps__cta{display:inline-flex;align-items:center;gap:10px;margin-top:32px;font-weight:600;min-height:48px;border-bottom:1px solid currentColor}
+.ps__cta svg{transition:transform .2s var(--ease)}
+@media (hover:hover) and (pointer:fine){.ps__cta:hover svg{transform:translateX(4px)}}
+.ps__art{position:absolute;right:-6%;top:6%;width:min(70vw,760px);height:auto;z-index:-1;color:var(--ink);opacity:.3}
+.ps__art path{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.6s var(--ease-io)}
+.ps.on .ps__art path{stroke-dashoffset:0}
+.ps--1 .ps__art{color:var(--ink);opacity:.3}
+.prog__bar{height:2px;background:var(--line);position:relative}
+.prog__bar i{position:absolute;inset:0;background:var(--text);transform-origin:left;transform:scaleX(.25);transition:transform .35s var(--ease)}
+
+.space{padding:clamp(96px,10vw,140px) 0 clamp(96px,10vw,140px)}
+.space__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;margin-bottom:40px}
+.space__head h2{margin:0;font-size:clamp(36px,4.4vw,64px);font-weight:700;letter-spacing:-.045em;line-height:1.15}
+.space__head p{margin:0;color:var(--sub);font-size:clamp(15px,.6vw + 12px,18px)}
+.gal{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 var(--gutter);scroll-padding:0 var(--gutter);cursor:grab;overscroll-behavior-x:contain}
+.gal::-webkit-scrollbar{display:none}
+.gal__i{margin:0;flex:none;scroll-snap-align:start;height:clamp(420px,68vh,720px);aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--mist)}
+.gal__i--wide{aspect-ratio:4/3}
+.gal__i img{width:100%;height:100%;object-fit:cover;pointer-events:none;transition:transform .6s var(--ease)}
+.gal__i figcaption{position:absolute;left:16px;bottom:14px;color:#fff;font-size:14px;font-weight:600;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+@media (hover:hover) and (pointer:fine){.gal__i:hover img{transform:scale(1.03)}}
+@media (max-width:599px){.gal__i{height:auto;width:78vw}.gal__i--wide{width:90vw}}
+
+.clinic{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;isolation:isolate;background:var(--ink)}
+.clinic__bg{position:absolute;inset:0;z-index:-2}
+.clinic__bg img{width:100%;height:118%;object-fit:cover;object-position:50% 45%;will-change:transform}
+.clinic::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(24,50,66,0) 30%,rgba(24,50,66,.6) 55%,rgba(24,50,66,.94) 100%)}
+.clinic__in{padding-top:120px;padding-bottom:clamp(56px,7vw,96px)}
+.clinic h2{margin:0;font-size:clamp(48px,7vw,112px);font-weight:700;letter-spacing:-.055em;line-height:1.05}
+.clinic h2.clinic__mark{font-family:var(--mark);font-weight:400;letter-spacing:.12em;font-size:clamp(64px,10vw,160px);line-height:1}
+.info{margin:48px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;border-top:1px solid rgba(255,255,255,.3);padding-top:24px}
+.info div{display:grid;gap:4px}
+.info dt{font-size:13px;color:var(--mint)}
+.info dd{margin:0;font-size:17px;font-weight:500;font-variant-numeric:tabular-nums}
+.info a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.4)}
+.clinic__map{display:inline-flex;margin-top:32px;align-items:center;gap:10px;font-weight:600;min-height:48px;border-bottom:1px solid currentColor}
+@media (min-width:900px){
+  .clinic::before{background:linear-gradient(180deg,rgba(24,50,66,0) 35%,rgba(24,50,66,.55) 60%,rgba(24,50,66,.92) 100%)}
+  .info{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .info .wide{grid-column:span 2}
+}
+
+.resv{padding:clamp(120px,14vw,200px) 0}
+.resv__grid{display:grid;gap:56px}
+.resv h2{margin:0;font-size:clamp(48px,7vw,112px);font-weight:700;letter-spacing:-.055em;line-height:1.05}
+.resv__s{margin:24px 0 0;font-size:clamp(16px,1vw + 11px,20px);color:var(--sub)}
+.resv__alt{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
+.form{display:grid;gap:24px;align-content:start}
+.f label,.f .lbl{display:block;font-size:14px;font-weight:600;margin-bottom:8px}
+.f input[type=text],.f input[type=tel]{width:100%;height:64px;border:0;border-bottom:1.5px solid var(--line);padding:0;font-size:22px;background:transparent;border-radius:0;transition:border-color .2s var(--ease)}
+.f input:focus{outline:none;border-color:var(--teal)}
+.f input::placeholder{color:var(--mute)}
+.f.err input{border-color:#B3261E}
+.f .msg{display:none;font-size:13px;color:#B3261E;margin:8px 0 0}
+.f.err .msg{display:block}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.opt span{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border-radius:999px;border:1px solid var(--line);font-size:15px;transition:background-color .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease)}
+.opt input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.opt input:focus-visible+span{outline:2px solid var(--teal);outline-offset:2px}
+.agree{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--sub)}
+.agree input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--teal);flex:none}
+.form .btn{width:100%}
+.done{display:none;align-content:center;gap:12px;padding:48px 0}
+.done b{font-size:32px;letter-spacing:-.03em}
+.done p{margin:0;color:var(--sub)}
+.sent .form{display:none}.sent .done{display:grid;animation:swap .4s var(--ease)}
+@media (min-width:900px){.resv__grid{grid-template-columns:6fr 5fr;gap:96px}}
+
+.ftr{background:var(--sky);color:var(--ink);padding:72px 0 calc(120px + env(safe-area-inset-bottom,0px));font-size:13px}
+.ftr__mark{font-family:var(--mark);color:var(--ink);font-size:clamp(56px,12vw,180px);letter-spacing:.08em;line-height:1;margin:0 0 48px}
+.ftr dl{margin:0;display:flex;flex-wrap:wrap;gap:8px 32px}
+.ftr dl div{display:flex;gap:8px}
+.ftr dt{color:var(--ink);font-weight:600}
+.ftr dd{margin:0}
+@media (min-width:900px){.ftr{padding-bottom:72px}}
+
+.mcta{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:7fr 3fr;gap:8px;padding:12px max(16px, env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px));background:var(--white);box-shadow:0 -1px 0 var(--line);transform:translateY(110%);transition:transform .3s var(--ease)}
+.mcta.show{transform:none}
+.mcta .btn{height:52px;padding:0 12px}
+@media (min-width:900px){.mcta{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}
+  .ln>span,.hero__bg img{transform:none!important;transition:none}
+  .ps__art path{stroke-dashoffset:0!important;transition:none}
+  .mphoto img{transition:none}
+  .say__t .w{color:var(--text)}
+  .clinic__bg img{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a href="#top" class="logo" aria-label="아르쎄에스테틱 처음으로">ARCÉ<small>AESTHETIC</small></a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#method">조막얼굴메소드</a>
+      <a href="#equipment">장비</a>
+      <a href="#director">대표원장</a>
+      <a href="#program">관리</a>
+      <a href="#space">공간</a>
+      <a href="#clinic">오시는 길</a>
+    </nav>
+    <a href="#reserve" class="btn btn--ink hdr__cta">상담 예약</a>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><span><i></i><i></i></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <a class="dl" href="#method">조막얼굴메소드</a>
+  <a class="dl" href="#equipment">장비</a>
+  <a class="dl" href="#director">대표원장</a>
+  <a class="dl" href="#program">관리</a>
+  <a class="dl" href="#space">공간</a>
+  <a class="dl" href="#clinic">오시는 길</a>
+  <a class="dl" href="#reserve">상담 예약</a>
+  <div class="drawer__cta">
+    <a class="btn btn--kakao js-kakao" href="#">카카오톡 상담</a>
+    <a class="btn btn--line js-tel" href="#"><span class="js-tel-text"></span></a>
+  </div>
+</div>
+
+<main>
+<section class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true"><img src="assets/corridor.webp" width="1500" height="2000" alt="" fetchpriority="high"></div>
+  <div class="wrap hero__copy">
+    <p class="hero__who">조외현 대표원장 <span>조막얼굴메소드® 개발</span></p>
+    <h1><span class="ln"><span style="--d:0">26년,</span></span><span class="ln"><span style="--d:1">윤곽 한 길.</span></span></h1>
+    <p class="hero__sub">김해 장유에서 원장이 직접 진단하고, 직접 관리합니다.</p>
+    <div class="hero__cta">
+      <a class="btn btn--kakao js-kakao" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
+      <a class="btn btn--line" href="#reserve">상담 예약</a>
+    </div>
+  </div>
+  <div class="cue" aria-hidden="true"><i></i>SCROLL</div>
+</section>
+
+<section class="say" aria-label="아르쎄의 철학">
+  <div class="wrap">
+    <p class="say__t" id="sayT">얼굴을 더하지 않습니다. 흩어진 균형을 제자리로 돌려놓습니다.</p>
+    <p class="say__s">처음에는 느리지만, 시간이 갈수록 가속도가 붙는 변화.</p>
+  </div>
+</section>
+
+<section class="method" id="method" aria-labelledby="methodT">
+  <div class="wrap method__grid">
+    <div>
+      <h2 id="methodT">조막얼굴메소드<sup>®</sup></h2>
+      <p class="method__sub">해부학을 바탕으로 직접 개발하고 상표로 등록한, 아르쎄의 윤곽관리입니다.</p>
+      <ol class="steps" role="tablist" aria-label="관리 단계" id="steps">
+        <li><button role="tab" aria-selected="true" aria-controls="stepCopy" data-i="0"><span class="bar"><i></i></span><span class="n">01</span><span class="t">진단</span></button></li>
+        <li><button role="tab" aria-selected="false" aria-controls="stepCopy" data-i="1" tabindex="-1"><span class="bar"><i></i></span><span class="n">02</span><span class="t">이완</span></button></li>
+        <li><button role="tab" aria-selected="false" aria-controls="stepCopy" data-i="2" tabindex="-1"><span class="bar"><i></i></span><span class="n">03</span><span class="t">정돈</span></button></li>
+        <li><button role="tab" aria-selected="false" aria-controls="stepCopy" data-i="3" tabindex="-1"><span class="bar"><i></i></span><span class="n">04</span><span class="t">유지</span></button></li>
+      </ol>
+      <div class="step-copy" id="stepCopy" role="tabpanel" aria-live="polite">
+        <p class="step-copy__t" id="stepT">진단</p>
+        <p class="step-copy__d" id="stepD">좌우 비율과 근육의 긴장을 원장이 직접 확인합니다.</p>
+      </div>
+    </div>
+    <figure class="mphoto" id="face" data-s="0"><img src="assets/masks.webp" width="640" height="1040" alt="아르쎄에스테틱 매장 선반에 놓인 얼굴 모형" loading="lazy"></figure>
+  </div>
+</section>
+
+
+<section class="eq" id="equipment" aria-labelledby="eqT">
+  <div class="wrap">
+    <div class="eq__head">
+      <h2 id="eqT">손기술 위에,<br>정품 장비</h2>
+      <p>엄선한 프리미엄 장비로 관리의 깊이를 더합니다.</p>
+    </div>
+    <div class="eq__tabs" role="tablist" aria-label="장비 선택" id="eqTabs">
+      <button class="eq__tab" role="tab" aria-selected="true" aria-controls="eqPanel" data-i="0">LPG® 알리안스</button>
+      <button class="eq__tab" role="tab" aria-selected="false" aria-controls="eqPanel" data-i="1" tabindex="-1">써마웨이브™</button>
+      <button class="eq__tab" role="tab" aria-selected="false" aria-controls="eqPanel" data-i="2" tabindex="-1">자이오닉</button>
+    </div>
+    <div class="eq__body" id="eqPanel" role="tabpanel" aria-live="polite">
+      <div class="eq__stage"><img id="eqImg" src="assets/eq-lpg.webp" alt="LPG 알리안스 장비" width="530" height="852" loading="lazy"></div>
+      <div class="eq__text" id="eqText">
+        <p class="eq__brand" id="eqBrand">LPG® · 프랑스</p>
+        <h3 class="eq__name" id="eqName">LPG® 알리안스</h3>
+        <p class="eq__one" id="eqOne">롤러와 음압으로 피부를 부드럽게 집어 올리고 굴려, 뭉친 조직을 풀고 순환을 돕는 엔더몰로지 장비입니다.</p>
+        <dl class="eq__facts" id="eqFacts"></dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dir" id="director" aria-labelledby="dirT">
+  <div class="wrap dir__grid">
+    <div class="dir__top">
+      <p class="big26" aria-label="26년">26<small>YEARS</small></p>
+      <h2 class="dir__name" id="dirT">조외현<span>대표원장</span></h2>
+      <p class="dir__q">“시술 없이 자연스럽게,<br>건강하고 아름답게 나이 드는 관리.”</p>
+    </div>
+    <figure class="dir__photo" id="dirPhoto"><img src="assets/director-tall.webp" width="484" height="870" alt="조외현 대표원장" loading="lazy"><figcaption>JO OE HYUN</figcaption></figure>
+    <div class="dir__rest">
+      <ul class="dir__list">
+        <li><b>누적 관리 고객 5만 명 이상</b></li>
+        <li>국제 시데스코(CIDESCO) 자격</li>
+        <li>대구한의대학교 대학원 한방피부미용학 석사</li>
+        <li>마산대학교 뷰티케어학과 겸임교수</li>
+        <li>2022–2025 경남기능경기대회 채점감독</li>
+      </ul>
+      <button class="btn btn--line" id="cvOpen" type="button">전체 이력 보기 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4 V16 M4 10 H16"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<dialog class="cv" id="cv" aria-labelledby="cvT">
+  <div class="cv__in">
+    <div class="cv__head"><h3 id="cvT">조외현 대표원장</h3><button class="cv__x" id="cvClose" type="button" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3 L15 15 M15 3 L3 15"/></svg></button></div>
+    <div><h4>학력 · 직위</h4><ul>
+      <li>대구한의대학교 대학원 한방피부미용학 석사</li><li>마산대학교 뷰티케어학과 학사</li><li>마산대학교 뷰티케어학과 겸임교수</li><li>아르쎄 에스테틱 대표 · 트로이아르케 김해점 원장</li></ul></div>
+    <div><h4>경력</h4><ul>
+      <li>에스테틱 업계 26년 · 누적 관리 고객 5만 명 이상</li><li>전) 스파현 대표원장, 윤곽전문에스테틱 (창원·김해·장유)</li><li>2022–2025 경남기능경기대회 채점감독</li><li>조막얼굴메소드® 개발</li></ul></div>
+    <div><h4>자격 · 연수</h4><ul>
+      <li>국제 시데스코(CIDESCO) 자격증</li>
+      <li>영국 치체스터 대학교(University of Chichester) 단기 연수 수료</li>
+      <li>상해대학교 학부학 실습 수료</li>
+      <li>Prenatal &amp; Postpartum Care (산전·산후 회복관리 과정) 국제 디플로마</li>
+      <li>브레인 리웨이브 프로그램 수료 (국제 뉴로아로마콜로지 연구소 / 연 80시간 과정)</li>
+      <li>LaStone Therapy (핫&amp;콜드 스톤 마사지) 수료</li>
+      <li>Power Tree SPA Treatment 과정 수료 (Nouvelle Esthetic Academy)</li>
+      <li>국제 트리콜로지스트 자격 (KCT / International Trichologists Federation)</li>
+      <li>World Atopy Association<ul><li>아토피 상담사 (Atopy Counselor)</li><li>아토피 디톡스 코디네이터 (Detox Coordinator)</li></ul></li>
+      <li>대한 자격기관 소아디톡스 전문가<ul><li>리커버리 스트레칭 지도자</li><li>바디케어 전문가</li><li>발모관리 상담지도자</li></ul></li>
+      <li>약석약회 발건강 강사 자격</li></ul></div>
+  </div>
+</dialog>
+
+<section class="prog" id="program" aria-labelledby="progT">
+  <div class="wrap prog__head">
+    <h2 id="progT">아르쎄의 관리</h2>
+    <div class="ctrl">
+      <button id="prev" aria-label="이전 관리" disabled><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4 L6 10 L12 16"/></svg></button>
+      <span class="ctrl__n" aria-live="polite"><b id="cur">01</b> / 04</span>
+      <button id="next" aria-label="다음 관리"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 4 L14 10 L8 16"/></svg></button>
+    </div>
+  </div>
+  <div class="track" id="track" tabindex="0" aria-label="관리 프로그램 4가지">
+    <article class="ps ps--1 on" data-key="face">
+      <svg class="ps__art" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M70 120 C80 300 150 420 240 500 C270 526 288 536 300 536 C312 536 330 526 360 500 C450 420 520 300 530 120"/></svg>
+      <div class="wrap ps__in"><span class="ps__n">01</span><h3 class="ps__t">조막얼굴<br>윤곽관리</h3><p class="ps__d">붓기, 비대칭, 턱선.<br>얼굴 라인을 정돈하는 시그니처.</p><a class="ps__cta" href="#reserve" data-key="face">이 관리로 상담하기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
+    </article>
+    <article class="ps ps--2" data-key="body">
+      <svg class="ps__art" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M250 40 C252 120 252 160 240 200 C180 230 80 250 20 320 M350 40 C348 120 348 160 360 200 C420 230 520 250 580 320 M300 220 L300 580"/></svg>
+      <div class="wrap ps__in"><span class="ps__n">02</span><h3 class="ps__t">바디<br>밸런스</h3><p class="ps__d">목과 어깨에서 이어지는<br>몸 전체의 균형.</p><a class="ps__cta" href="#reserve" data-key="body">이 관리로 상담하기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
+    </article>
+    <article class="ps ps--3" data-key="mom">
+      <svg class="ps__art" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M300 60 C440 60 540 170 540 310 C540 450 440 550 300 550 C160 550 60 450 60 310 C60 170 160 60 300 60"/></svg>
+      <div class="wrap ps__in"><span class="ps__n">03</span><h3 class="ps__t">산전·산후<br>관리</h3><p class="ps__d">국제 디플로마를 수료한 원장이<br>시기에 맞춰 진행합니다.</p><a class="ps__cta" href="#reserve" data-key="mom">이 관리로 상담하기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
+    </article>
+    <article class="ps ps--4" data-key="aging">
+      <svg class="ps__art" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M40 520 C180 500 300 420 380 300 C430 220 470 140 560 60"/></svg>
+      <div class="wrap ps__in"><span class="ps__n">04</span><h3 class="ps__t">자연스러운<br>안티에이징</h3><p class="ps__d">시술 없이,<br>건강하고 아름답게 나이 드는 관리.</p><a class="ps__cta" href="#reserve" data-key="aging">이 관리로 상담하기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
+    </article>
+  </div>
+  <div class="prog__bar" aria-hidden="true"><i id="pbar"></i></div>
+</section>
+
+
+<section class="space" id="space" aria-labelledby="spaceT">
+  <div class="wrap space__head">
+    <h2 id="spaceT">아르쎄의 공간</h2>
+    <p>밝고 깨끗한 공간에서, 관리에만 집중하세요.</p>
+  </div>
+  <div class="gal" id="gal" tabindex="0" aria-label="매장 사진">
+    <figure class="gal__i"><img src="assets/interior-hero.webp" width="1500" height="2000" alt="민트색 리셉션 데스크와 아르쎄 간판" loading="lazy"><figcaption>리셉션</figcaption></figure>
+    <figure class="gal__i"><img src="assets/lounge.webp" width="1500" height="2000" alt="핑크 벨벳 소파가 놓인 라운지" loading="lazy"><figcaption>라운지</figcaption></figure>
+    <figure class="gal__i gal__i--wide"><img src="assets/mirror.webp" width="2000" height="1500" alt="조명이 들어간 타원형 거울과 화장대" loading="lazy"><figcaption>파우더룸</figcaption></figure>
+    <figure class="gal__i"><img src="assets/lounge-masks.webp" width="1500" height="2000" alt="얼굴 모형이 진열된 선반과 라운지" loading="lazy"><figcaption>라운지 · 얼굴 모형 선반</figcaption></figure>
+  </div>
+</section>
+
+<section class="clinic" id="clinic" aria-labelledby="clinicT">
+  <div class="clinic__bg" aria-hidden="true"><img id="clinicImg" src="assets/entrance.webp" alt="" loading="lazy" width="1500" height="2000"></div>
+  <div class="wrap clinic__in">
+    <h2 id="clinicT" class="clinic__mark" aria-label="아르쎄에스테틱 오시는 길">ARCÉ</h2>
+    <dl class="info">
+      <div><dt>평일</dt><dd>10:00 – 21:00</dd></div>
+      <div><dt>토요일</dt><dd>07:00 – 17:00</dd></div>
+      <div><dt>휴무</dt><dd>매주 일요일</dd></div>
+      <div><dt>주차</dt><dd>지하주차장</dd></div>
+      <div><dt>전화</dt><dd><a class="js-tel js-tel-text" href="#"></a></dd></div>
+      <div class="wide"><dt>주소</dt><dd class="js-addr"></dd></div>
+    </dl>
+    <a class="clinic__map js-map" href="#" target="_blank" rel="noopener">네이버 지도에서 보기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a>
+  </div>
+</section>
+
+<section class="resv" id="reserve" aria-labelledby="resvT">
+  <div class="wrap resv__grid" id="resvBox">
+    <div>
+      <h2 id="resvT">상담은,<br>원장이 직접.</h2>
+      <p class="resv__s">상담 후 결정하셔도 괜찮습니다.</p>
+      <div class="resv__alt">
+        <a class="btn btn--kakao js-kakao" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
+        <a class="btn btn--line js-tel" href="#"><span class="js-tel-text"></span></a>
+      </div>
+    </div>
+    <div>
+      <form class="form" id="form" novalidate>
+        <div class="f" id="fName"><label for="name">이름</label><input type="text" id="name" autocomplete="name" placeholder="홍길동"><p class="msg">이름을 입력해 주세요.</p></div>
+        <div class="f" id="fPhone"><label for="phone">연락처</label><input type="tel" id="phone" autocomplete="tel" inputmode="numeric" maxlength="13" placeholder="010-0000-0000"><p class="msg">휴대폰 번호를 정확히 입력해 주세요.</p></div>
+        <div class="f"><span class="lbl" id="cLbl">관심 관리</span>
+          <div class="opts" role="group" aria-labelledby="cLbl">
+            <label class="opt"><input type="checkbox" name="concern" value="face" id="c-face"><span>윤곽관리</span></label>
+            <label class="opt"><input type="checkbox" name="concern" value="body" id="c-body"><span>바디 밸런스</span></label>
+            <label class="opt"><input type="checkbox" name="concern" value="mom" id="c-mom"><span>산전·산후</span></label>
+            <label class="opt"><input type="checkbox" name="concern" value="aging" id="c-aging"><span>안티에이징</span></label>
+          </div></div>
+        <div class="f" id="fAgree"><label class="agree"><input type="checkbox" id="agree"><span>[필수] 상담 예약을 위한 개인정보(이름, 연락처) 수집·이용에 동의합니다. 상담 완료 후 6개월간 보관 후 파기됩니다.</span></label><p class="msg">개인정보 수집·이용에 동의해 주세요.</p></div>
+        <button class="btn btn--ink" type="submit">상담 예약 신청</button>
+      </form>
+      <div class="done" role="status"><b>신청이 접수되었습니다.</b><p>영업시간 내에 연락드려 예약 시간을 확정해 드릴게요.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <p class="ftr__mark" aria-hidden="true">ARCÉ</p>
+    <dl>
+      <div><dt>상호</dt><dd>아르쎄에스테틱</dd></div>
+      <div><dt>대표</dt><dd>조외현</dd></div>
+      <div><dt>사업자등록번호</dt><dd class="num">641-43-00735</dd></div>
+      <div><dt>전화</dt><dd class="js-tel-text num"></dd></div>
+      <div><dt>주소</dt><dd class="js-addr"></dd></div>
+    </dl>
+    <p style="margin:32px 0 0">© ARCÉ AESTHETIC</p>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta">
+  <a class="btn btn--kakao js-kakao" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
+  <a class="btn btn--line js-tel" href="#" aria-label="전화 문의">전화</a>
+</div>
+
+<script>
+const CONFIG = {
+  phone: '055-903-3002',
+  kakaoUrl: 'https://pf.kakao.com/',
+  address: '경상남도 김해시 장유 (상세 주소 입력)',
+  mapUrl: 'https://map.naver.com/p/search/' + encodeURIComponent('아르쎄에스테틱 김해'),
+  formEndpoint: ''
+};
+
+(() => {
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  $$('.js-tel').forEach(a => a.href = 'tel:' + CONFIG.phone.replace(/\D/g, ''));
+  $$('.js-tel-text').forEach(el => el.textContent = CONFIG.phone);
+  $$('.js-kakao').forEach(a => { a.href = CONFIG.kakaoUrl; a.target = '_blank'; a.rel = 'noopener'; });
+  $$('.js-addr').forEach(el => el.textContent = CONFIG.address);
+  $$('.js-map').forEach(a => a.href = CONFIG.mapUrl);
+  requestAnimationFrame(() => document.body.classList.add('loaded'));
+
+  $$('.ps__art path').forEach(p => { try { p.style.setProperty('--len', Math.ceil(p.getTotalLength()) + 1); } catch (e) {} });
+
+  const hdr = $('#hdr'), hero = $('#top'); let lastY = 0;
+
+  const burger = $('#burger'), drawer = $('#drawer');
+  const setDrawer = open => {
+    drawer.classList.toggle('open', open); drawer.setAttribute('aria-hidden', !open);
+    burger.setAttribute('aria-expanded', open); burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    document.body.style.overflow = open ? 'hidden' : '';
+    hdr.classList.toggle('solid', open || scrollY > hero.offsetHeight - 80);
+  };
+  burger.addEventListener('click', () => setDrawer(!drawer.classList.contains('open')));
+  $$('a', drawer).forEach(a => a.addEventListener('click', () => setDrawer(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setDrawer(false); });
+
+
+  const sayT = $('#sayT');
+  sayT.innerHTML = sayT.textContent.split(' ').map(w => `<span class="w">${w}</span>`).join(' ');
+  const words = $$('.w', sayT);
+  const sayUpd = () => {
+    const r = sayT.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight * .85 - r.top) / (innerHeight * .55)));
+    const n = reduce ? words.length : Math.round(p * words.length);
+    words.forEach((w, i) => w.classList.toggle('on', i < n));
+  };
+
+  const STEPS = [
+    ['진단', '좌우 비율과 근육의 긴장을 원장이 직접 확인합니다.'],
+    ['이완', '습관으로 굳은 씹는 근육과 근막을 손으로 풉니다.'],
+    ['정돈', '해부학적 구조를 따라 턱선과 외곽 라인을 정리합니다.'],
+    ['유지', '목·어깨 순환과 홈케어로 변화를 이어갑니다.']
+  ];
+  const sBtns = $$('#steps button'), face = $('#face'), stepT = $('#stepT'), stepD = $('#stepD'), copy = $('#stepCopy'), method = $('#method');
+  let si = 0, timer = null, inView = false;
+  const DUR = 5000; method.style.setProperty('--dur', DUR + 'ms');
+  const schedule = () => { clearTimeout(timer); if (reduce) { method.classList.add('paused'); return; } if (inView) timer = setTimeout(() => setStep((si + 1) % 4), DUR); };
+  const setStep = i => {
+    si = i;
+    sBtns.forEach((b, k) => { b.setAttribute('aria-selected', k === i); b.tabIndex = k === i ? 0 : -1; b.classList.toggle('done', k < i); const bar = $('.bar i', b); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; });
+    face.dataset.s = i; stepT.textContent = STEPS[i][0]; stepD.textContent = STEPS[i][1];
+    copy.classList.remove('swap'); void copy.offsetWidth; copy.classList.add('swap');
+    schedule();
+  };
+  sBtns.forEach((b, i) => {
+    b.addEventListener('click', () => setStep(i));
+    b.addEventListener('keydown', e => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; const n = (i + d + 4) % 4; setStep(n); sBtns[n].focus(); });
+  });
+  new IntersectionObserver(([e]) => { inView = e.isIntersecting; method.classList.toggle('paused', !inView); if (inView) setStep(si); else clearTimeout(timer); }, { threshold: .35 }).observe(method);
+
+  new IntersectionObserver(([e], o) => { if (e.isIntersecting) { e.target.classList.add('in'); o.disconnect(); } }, { threshold: .3 }).observe($('#dirPhoto'));
+
+  const EQ = [
+    { img: 'assets/eq-lpg.webp', w: 530, h: 852, brand: 'LPG® · 프랑스', name: 'LPG® 알리안스', alt: 'LPG 알리안스 장비',
+      one: '롤러와 음압으로 피부를 부드럽게 집어 올리고 굴려, 뭉친 조직을 풀고 순환을 돕는 엔더몰로지 장비입니다.',
+      facts: [['방식', '롤러 + 음압(흡입) 기계적 자극, 엔더몰로지'], ['관리 부위', '바디 라인, 셀룰라이트, 얼굴 탄력'], ['이런 분께', '붓기와 뭉침이 잦고, 바디 라인이 고민인 분']] },
+    { img: 'assets/eq-thermawave.webp', w: 228, h: 802, brand: '엘피지오 · 웰니스 디바이스', name: '써마웨이브™', alt: '써마웨이브 장비',
+      one: '따뜻한 열감을 이용해 얼굴과 바디 라인, 탄력을 함께 관리하는 장비입니다.',
+      facts: [['방식', '열감을 이용한 관리'], ['관리 부위', '얼굴 라인, 바디 라인'], ['이런 분께', '탄력 저하와 처짐이 고민인 분']] },
+    { img: 'assets/eq-zionic.webp', w: 1027, h: 1000, brand: 'Termosalud · 스페인', name: '자이오닉', alt: '자이오닉 핸드피스',
+      one: '깊게 회전하는 마사지와 고주파 열을 동시에 전달하는 바디 컨투어링 장비입니다.',
+      facts: [['방식', '회전 마사지(MARP) + 470kHz 모노폴라 고주파'], ['관리 부위', '복부, 허벅지, 엉덩이 등 바디'], ['이런 분께', '셀룰라이트, 붓기, 처진 바디 라인이 고민인 분']] }
+  ];
+  const eqTabs = $$('#eqTabs .eq__tab'), eqImg = $('#eqImg'), eqText = $('#eqText');
+  const setEq = i => {
+    const d = EQ[i];
+    eqTabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; });
+    eqImg.style.animation = 'none'; void eqImg.offsetWidth; eqImg.style.animation = '';
+    eqImg.src = d.img; eqImg.width = d.w; eqImg.height = d.h; eqImg.alt = d.alt;
+    $('#eqBrand').textContent = d.brand; $('#eqName').textContent = d.name; $('#eqOne').textContent = d.one;
+    $('#eqFacts').innerHTML = d.facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+    eqText.classList.remove('eq__text'); void eqText.offsetWidth; eqText.classList.add('eq__text');
+  };
+  eqTabs.forEach((t, i) => {
+    t.addEventListener('click', () => setEq(i));
+    t.addEventListener('keydown', e => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; const n = (i + d + EQ.length) % EQ.length; setEq(n); eqTabs[n].focus(); });
+  });
+  setEq(0);
+
+  const cv = $('#cv');
+  $('#cvOpen').addEventListener('click', () => { if (cv.showModal) cv.showModal(); else cv.setAttribute('open', ''); });
+  $('#cvClose').addEventListener('click', () => cv.close ? cv.close() : cv.removeAttribute('open'));
+  cv.addEventListener('click', e => { if (e.target === cv) cv.close(); });
+
+  const track = $('#track'), slides = $$('.ps', track), prev = $('#prev'), next = $('#next'), cur = $('#cur'), pbar = $('#pbar');
+  const W = () => track.clientWidth;
+  const pUpd = () => {
+    const i = Math.round(track.scrollLeft / W());
+    cur.textContent = String(i + 1).padStart(2, '0');
+    pbar.style.transform = `scaleX(${(i + 1) / slides.length})`;
+    prev.disabled = i === 0; next.disabled = i === slides.length - 1;
+    slides.forEach((s, k) => s.classList.toggle('on', k === i));
+  };
+  const go = d => track.scrollBy({ left: d * W(), behavior: reduce ? 'auto' : 'smooth' });
+  prev.addEventListener('click', () => go(-1)); next.addEventListener('click', () => go(1));
+  track.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(1); if (e.key === 'ArrowLeft') go(-1); });
+  track.addEventListener('scroll', () => requestAnimationFrame(pUpd), { passive: true });
+  let drag = null;
+  track.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.target.closest('a')) return; drag = { x: e.clientX, s: track.scrollLeft }; track.style.scrollSnapType = 'none'; track.style.cursor = 'grabbing'; });
+  addEventListener('pointermove', e => { if (drag) track.scrollLeft = drag.s - (e.clientX - drag.x); });
+  addEventListener('pointerup', e => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, i = Math.round(drag.s / W()) + (dx < -60 ? 1 : dx > 60 ? -1 : 0);
+    drag = null; track.style.cursor = '';
+    track.scrollTo({ left: Math.max(0, Math.min(slides.length - 1, i)) * W(), behavior: 'smooth' });
+    setTimeout(() => track.style.scrollSnapType = '', 400);
+  });
+  addEventListener('resize', pUpd); pUpd();
+  $$('.ps__cta').forEach(a => a.addEventListener('click', () => { const c = $('#c-' + a.dataset.key); if (c) c.checked = true; }));
+
+  const gal = $('#gal'); let gd = null;
+  gal.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; gd = { x: e.clientX, s: gal.scrollLeft }; gal.style.scrollSnapType = 'none'; gal.style.cursor = 'grabbing'; });
+  addEventListener('pointermove', e => { if (gd) gal.scrollLeft = gd.s - (e.clientX - gd.x); });
+  addEventListener('pointerup', () => { if (!gd) return; gd = null; gal.style.cursor = ''; gal.style.scrollSnapType = ''; });
+  gal.addEventListener('keydown', e => { if (e.key === 'ArrowRight') gal.scrollBy({ left: gal.clientWidth * .6, behavior: 'smooth' }); if (e.key === 'ArrowLeft') gal.scrollBy({ left: -gal.clientWidth * .6, behavior: 'smooth' }); });
+
+  const cImg = $('#clinicImg');
+  const cUpd = () => {
+    if (reduce) return;
+    const r = cImg.closest('section').getBoundingClientRect();
+    if (r.bottom < 0 || r.top > innerHeight) return;
+    const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+    cImg.style.transform = `translateY(${(-8 + p * 8).toFixed(2)}%)`;
+  };
+
+  const mcta = $('#mcta'); let pastHero = false, inResv = false;
+  const mUpd = () => mcta.classList.toggle('show', pastHero && !inResv);
+  new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; mUpd(); }, { threshold: .1 }).observe(hero);
+  new IntersectionObserver(([e]) => { inResv = e.isIntersecting; mUpd(); }, { threshold: .2 }).observe($('#reserve'));
+
+  const onScroll = () => {
+    const y = scrollY;
+    hdr.classList.toggle('solid', y > hero.offsetHeight - 80 || drawer.classList.contains('open'));
+    hdr.classList.toggle('hide', y > lastY && y > 400 && !drawer.classList.contains('open'));
+    lastY = y; sayUpd(); cUpd();
+  };
+  addEventListener('scroll', () => requestAnimationFrame(onScroll), { passive: true });
+  onScroll();
+
+  const phone = $('#phone');
+  phone.addEventListener('input', () => {
+    const d = phone.value.replace(/\D/g, '').slice(0, 11);
+    phone.value = d.length < 4 ? d : d.length < 8 ? `${d.slice(0, 3)}-${d.slice(3)}` : `${d.slice(0, 3)}-${d.slice(3, d.length - 4)}-${d.slice(-4)}`;
+  });
+  $('#form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const name = $('#name').value.trim(), tel = phone.value.replace(/\D/g, ''), agree = $('#agree').checked;
+    $('#fName').classList.toggle('err', !name);
+    $('#fPhone').classList.toggle('err', !/^01\d{8,9}$/.test(tel));
+    $('#fAgree').classList.toggle('err', !agree);
+    const bad = $('.f.err', e.target); if (bad) { $('input', bad).focus(); return; }
+    const data = { name, phone: phone.value, concern: $$('input[name=concern]:checked').map(i => i.value), page: location.href };
+    if (CONFIG.formEndpoint) { try { await fetch(CONFIG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); } catch (err) {} }
+    if (window.fbq) fbq('track', 'Lead');
+    $('#resvBox').classList.add('sent');
+  });
+  $$('.js-kakao').forEach(a => a.addEventListener('click', () => { if (window.fbq) fbq('track', 'Contact'); }));
+})();
+</script>
+</body>
+</html>
