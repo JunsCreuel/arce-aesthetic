@@ -42,7 +42,7 @@ const CONFIG = {
       hi = i;
       slides.forEach((s, k) => s.classList.toggle('on', k === i));
       txts.forEach((t, k) => t.classList.toggle('on', k === i));
-      dots.forEach((d, k) => { d.classList.toggle('on', k === i); d.classList.toggle('done', k < i); d.setAttribute('aria-current', k === i); const b = $('i', d); b.style.animation = 'none'; void b.offsetWidth; b.style.animation = ''; });
+      dots.forEach((d, k) => { d.classList.toggle('on', k === i); d.classList.toggle('is-done', k < i); d.setAttribute('aria-current', k === i); const b = $('i', d); b.style.animation = 'none'; void b.offsetWidth; b.style.animation = ''; });
       if (num) num.textContent = `${String(i + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
       clearTimeout(ht); if (!reduce) ht = setTimeout(() => show((hi + 1) % slides.length), 6000);
     };
@@ -72,21 +72,21 @@ const CONFIG = {
       ['유지', '목·어깨 순환 관리와 맞춤 홈케어 가이드로 정돈된 라인이 오래 유지되도록 돕습니다.']
     ];
     const sBtns = $$('#steps button'), face = $('#face'), stepT = $('#stepT'), stepD = $('#stepD'), copy = $('#stepCopy');
-    let si = 0, timer = null, inView = false;
+    let si = 0, timer = null, inView = false, manual = false;
     const DUR = 5000; method.style.setProperty('--dur', DUR + 'ms');
-    const schedule = () => { clearTimeout(timer); if (reduce) { method.classList.add('paused'); return; } if (inView) timer = setTimeout(() => setStep((si + 1) % 4), DUR); };
+    const schedule = () => { clearTimeout(timer); if (reduce) { method.classList.add('paused'); return; } if (inView && !manual) timer = setTimeout(() => setStep((si + 1) % 4), DUR); };
     const setStep = i => {
       si = i;
-      sBtns.forEach((b, k) => { b.setAttribute('aria-selected', k === i); b.tabIndex = k === i ? 0 : -1; b.classList.toggle('done', k < i); const bar = $('.bar i', b); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; });
+      sBtns.forEach((b, k) => { b.setAttribute('aria-selected', k === i); b.tabIndex = k === i ? 0 : -1; b.classList.toggle('is-done', k < i); const bar = $('.bar i', b); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; });
       face.dataset.s = i; stepT.textContent = STEPS[i][0]; stepD.textContent = STEPS[i][1];
       copy.classList.remove('swap'); void copy.offsetWidth; copy.classList.add('swap');
       schedule();
     };
     sBtns.forEach((b, i) => {
-      b.addEventListener('click', () => setStep(i));
-      b.addEventListener('keydown', e => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; const n = (i + d + 4) % 4; setStep(n); sBtns[n].focus(); });
+      b.addEventListener('click', () => { manual = true; method.classList.add('paused'); setStep(i); });
+      b.addEventListener('keydown', e => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; manual = true; method.classList.add('paused'); const n = (i + d + 4) % 4; setStep(n); sBtns[n].focus(); });
     });
-    io(method, ([e]) => { inView = e.isIntersecting; method.classList.toggle('paused', !inView); if (inView) setStep(si); else clearTimeout(timer); }, { threshold: .35 });
+    io(method, ([e]) => { inView = e.isIntersecting; method.classList.toggle('paused', !inView || manual); if (inView) setStep(si); else clearTimeout(timer); }, { threshold: .35 });
   }
 
   io($('#dirPhoto'), ([e], o) => { if (e.isIntersecting) { e.target.classList.add('in'); o.disconnect(); } }, { threshold: .3 });

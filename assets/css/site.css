@@ -119,7 +119,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .steps button[aria-selected="true"]{opacity:1}
 .bar{display:block;height:2px;background:rgba(30,58,76,.12);overflow:hidden;margin-bottom:16px}
 .bar i{display:block;height:100%;background:var(--teal);transform:scaleX(0);transform-origin:left}
-.steps button.done .bar i{transform:scaleX(1)}
+.steps button.is-done .bar i{transform:scaleX(1)}
 .steps button[aria-selected="true"] .bar i{animation:fill var(--dur,5s) linear forwards}
 .paused .steps button[aria-selected="true"] .bar i{animation:none;transform:scaleX(1)}
 @keyframes fill{to{transform:scaleX(1)}}
@@ -394,7 +394,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .hs__dot i{display:block;width:100%;height:2px;background:rgba(255,255,255,.3);overflow:hidden;position:relative}
 .hs__dot i::after{content:"";position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
 .hs__dot.on i::after{animation:fill 6s linear forwards}
-.hs__dot.done i::after{transform:scaleX(1)}
+.hs__dot.is-done i::after{transform:scaleX(1)}
 .hs__num{font-size:13px;font-variant-numeric:tabular-nums;color:rgba(255,255,255,.75)}
 .hs .hero__cta .btn--line{color:#fff}
 @media (min-width:900px){
