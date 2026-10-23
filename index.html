@@ -147,11 +147,9 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .swap{animation:swap .4s var(--ease)}
 @keyframes swap{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .mphoto{margin:0;width:100%;max-width:480px;justify-self:center;aspect-ratio:4/5;overflow:hidden;background:var(--white)}
-.mphoto img{width:100%;height:100%;object-fit:cover;transform-origin:70% 75%;transition:transform 1.4s var(--ease-io), object-position 1.4s var(--ease-io)}
-.mphoto[data-s="0"] img{transform:scale(1);object-position:50% 50%}
-.mphoto[data-s="1"] img{transform:scale(1.35);object-position:50% 60%}
-.mphoto[data-s="2"] img{transform:scale(1.7);object-position:50% 70%}
-.mphoto[data-s="3"] img{transform:scale(1.15);object-position:50% 40%}
+.mphoto{position:relative}
+.mphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s var(--ease), transform 5s linear}
+.mphoto[data-s="0"] img:nth-child(1),.mphoto[data-s="1"] img:nth-child(2),.mphoto[data-s="2"] img:nth-child(3),.mphoto[data-s="3"] img:nth-child(4){opacity:1;transform:scale(1)}
 @media (min-width:900px){.method__grid{grid-template-columns:7fr 5fr;gap:80px}}
 
 .eq{padding:clamp(120px,14vw,200px) 0;background:var(--mist)}
@@ -276,6 +274,16 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .rvs__link{display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-weight:600;min-height:48px;border-bottom:1px solid currentColor}
 @media (min-width:900px){.rvs__head{grid-template-columns:minmax(0,1fr) minmax(0,480px);align-items:end}}
 
+.care{padding:clamp(96px,10vw,140px) 0}
+.care__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 40px;margin-bottom:40px}
+.care__head h2{margin:0;font-size:clamp(32px,3.6vw,48px);font-weight:700;letter-spacing:-.04em;line-height:1.2}
+.care__head p{margin:0;color:var(--sub);font-size:clamp(15px,.6vw + 12px,18px)}
+.care__row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 var(--gutter);scroll-padding:0 var(--gutter)}
+.care__row::-webkit-scrollbar{display:none}
+.care__v{margin:0;flex:0 0 min(64vw,300px);scroll-snap-align:start;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:var(--mint-soft)}
+.care__v video{width:100%;height:100%;object-fit:cover;display:block}
+@media (min-width:900px){.care__row{max-width:1360px;margin:0 auto;justify-content:center;overflow:visible}.care__v{flex:1 1 0;max-width:340px}}
+
 .prog__bar{height:2px;background:var(--line);position:relative}
 .prog__bar i{position:absolute;inset:0;background:var(--text);transform-origin:left;transform:scaleX(.25);transition:transform .35s var(--ease)}
 
@@ -371,6 +379,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
     <nav class="nav" aria-label="주요 메뉴">
       <a href="#method">조막얼굴메소드</a>
       <a href="#equipment">장비</a>
+      <a href="#care">관리 현장</a>
       <a href="#director">대표원장</a>
       <a href="#reviews">리뷰</a>
       <a href="#program">관리</a>
@@ -385,6 +394,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
 <div class="drawer" id="drawer" aria-hidden="true">
   <a class="dl" href="#method">조막얼굴메소드</a>
   <a class="dl" href="#equipment">장비</a>
+  <a class="dl" href="#care">관리 현장</a>
   <a class="dl" href="#director">대표원장</a>
   <a class="dl" href="#reviews">리뷰</a>
   <a class="dl" href="#program">관리</a>
@@ -435,7 +445,12 @@ button{cursor:pointer;background:none;border:0;padding:0}
         <p class="step-copy__d" id="stepD">좌우 비율과 근육의 긴장을 원장이 직접 확인합니다.</p>
       </div>
     </div>
-    <figure class="mphoto" id="face" data-s="0"><img src="assets/masks.webp" width="640" height="1040" alt="아르쎄에스테틱 매장 선반에 놓인 얼굴 모형" loading="lazy"></figure>
+    <figure class="mphoto" id="face" data-s="0">
+        <img src="assets/method-1.webp" width="1400" height="933" alt="얼굴 피부 상태를 살피는 관리 장면" loading="lazy" style="object-position:68% 50%">
+        <img src="assets/method-2.webp" width="1400" height="933" alt="목과 머리를 이완하는 관리 장면" loading="lazy" style="object-position:58% 50%">
+        <img src="assets/method-3.webp" width="1400" height="933" alt="손으로 턱선을 정돈하는 관리 장면" loading="lazy" style="object-position:42% 50%">
+        <img src="assets/method-4.webp" width="1400" height="933" alt="목과 쇄골 순환을 돕는 관리 장면" loading="lazy" style="object-position:40% 50%">
+      </figure>
   </div>
 </section>
 
@@ -460,6 +475,18 @@ button{cursor:pointer;background:none;border:0;padding:0}
         <dl class="eq__facts" id="eqFacts"></dl>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="care" id="care" aria-labelledby="careT">
+  <div class="wrap care__head">
+    <h2 id="careT">관리 현장</h2>
+    <p>원장이 직접, 처음부터 끝까지 관리합니다.</p>
+  </div>
+  <div class="care__row" id="careRow">
+    <figure class="care__v"><video poster="assets/care-1.jpg" muted loop playsinline preload="none" aria-label="원장이 장비로 목과 쇄골 라인을 관리하는 영상"><source src="assets/care-1.mp4" type="video/mp4"><source src="assets/care-1.webm" type="video/webm"></video></figure>
+    <figure class="care__v"><video poster="assets/care-2.jpg" muted loop playsinline preload="none" aria-label="원장이 장비로 어깨와 목을 관리하는 영상"><source src="assets/care-2.mp4" type="video/mp4"><source src="assets/care-2.webm" type="video/webm"></video></figure>
+    <figure class="care__v"><video poster="assets/care-3.jpg" muted loop playsinline preload="none" aria-label="원장이 얼굴 라인을 관리하는 영상"><source src="assets/care-3.mp4" type="video/mp4"><source src="assets/care-3.webm" type="video/webm"></video></figure>
   </div>
 </section>
 
@@ -826,6 +853,12 @@ const CONFIG = {
   addEventListener('pointermove', e => { if (rd) rvTrack.scrollLeft = rd.s - (e.clientX - rd.x); });
   addEventListener('pointerup', () => { if (!rd) return; rd = null; rvTrack.style.scrollSnapType = ''; });
   new IntersectionObserver(([e], o) => { if (e.isIntersecting) { e.target.classList.add('in'); o.disconnect(); } }, { threshold: .4 }).observe($('#kw'));
+
+  const vids = $$('#careRow video');
+  if (!reduce) {
+    const vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause(); }), { threshold: .4 });
+    vids.forEach(v => vio.observe(v));
+  } else vids.forEach(v => v.controls = true);
 
   const ba = $('#ba'), baRange = $('#baRange');
   baRange.addEventListener('input', () => ba.style.setProperty('--p', baRange.value + '%'));
