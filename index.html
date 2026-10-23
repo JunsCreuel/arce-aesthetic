@@ -235,6 +235,23 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .ps__art path{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.6s var(--ease-io)}
 .ps.on .ps__art path{stroke-dashoffset:0}
 .ps--1 .ps__art{color:var(--ink);opacity:.3}
+.ba{position:relative;width:100%;max-width:380px;aspect-ratio:346/639;margin-top:32px;overflow:hidden;background:var(--white);touch-action:pan-y;--p:50%;user-select:none}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba__before{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba__tag{position:absolute;top:12px;z-index:2;font-size:11px;font-weight:700;letter-spacing:.12em;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink)}
+.ba__tag--b{left:12px}.ba__tag--a{right:12px}
+.ba__line{position:absolute;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:#fff;z-index:2;pointer-events:none}
+.ba__knob{position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--ink);box-shadow:0 2px 10px rgba(24,50,66,.25)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;z-index:3}
+.ba__note{margin:8px 0 0;font-size:12px;opacity:.75}
+.ps--1 .ps__art{display:none}
+@media (min-width:900px){
+  .ps--1 .ps__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);column-gap:64px;align-items:end}
+  .ps--1 .ba-wrap{grid-column:2;grid-row:1 / span 5;align-self:center}
+  .ps--1 .ba{margin-top:0}
+  .ps--1 .ps__in>:not(.ba-wrap){grid-column:1;justify-self:start}
+}
+@media (max-width:899px){.ba{max-width:300px}}
 .prog__bar{height:2px;background:var(--line);position:relative}
 .prog__bar i{position:absolute;inset:0;background:var(--text);transform-origin:left;transform:scaleX(.25);transition:transform .35s var(--ease)}
 
@@ -475,7 +492,17 @@ button{cursor:pointer;background:none;border:0;padding:0}
   <div class="track" id="track" tabindex="0" aria-label="관리 프로그램 4가지">
     <article class="ps ps--1 on" data-key="face">
       <svg class="ps__art" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M70 120 C80 300 150 420 240 500 C270 526 288 536 300 536 C312 536 330 526 360 500 C450 420 520 300 530 120"/></svg>
-      <div class="wrap ps__in"><span class="ps__n">01</span><h3 class="ps__t">조막얼굴<br>윤곽관리</h3><p class="ps__d">붓기, 비대칭, 턱선.<br>얼굴 라인을 정돈하는 시그니처.</p><a class="ps__cta" href="#reserve" data-key="face">이 관리로 상담하기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
+      <div class="wrap ps__in"><span class="ps__n">01</span><h3 class="ps__t">조막얼굴<br>윤곽관리</h3><p class="ps__d">붓기, 비대칭, 턱선.<br>얼굴 라인을 정돈하는 시그니처.</p><a class="ps__cta" href="#reserve" data-key="face">이 관리로 상담하기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a>
+        <div class="ba-wrap">
+          <div class="ba" id="ba">
+            <img src="assets/ba-after.webp" width="346" height="639" alt="조막얼굴 윤곽관리 후 얼굴 라인" loading="lazy">
+            <img class="ba__before" src="assets/ba-before.webp" width="346" height="639" alt="조막얼굴 윤곽관리 전 얼굴 라인" loading="lazy">
+            <span class="ba__tag ba__tag--b">BEFORE</span><span class="ba__tag ba__tag--a">AFTER</span>
+            <span class="ba__line" aria-hidden="true"><span class="ba__knob"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 5 L2 10 L7 15 M13 5 L18 10 L13 15"/></svg></span></span>
+            <input type="range" min="0" max="100" value="50" aria-label="관리 전후 비교, 좌우로 움직여 보세요" id="baRange">
+          </div>
+          <p class="ba__note">실제 고객 관리 전후 사진입니다. 개인에 따라 결과는 다를 수 있습니다.</p>
+        </div></div>
     </article>
     <article class="ps ps--2" data-key="body">
       <svg class="ps__art" viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M250 40 C252 120 252 160 240 200 C180 230 80 250 20 320 M350 40 C348 120 348 160 360 200 C420 230 520 250 580 320 M300 220 L300 580"/></svg>
@@ -691,7 +718,7 @@ const CONFIG = {
   track.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(1); if (e.key === 'ArrowLeft') go(-1); });
   track.addEventListener('scroll', () => requestAnimationFrame(pUpd), { passive: true });
   let drag = null;
-  track.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.target.closest('a')) return; drag = { x: e.clientX, s: track.scrollLeft }; track.style.scrollSnapType = 'none'; track.style.cursor = 'grabbing'; });
+  track.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.target.closest('a, .ba')) return; drag = { x: e.clientX, s: track.scrollLeft }; track.style.scrollSnapType = 'none'; track.style.cursor = 'grabbing'; });
   addEventListener('pointermove', e => { if (drag) track.scrollLeft = drag.s - (e.clientX - drag.x); });
   addEventListener('pointerup', e => {
     if (!drag) return;
@@ -701,6 +728,8 @@ const CONFIG = {
     setTimeout(() => track.style.scrollSnapType = '', 400);
   });
   addEventListener('resize', pUpd); pUpd();
+  const ba = $('#ba'), baRange = $('#baRange');
+  baRange.addEventListener('input', () => ba.style.setProperty('--p', baRange.value + '%'));
   $$('.ps__cta').forEach(a => a.addEventListener('click', () => { const c = $('#c-' + a.dataset.key); if (c) c.checked = true; }));
 
   const gal = $('#gal'); let gd = null;
