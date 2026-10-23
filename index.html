@@ -252,6 +252,30 @@ button{cursor:pointer;background:none;border:0;padding:0}
   .ps--1 .ps__in>:not(.ba-wrap){grid-column:1;justify-self:start}
 }
 @media (max-width:899px){.ba{max-width:300px}}
+.rvs{padding:clamp(96px,10vw,140px) 0;background:var(--mint-soft)}
+.rvs__head{display:grid;gap:32px;margin-bottom:40px}
+.rvs__head h2{margin:0;font-size:clamp(32px,3.6vw,48px);font-weight:700;letter-spacing:-.04em;line-height:1.2}
+.rvs__head h2 .num{color:var(--teal);font-weight:600}
+.rvs__head p{margin:12px 0 0;color:var(--sub);font-size:15px}
+.kw{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:520px;width:100%}
+.kw li{display:grid;grid-template-columns:132px minmax(0,1fr) 36px;align-items:center;gap:12px;font-size:14px}
+.kw__bar{height:8px;border-radius:999px;background:rgba(30,58,76,.08);overflow:hidden}
+.kw__bar i{display:block;height:100%;border-radius:inherit;background:var(--sky);transform-origin:left;transform:scaleX(var(--w));transition:transform 1s var(--ease)}
+.kw:not(.in) .kw__bar i{transform:scaleX(.02)}
+.kw__c{text-align:right;color:var(--sub);font-variant-numeric:tabular-nums}
+.rvs__track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 var(--gutter) 8px;scroll-padding:0 var(--gutter);cursor:grab;overscroll-behavior-x:contain}
+.rvs__track::-webkit-scrollbar{display:none}
+.rv{flex:0 0 min(84vw,360px);scroll-snap-align:start;background:var(--white);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.rv__top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px;color:var(--sub)}
+.rv__top b{font-size:15px;color:var(--text)}
+.rv__body{margin:0;font-size:15px;line-height:1.7;display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+.rv.open .rv__body{-webkit-line-clamp:unset;display:block}
+.rv__more{align-self:flex-start;font-size:13px;font-weight:600;color:var(--teal);min-height:32px}
+.rv__kw{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.rv__kw span{font-size:12px;padding:5px 10px;border-radius:999px;background:var(--mint-soft);color:var(--ink)}
+.rvs__link{display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-weight:600;min-height:48px;border-bottom:1px solid currentColor}
+@media (min-width:900px){.rvs__head{grid-template-columns:minmax(0,1fr) minmax(0,480px);align-items:end}}
+
 .prog__bar{height:2px;background:var(--line);position:relative}
 .prog__bar i{position:absolute;inset:0;background:var(--text);transform-origin:left;transform:scaleX(.25);transition:transform .35s var(--ease)}
 
@@ -289,8 +313,8 @@ button{cursor:pointer;background:none;border:0;padding:0}
 
 .resv{padding:clamp(120px,14vw,200px) 0}
 .resv__grid{display:grid;gap:56px}
-.resv h2{margin:0;font-size:clamp(48px,7vw,112px);font-weight:700;letter-spacing:-.055em;line-height:1.05}
-.resv__s{margin:24px 0 0;font-size:clamp(16px,1vw + 11px,20px);color:var(--sub)}
+.resv h2{margin:0;font-size:clamp(32px,3.6vw,48px);font-weight:600;letter-spacing:-.03em;line-height:1.25}
+.resv__s{margin:16px 0 0;font-size:clamp(16px,1vw + 11px,20px);color:var(--sub)}
 .resv__alt{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
 .form{display:grid;gap:24px;align-content:start}
 .f label,.f .lbl{display:block;font-size:14px;font-weight:600;margin-bottom:8px}
@@ -300,14 +324,14 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .f.err input{border-color:#B3261E}
 .f .msg{display:none;font-size:13px;color:#B3261E;margin:8px 0 0}
 .f.err .msg{display:block}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opt{position:relative}
-.opt input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
-.opt span{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border-radius:999px;border:1px solid var(--line);font-size:15px;transition:background-color .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease)}
-.opt input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
-.opt input:focus-visible+span{outline:2px solid var(--teal);outline-offset:2px}
-.agree{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--sub)}
-.agree input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--teal);flex:none}
+.f .agree,.agree{display:grid;margin:0;font-weight:400;grid-template-columns:22px minmax(0,1fr);column-gap:12px;align-items:start;font-size:14px;line-height:1.6;color:var(--sub);cursor:pointer}
+.agree input{appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:0;border:1.5px solid var(--mute);border-radius:6px;background:var(--white);display:grid;place-items:center;cursor:pointer;transition:background-color .15s var(--ease), border-color .15s var(--ease)}
+.agree input::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg);opacity:0}
+.agree input:checked{background:var(--ink);border-color:var(--ink)}
+.agree input:checked::after{opacity:1}
+.agree input:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.agree span{padding-top:1px}
+.f.err .agree input{border-color:#B3261E}
 .form .btn{width:100%}
 .done{display:none;align-content:center;gap:12px;padding:48px 0}
 .done b{font-size:32px;letter-spacing:-.03em}
@@ -348,6 +372,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
       <a href="#method">조막얼굴메소드</a>
       <a href="#equipment">장비</a>
       <a href="#director">대표원장</a>
+      <a href="#reviews">리뷰</a>
       <a href="#program">관리</a>
       <a href="#space">공간</a>
       <a href="#clinic">오시는 길</a>
@@ -361,6 +386,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
   <a class="dl" href="#method">조막얼굴메소드</a>
   <a class="dl" href="#equipment">장비</a>
   <a class="dl" href="#director">대표원장</a>
+  <a class="dl" href="#reviews">리뷰</a>
   <a class="dl" href="#program">관리</a>
   <a class="dl" href="#space">공간</a>
   <a class="dl" href="#clinic">오시는 길</a>
@@ -480,6 +506,79 @@ button{cursor:pointer;background:none;border:0;padding:0}
   </div>
 </dialog>
 
+<section class="rvs" id="reviews" aria-labelledby="rvT">
+  <div class="wrap rvs__head">
+    <div>
+      <h2 id="rvT">방문자 리뷰 <span class="num">133</span></h2>
+      <p>네이버 플레이스에 고객님들이 직접 남겨주신 후기입니다.</p>
+    </div>
+    <ul class="kw" id="kw" aria-label="리뷰 키워드 통계"><li><span class="kw__n">관리 효과가 좋아요</span><span class="kw__bar"><i style="--w:1.000"></i></span><span class="kw__c">115</span></li><li><span class="kw__n">맞춤 케어를 잘해줘요</span><span class="kw__bar"><i style="--w:0.922"></i></span><span class="kw__c">106</span></li><li><span class="kw__n">친절해요</span><span class="kw__bar"><i style="--w:0.809"></i></span><span class="kw__c">93</span></li><li><span class="kw__n">시술이 꼼꼼해요</span><span class="kw__bar"><i style="--w:0.791"></i></span><span class="kw__c">91</span></li></ul>
+  </div>
+  <div class="rvs__track" id="rvTrack" tabindex="0" aria-label="방문자 리뷰">
+      <article class="rv">
+        <div class="rv__top"><b>집에****</b><span>10.20.화 방문</span></div>
+        <p class="rv__body">나이들면서 쳐지는 볼살이 너무 신경쓰여서 고민고민하다가 결제했어요.<br>매장도 매우 청결하고 원장님, 실장님 모두 친절하셨어요. 차분한 분위기에 만족하며 시술받았습니다. 과하게 권하지 않고 제가 필요한 관리 말씀 드리니까 그에 맞게 잘 상담해주셨어요. 관리 너무 꼼꼼하게 잘해주시고 1회만 받았는데 변화가 느껴져서 너무 좋아요 ㅎㅎ 앞으로 꾸준히 다녀보려고합니다. 남은 회차들이 기대되요~</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>관리 효과가 좋아요</span><span>맞춤 케어를 잘해줘요</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><b>de****</b><span>10.17.토 방문 · 2번째 방문</span></div>
+        <p class="rv__body">10회 내돈내산 후기 입니다 <br>온바디 체험하러 왔다가 원장님이 따뜻한 마음에 반해 10회 시원하게 결제 했습니다 어깨랑 목부분이 안좋아서 관리 받는거였는데  매주 올때 마다 저번주 관리 받고 어때는지 계속 체크 해주시고 관리하는 중간중간에 어떤지  계속 체크 해주셔서 좋았어요 한주 한주 조금 편하게 지낼수 있어서 너무 좋았습니다 10회 정도 받고 나니 통증도 거의 살아지고 살만해서 좋습니다</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>관리 효과가 좋아요</span><span>맞춤 케어를 잘해줘요</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><b>셀린****</b><span>10.8.목 방문 · 2번째 방문</span></div>
+        <p class="rv__body">원장님과 관리해주시는 선생님들<br>친절하고 꼼꼼하게 관리 잘해주세요~! <br><br>그날그날 컨디션에 맞게<br>세심하게 케어해주셔서 편하게 찾는 샵이에요✨☺️</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>관리 효과가 좋아요</span><span>맞춤 케어를 잘해줘요</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><b>r2****</b><span>10.3.토 방문</span></div>
+        <p class="rv__body">오랜 병원 시술로 정기적으로 병원에서 몇 년간 안받아본시술이. 없음 갈수록 더 피부는 얇아지고 더 예민해지는 피부 에스테틱 관리는 더 예민해진 다 고 해서 고민하다 지인소개로 방문한지 한달째입니다 피부는 훨씬 건강해 지고 밝아진 피부를 보면서 놀 랍 기만 합니다 그 동안 시술에 쏟아 부은 돈 ㅜㅜ원장님 말씀대로 꾸준히 건강하게 예뻐지는 방법을 찾았습니다 저처럼 병원 시술이다라고 다라고 생각하셨던 분들 멈추기 힘든 분들 잠시 멈추고 피부를 건강하게 하는 샵 아르쎄 강추합니다</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>상담이 자세해요</span><span>관리법을 잘 알려줘요</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><b>gq****</b><span>10.3.토 방문</span></div>
+        <p class="rv__body">비대칭고민으로 좋다는건다해 봣으나 그때문였어요 직장동료 변화는 얼굴보고 상담이라도 우선해보자했는데 첫방문부터 반했네요 이론적으로 설명해주시고 조금씩 변화는 얼굴에 신기하만합니다</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>맞춤 케어를 잘해줘요</span><span>고급스러워요</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><b>f2****</b><span>10.2.금 방문</span></div>
+        <p class="rv__body">장유에. 터주대감 아르쎄에스틱. 예전스파현부터 꾸준히15년째 방문중입니다 시술없이 예뻐지는 방법은 혀니원장님 손길이 답. 변함없이. 그자리에 있어주는 샵 감사합니다</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>관리 효과가 좋아요</span><span>고급스러워요</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><b>ho****</b><span>10.2.금 방문</span></div>
+        <p class="rv__body">현에스테틱 때부터 지금까지 꾸준히 다니는 이유는 원장님이 제 얼굴과 몸을 너무 잘 알고 계시기 때문이에요. 웨딩관리도 잘하시고 산후관리도 꼼꼼하고 특히 얼굴 비대칭과 윤곽, 승모근과 목선 관리가 정말 만족스럽습니다.</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>친절해요</span><span>관리법을 잘 알려줘요</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><b>tn****</b><span>10.1.목 방문</span></div>
+        <p class="rv__body">원장님 믿고 오래 다녔습니다. 스파현, 끌리메를 거쳐 지금까지 계속 다니고 있어요. 특히 얼굴 윤곽과 비대칭 관리는 정말 믿고 맡길 수 있고 승모근과 목 라인 관리도 만족도가 높습니다.</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>관리법을 잘 알려줘요</span><span>분위기가 편안해요</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><b>cj****</b><span>10.1.목 방문</span></div>
+        <p class="rv__body">웨딩관리부터 산후관리까지 한 곳에서 받고 있어요. 결혼 전에는 얼굴선과 드레스 라인, 출산 후에는 부기와 바디 밸런스를 관리받았습니다. 오래된 경력만큼 고객 상태를 보는 눈이 정말 정확한 것 같아요.</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>고급스러워요</span><span>맞춤 케어를 잘해줘요</span></div>
+      </article>
+      <article class="rv">
+        <div class="rv__top"><b>gf****</b><span>9.30.수 방문</span></div>
+        <p class="rv__body">결혼한 친구가 강력 추천해서 방문한 곳이에요. 친구가 웨딩관리 받고 너무 예뻐져서 저도 바로 등록했어요. 얼굴 윤곽과 승모근, 목 라인을 정말 잘 관리해주셔서 저 역시 주변에 추천하고 있습니다.</p>
+        <button class="rv__more" type="button" hidden>더보기</button>
+        <div class="rv__kw"><span>맞춤 케어를 잘해줘요</span><span>고급스러워요</span></div>
+      </article>
+  </div>
+  <div class="wrap"><a class="rvs__link" href="https://m.place.naver.com/place/2088530746/review/visitor" target="_blank" rel="noopener">네이버에서 리뷰 전체 보기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
+</section>
+
 <section class="prog" id="program" aria-labelledby="progT">
   <div class="wrap prog__head">
     <h2 id="progT">아르쎄의 관리</h2>
@@ -553,7 +652,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
 <section class="resv" id="reserve" aria-labelledby="resvT">
   <div class="wrap resv__grid" id="resvBox">
     <div>
-      <h2 id="resvT">상담은,<br>원장이 직접.</h2>
+      <h2 id="resvT">상담 문의</h2>
       <p class="resv__s">상담 후 결정하셔도 괜찮습니다.</p>
       <div class="resv__alt">
         <a class="btn btn--kakao js-kakao" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
@@ -564,13 +663,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
       <form class="form" id="form" novalidate>
         <div class="f" id="fName"><label for="name">이름</label><input type="text" id="name" autocomplete="name" placeholder="홍길동"><p class="msg">이름을 입력해 주세요.</p></div>
         <div class="f" id="fPhone"><label for="phone">연락처</label><input type="tel" id="phone" autocomplete="tel" inputmode="numeric" maxlength="13" placeholder="010-0000-0000"><p class="msg">휴대폰 번호를 정확히 입력해 주세요.</p></div>
-        <div class="f"><span class="lbl" id="cLbl">관심 관리</span>
-          <div class="opts" role="group" aria-labelledby="cLbl">
-            <label class="opt"><input type="checkbox" name="concern" value="face" id="c-face"><span>윤곽관리</span></label>
-            <label class="opt"><input type="checkbox" name="concern" value="body" id="c-body"><span>바디 밸런스</span></label>
-            <label class="opt"><input type="checkbox" name="concern" value="mom" id="c-mom"><span>산전·산후</span></label>
-            <label class="opt"><input type="checkbox" name="concern" value="aging" id="c-aging"><span>안티에이징</span></label>
-          </div></div>
+        <div class="f" id="fArea"><label for="area">관리받고 싶은 부위</label><input type="text" id="area" autocomplete="off" placeholder="예) 턱선, 얼굴 붓기, 어깨 뭉침"></div>
         <div class="f" id="fAgree"><label class="agree"><input type="checkbox" id="agree"><span>[필수] 상담 예약을 위한 개인정보(이름, 연락처) 수집·이용에 동의합니다. 상담 완료 후 6개월간 보관 후 파기됩니다.</span></label><p class="msg">개인정보 수집·이용에 동의해 주세요.</p></div>
         <button class="btn btn--ink" type="submit">상담 예약 신청</button>
       </form>
@@ -603,8 +696,8 @@ button{cursor:pointer;background:none;border:0;padding:0}
 const CONFIG = {
   phone: '055-903-3002',
   kakaoUrl: 'https://pf.kakao.com/',
-  address: '경상남도 김해시 장유 (상세 주소 입력)',
-  mapUrl: 'https://map.naver.com/p/search/' + encodeURIComponent('아르쎄에스테틱 김해'),
+  address: '경남 김해시 율하숲길 21 303호',
+  mapUrl: 'https://map.naver.com/p/search/' + encodeURIComponent('경남 김해시 율하숲길 21'),
   formEndpoint: ''
 };
 
@@ -728,9 +821,17 @@ const CONFIG = {
     setTimeout(() => track.style.scrollSnapType = '', 400);
   });
   addEventListener('resize', pUpd); pUpd();
+  const rvTrack = $('#rvTrack'); let rd = null;
+  $$('.rv', rvTrack).forEach(c => { const b = $('.rv__body', c), m = $('.rv__more', c); if (b.scrollHeight > b.clientHeight + 4) { m.hidden = false; m.addEventListener('click', () => { const o = c.classList.toggle('open'); m.textContent = o ? '접기' : '더보기'; }); } });
+  rvTrack.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.target.closest('button')) return; rd = { x: e.clientX, s: rvTrack.scrollLeft }; rvTrack.style.scrollSnapType = 'none'; });
+  addEventListener('pointermove', e => { if (rd) rvTrack.scrollLeft = rd.s - (e.clientX - rd.x); });
+  addEventListener('pointerup', () => { if (!rd) return; rd = null; rvTrack.style.scrollSnapType = ''; });
+  new IntersectionObserver(([e], o) => { if (e.isIntersecting) { e.target.classList.add('in'); o.disconnect(); } }, { threshold: .4 }).observe($('#kw'));
+
   const ba = $('#ba'), baRange = $('#baRange');
   baRange.addEventListener('input', () => ba.style.setProperty('--p', baRange.value + '%'));
-  $$('.ps__cta').forEach(a => a.addEventListener('click', () => { const c = $('#c-' + a.dataset.key); if (c) c.checked = true; }));
+  const PNAME = { face: '조막얼굴 윤곽관리', body: '바디 밸런스', mom: '산전·산후 관리', aging: '안티에이징' };
+  $$('.ps__cta').forEach(a => a.addEventListener('click', () => { const f = $('#area'); if (f && !f.value.trim()) f.value = PNAME[a.dataset.key] || ''; }));
 
   const gal = $('#gal'); let gd = null;
   gal.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; gd = { x: e.clientX, s: gal.scrollLeft }; gal.style.scrollSnapType = 'none'; gal.style.cursor = 'grabbing'; });
@@ -773,7 +874,7 @@ const CONFIG = {
     $('#fPhone').classList.toggle('err', !/^01\d{8,9}$/.test(tel));
     $('#fAgree').classList.toggle('err', !agree);
     const bad = $('.f.err', e.target); if (bad) { $('input', bad).focus(); return; }
-    const data = { name, phone: phone.value, concern: $$('input[name=concern]:checked').map(i => i.value), page: location.href };
+    const data = { name, phone: phone.value, area: $('#area').value.trim(), page: location.href };
     if (CONFIG.formEndpoint) { try { await fetch(CONFIG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); } catch (err) {} }
     if (window.fbq) fbq('track', 'Lead');
     $('#resvBox').classList.add('sent');
