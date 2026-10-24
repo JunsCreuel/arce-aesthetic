@@ -334,7 +334,7 @@ button{cursor:pointer;background:none;border:0;padding:0}
 @media (min-width:900px){.resv__grid{grid-template-columns:6fr 5fr;gap:96px}}
 
 .ftr{background:var(--sky);color:var(--ink);padding:72px 0 calc(120px + env(safe-area-inset-bottom,0px));font-size:13px}
-.ftr__mark{font-family:var(--mark);color:var(--ink);font-size:clamp(56px,12vw,180px);letter-spacing:.08em;line-height:1;margin:0 0 48px}
+.ftr__mark{font-family:var(--mark);color:var(--ink);font-size:clamp(56px,12vw,180px);letter-spacing:.08em;line-height:1;margin:0 0 48px;-webkit-text-stroke:.022em currentColor;paint-order:stroke fill}
 .ftr dl{margin:0;display:flex;flex-wrap:wrap;gap:8px 32px}
 .ftr dl div{display:flex;gap:8px}
 .ftr dt{color:var(--ink);font-weight:600}
