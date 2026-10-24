@@ -491,3 +491,35 @@ button{cursor:pointer;background:none;border:0;padding:0}
 .nav .sub a{padding:10px 14px}
 .nav .sub a::after{display:none}
 @media (max-width:1180px){.nav .nav__top{padding:12px 10px}.nav .nav__top::after{left:10px;right:10px}}
+:root{--serif:"Noto Serif KR","Nanum Myeongjo",serif;--display:"Cormorant Garamond","Marcellus",Georgia,serif}
+body{font-weight:400;letter-spacing:-.005em;line-height:1.75}
+.hero h1,.say__t,.method h2,.step-copy__t,.eq__head h2,.eq__name,.dir__name,.prog__head h2,.ps__t,.rvs__head h2,.care__head h2,.space__head h2,.clinic h2:not(.clinic__mark),.resv h2,.hs__t,.phero h1,.sh h2,.pcard__t,.ctaband h2,.drawer a.dl,.dgroup__t{font-family:var(--serif);font-weight:500;letter-spacing:-.025em;line-height:1.38}
+.hs__t{font-size:clamp(32px,4.2vw,62px)}
+.phero h1{font-size:clamp(32px,4vw,56px)}
+.sh h2,.method h2,.eq__head h2,.prog__head h2,.space__head h2{font-size:clamp(28px,3vw,44px)}
+.rvs__head h2,.care__head h2,.resv h2{font-size:clamp(26px,2.6vw,38px)}
+.ctaband h2{font-size:clamp(22px,2.2vw,32px)}
+.step-copy__t{font-size:clamp(40px,4.6vw,68px);line-height:1.1}
+.eq__name,.dir__name{font-size:clamp(30px,3vw,44px);line-height:1.2}
+.ps__t{font-size:clamp(40px,6vw,88px);line-height:1.1}
+.pcard__t{font-size:clamp(20px,1vw + 14px,26px);line-height:1.3}
+.say__t{font-size:clamp(28px,4.2vw,60px)}
+.hero h1{font-size:clamp(40px,6vw,88px);line-height:1.15}
+.rvs__head h2 .num{font-family:var(--display);font-weight:500;font-size:1.25em}
+.hs__en,.phero__en,.sh__en,.pcard__en{font-size:12px;letter-spacing:.36em}
+.eq__brand{font-family:var(--mark);font-weight:400;font-size:12px;letter-spacing:.24em}
+.hs__d,.phero__d,.lead{font-weight:300}
+.steps .t{font-weight:500}
+.vals span.n,.steps4 .n,.big26{font-family:var(--display)}
+.btn{height:54px;padding:0 30px;border-radius:2px;font-weight:500;font-size:15px;letter-spacing:.04em}
+.hdr__cta{height:42px;padding:0 22px;font-size:14px}
+.btn--kakao{background:var(--ink);color:var(--white)}
+.hs .btn--kakao,.phero .btn--kakao,.hero .btn--kakao,.clinic .btn--kakao{background:var(--white);color:var(--ink)}
+.eq__tab,.chips a{border-radius:2px;font-weight:500;letter-spacing:.02em}
+.rv__kw span{border-radius:2px}
+.more,.rvs__link,.clinic__map,.ps__cta,.pcard__go,.rv__more{font-weight:500;letter-spacing:.04em}
+.eq__facts dt,.ftr dt,.dir__list b,.f label,.f .lbl{font-weight:500}
+.nav .nav__top{font-weight:400;letter-spacing:.04em}
+.nav__item.cur>.nav__top{font-weight:500}
+.logo{-webkit-text-stroke:.022em currentColor;paint-order:stroke fill}
+.split__img,.resv__photo,.care__v,.pcard,.rv,.mphoto,.dir__photo,.gal__i,.ba{border-radius:4px}
