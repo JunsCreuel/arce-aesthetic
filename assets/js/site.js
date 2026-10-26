@@ -21,6 +21,51 @@ const CONFIG = {
   requestAnimationFrame(() => document.body.classList.add('loaded'));
   $$('.ps__art path').forEach(p => { try { p.style.setProperty('--len', Math.ceil(p.getTotalLength()) + 1); } catch (e) {} });
 
+  if (!reduce) {
+    const once = (el, cls = 'is-in', th = .3) => io(el, ([e], o) => { if (e.isIntersecting) { el.classList.add(cls); o.disconnect(); } }, { threshold: th });
+    $$('.sh h2, .phero h1, .method h2, .eq__head h2, .ctaband h2, .rvs__head h2, .space__head h2, .care__head h2, .resv h2').forEach(h => {
+      h.innerHTML = h.innerHTML.split(/<br\s*\/?>/i).map((t, i) => `<span class="sl"><span style="--i:${i}">${t}</span></span>`).join('');
+      once(h, 'is-in', .5);
+    });
+    $$('.sh > p:not(.sh__en), .lead, .phero__d, .method__sub, .ctaband p').forEach(el => { el.classList.add('fu'); once(el, 'is-in', .5); });
+    $$('.split__img, .resv__photo, .dir__photo').forEach(el => { el.classList.add('ph'); once(el, 'is-in', .25); });
+
+    const par = $$('.split__img img, .resv__photo img, .phero__bg img');
+    const rows = $$('.mq__row');
+    rows.forEach(row => { const sp = row.firstElementChild; sp.innerHTML += sp.innerHTML; });
+    const tick = () => {
+      const vh = innerHeight;
+      par.forEach(img => {
+        const r = img.parentElement.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        const p = (r.top + r.height / 2 - vh / 2) / vh;
+        img.style.transform = `translate3d(0,${(p * -6).toFixed(2)}%,0) scale(1.12)`;
+      });
+      rows.forEach(row => {
+        const r = row.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) return;
+        const x = (vh - r.top) * .35 * row.dataset.dir - row.scrollWidth * .3;
+        row.firstElementChild.style.transform = `translate3d(${x.toFixed(1)}px,0,0)`;
+      });
+    };
+    let raf = 0;
+    addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; tick(); }); }, { passive: true });
+    addEventListener('resize', tick); tick();
+
+    const count = el => {
+      const node = [...el.childNodes].find(n => n.nodeType === 3 && /\d/.test(n.textContent));
+      if (!node) return;
+      const end = parseInt(node.textContent, 10), t0 = performance.now(), dur = 1400;
+      const step = now => {
+        const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        node.textContent = String(Math.round(end * e));
+        if (k < 1) requestAnimationFrame(step);
+      };
+      node.textContent = '0'; requestAnimationFrame(step);
+    };
+    $$('.big26, .rvs__head .num').forEach(el => io(el, ([e], o) => { if (e.isIntersecting) { count(el); o.disconnect(); } }, { threshold: .6 }));
+  }
+
   const hdr = $('#hdr'), hero = $('#top'), drawer = $('#drawer'), burger = $('#burger');
   let lastY = 0;
   const heroH = () => hero ? hero.offsetHeight - 80 : 0;
