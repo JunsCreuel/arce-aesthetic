@@ -523,3 +523,16 @@ body{font-weight:400;letter-spacing:-.005em;line-height:1.75}
 .nav__item.cur>.nav__top{font-weight:500}
 .logo{-webkit-text-stroke:.022em currentColor;paint-order:stroke fill}
 .split__img,.resv__photo,.care__v,.pcard,.rv,.mphoto,.dir__photo,.gal__i,.ba{border-radius:4px}
+.method{--text:#F3EBDD;--sub:rgba(243,235,221,.66);--teal:#D9C2A0;background:#2E2621;color:var(--text)}
+.method .bar{background:rgba(243,235,221,.16)}
+.method .mphoto{background:#3A3029}
+.rv{background:transparent;border-radius:0;border-top:1px solid rgba(58,48,41,.28);padding:24px 4px 8px}
+.rvs__track{gap:32px}
+.rv__kw span{background:transparent;border:1px solid var(--line);padding:4px 10px}
+.kw{gap:12px}
+.kw li{font-size:13px;color:var(--sub)}
+.kw__bar{height:1px;border-radius:0;background:rgba(58,48,41,.16);overflow:visible}
+.kw__bar i{height:1px;border-radius:0;background:var(--ink)}
+.kw__c{font-family:var(--display);font-size:16px}
+.eq__tab{background:transparent}
+.eq__tab[aria-selected="true"]{background:var(--ink);color:var(--white);border-color:var(--ink)}
