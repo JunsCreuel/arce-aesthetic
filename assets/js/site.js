@@ -23,11 +23,6 @@ const CONFIG = {
 
   if (!reduce) {
     const once = (el, cls = 'is-in', th = .3) => io(el, ([e], o) => { if (e.isIntersecting) { el.classList.add(cls); o.disconnect(); } }, { threshold: th });
-    $$('.sh h2, .phero h1, .method h2, .eq__head h2, .ctaband h2, .rvs__head h2, .space__head h2, .care__head h2, .resv h2').forEach(h => {
-      h.innerHTML = h.innerHTML.split(/<br\s*\/?>/i).map((t, i) => `<span class="sl"><span style="--i:${i}">${t}</span></span>`).join('');
-      once(h, 'is-in', .5);
-    });
-    $$('.sh > p:not(.sh__en), .lead, .phero__d, .method__sub, .ctaband p').forEach(el => { el.classList.add('fu'); once(el, 'is-in', .5); });
     $$('.split__img, .resv__photo, .dir__photo').forEach(el => { el.classList.add('ph'); once(el, 'is-in', .25); });
 
     const par = $$('.split__img img, .resv__photo img, .phero__bg img');
