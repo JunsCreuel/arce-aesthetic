@@ -7,6 +7,8 @@ const CONFIG = {
 };
 
 (() => {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (!location.hash) { document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0); document.documentElement.style.scrollBehavior = ''; }
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;

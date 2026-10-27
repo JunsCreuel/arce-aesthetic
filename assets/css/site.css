@@ -552,3 +552,10 @@ body{font-weight:400;letter-spacing:-.005em;line-height:1.75}
 .ph.is-in{clip-path:inset(0 0 0 0)}
 .ph img,.phero__bg img{will-change:transform}
 @media (prefers-reduced-motion:reduce){.ph{clip-path:none;transition:none}}
+.logo img{display:block;height:46px;width:auto}
+@media (max-width:599px){.logo img{height:38px}}
+.hdr,.hdr:not(.solid){background:var(--white);box-shadow:0 1px 0 var(--line);color:var(--text)}
+.hdr:not(.solid) .burger i{background:var(--text)}
+.hdr:not(.solid) .hdr__cta{background:var(--ink);color:var(--white)}
+.ftr__mark{-webkit-text-stroke:0;line-height:0}
+.ftr__mark img{display:block;height:clamp(120px,14vw,190px);width:auto}
