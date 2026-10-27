@@ -559,3 +559,5 @@ body{font-weight:400;letter-spacing:-.005em;line-height:1.75}
 .hdr:not(.solid) .hdr__cta{background:var(--ink);color:var(--white)}
 .ftr__mark{-webkit-text-stroke:0;line-height:0}
 .ftr__mark img{display:block;height:clamp(120px,14vw,190px);width:auto}
+.clinic h2.clinic__mark{line-height:0}
+.clinic h2.clinic__mark img{display:block;height:clamp(150px,17vw,250px);width:auto}
