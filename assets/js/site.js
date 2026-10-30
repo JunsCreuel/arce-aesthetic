@@ -20,15 +20,13 @@ const CONFIG = {
   $$('.js-addr').forEach(el => el.textContent = CONFIG.address);
   $$('.js-map').forEach(a => a.href = CONFIG.mapUrl);
   $$('.js-kakao').forEach(a => a.addEventListener('click', () => { if (window.fbq) fbq('track', 'Contact'); }));
-  requestAnimationFrame(() => document.body.classList.add('loaded'));
-  $$('.ps__art path').forEach(p => { try { p.style.setProperty('--len', Math.ceil(p.getTotalLength()) + 1); } catch (e) {} });
 
   if (!reduce) {
     const once = (el, cls = 'is-in', th = .3) => io(el, ([e], o) => { if (e.isIntersecting) { el.classList.add(cls); o.disconnect(); } }, { threshold: th });
-    $$('.split__img, .resv__photo, .dir__photo').forEach(el => { el.classList.add('ph'); once(el, 'is-in', .25); });
+    $$('[data-ph]').forEach(el => { el.classList.add('ph'); once(el, 'is-in', .25); });
 
-    const par = $$('.split__img img, .resv__photo img, .phero__bg img');
-    const rows = $$('.mq__row');
+    const par = $$('[data-par] img');
+    const rows = $$('[data-mq]');
     rows.forEach(row => { const sp = row.firstElementChild; sp.innerHTML += sp.innerHTML; });
     const tick = () => {
       const vh = innerHeight;
@@ -41,7 +39,7 @@ const CONFIG = {
       rows.forEach(row => {
         const r = row.getBoundingClientRect();
         if (r.bottom < -200 || r.top > vh + 200) return;
-        const x = (vh - r.top) * .35 * row.dataset.dir - row.scrollWidth * .3;
+        const x = (vh - r.top) * .35 * row.dataset.mq - row.scrollWidth * .3;
         row.firstElementChild.style.transform = `translate3d(${x.toFixed(1)}px,0,0)`;
       });
     };
@@ -60,7 +58,7 @@ const CONFIG = {
       };
       node.textContent = '0'; requestAnimationFrame(step);
     };
-    $$('.big26, .rvs__head .num').forEach(el => io(el, ([e], o) => { if (e.isIntersecting) { count(el); o.disconnect(); } }, { threshold: .6 }));
+    $$('[data-count]').forEach(el => io(el, ([e], o) => { if (e.isIntersecting) { count(el); o.disconnect(); } }, { threshold: .6 }));
   }
 
   const hdr = $('#hdr'), hero = $('#top'), drawer = $('#drawer'), burger = $('#burger');
@@ -78,7 +76,7 @@ const CONFIG = {
 
   const hs = $('#hs');
   if (hs) {
-    const slides = $$('.hs__slide', hs), txts = $$('.hs__txt', hs), dots = $$('.hs__dot', hs), num = $('#hsNum');
+    const slides = $$('[data-hs=slide]', hs), txts = $$('[data-hs=txt]', hs), dots = $$('[data-hs=dot]', hs), num = $('#hsNum');
     let hi = 0, ht = null;
     const show = i => {
       hi = i;
@@ -113,15 +111,15 @@ const CONFIG = {
       ['정돈', '해부학적 구조를 따라 턱선과 얼굴 외곽 라인을 정돈하고, 순환의 흐름을 바로잡습니다.'],
       ['유지', '목·어깨 순환 관리와 맞춤 홈케어 가이드로 정돈된 라인이 오래 유지되도록 돕습니다.']
     ];
-    const sBtns = $$('#steps button'), face = $('#face'), stepT = $('#stepT'), stepD = $('#stepD'), copy = $('#stepCopy');
+    const sBtns = $$('#steps button'), face = $('#face'), faceImgs = $$('img', face), stepT = $('#stepT'), stepD = $('#stepD'), copy = $('#stepCopy');
     let si = 0, timer = null, inView = false, manual = false;
     const DUR = 5000; method.style.setProperty('--dur', DUR + 'ms');
     const schedule = () => { clearTimeout(timer); if (reduce) { method.classList.add('paused'); return; } if (inView && !manual) timer = setTimeout(() => setStep((si + 1) % 4), DUR); };
     const setStep = i => {
       si = i;
-      sBtns.forEach((b, k) => { b.setAttribute('aria-selected', k === i); b.tabIndex = k === i ? 0 : -1; b.classList.toggle('is-done', k < i); const bar = $('.bar i', b); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; });
-      face.dataset.s = i; stepT.textContent = STEPS[i][0]; stepD.textContent = STEPS[i][1];
-      copy.classList.remove('swap'); void copy.offsetWidth; copy.classList.add('swap');
+      sBtns.forEach((b, k) => { b.setAttribute('aria-selected', k === i); b.tabIndex = k === i ? 0 : -1; b.classList.toggle('is-done', k < i); const bar = $('[data-bar]', b); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; });
+      faceImgs.forEach((im, k) => im.classList.toggle('on', k === i)); stepT.textContent = STEPS[i][0]; stepD.textContent = STEPS[i][1];
+      copy.classList.remove('animate-swap'); void copy.offsetWidth; copy.classList.add('animate-swap');
       schedule();
     };
     sBtns.forEach((b, i) => {
@@ -133,7 +131,7 @@ const CONFIG = {
 
   io($('#dirPhoto'), ([e], o) => { if (e.isIntersecting) { e.target.classList.add('in'); o.disconnect(); } }, { threshold: .3 });
 
-  const eqTabs = $$('#eqTabs .eq__tab');
+  const eqTabs = $$('#eqTabs [role=tab]');
   if (eqTabs.length) {
     const EQ = [
       { img: 'assets/eq-lpg.webp', w: 530, h: 852, brand: 'LPG® · FRANCE', name: 'LPG® 알리안스', alt: 'LPG 알리안스 장비',
@@ -154,7 +152,7 @@ const CONFIG = {
       eqImg.src = d.img; eqImg.width = d.w; eqImg.height = d.h; eqImg.alt = d.alt;
       $('#eqBrand').textContent = d.brand; $('#eqName').textContent = d.name; $('#eqOne').textContent = d.one;
       $('#eqFacts').innerHTML = d.facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
-      eqText.classList.remove('eq__text'); void eqText.offsetWidth; eqText.classList.add('eq__text');
+      eqText.classList.remove('animate-swap'); void eqText.offsetWidth; eqText.classList.add('animate-swap');
     };
     eqTabs.forEach((t, i) => {
       t.addEventListener('click', () => setEq(i));
@@ -174,21 +172,21 @@ const CONFIG = {
   const dragScroll = el => {
     if (!el) return;
     let d = null;
-    el.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.target.closest('a, button, .ba')) return; d = { x: e.clientX, s: el.scrollLeft }; el.style.scrollSnapType = 'none'; });
+    el.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.target.closest('a, button, [data-ba]')) return; d = { x: e.clientX, s: el.scrollLeft }; el.style.scrollSnapType = 'none'; });
     addEventListener('pointermove', e => { if (d) el.scrollLeft = d.s - (e.clientX - d.x); });
     addEventListener('pointerup', () => { if (!d) return; d = null; el.style.scrollSnapType = ''; });
   };
   dragScroll($('#rvTrack')); dragScroll($('#gal'));
 
-  $$('.rv').forEach(c => { const b = $('.rv__body', c), m = $('.rv__more', c); if (b && m && b.scrollHeight > b.clientHeight + 4) { m.hidden = false; m.addEventListener('click', () => { const o = c.classList.toggle('open'); m.textContent = o ? '접기' : '더보기'; }); } });
+  $$('[data-rv]').forEach(c => { const b = $('[data-rv-body]', c), m = $('[data-rv-more]', c); if (b && m && b.scrollHeight > b.clientHeight + 4) { m.hidden = false; m.addEventListener('click', () => { const o = c.classList.toggle('open'); m.textContent = o ? '접기' : '더보기'; }); } });
   io($('#kw'), ([e], o) => { if (e.isIntersecting) { e.target.classList.add('in'); o.disconnect(); } }, { threshold: .4 });
 
-  const vids = $$('.care__v video');
+  const vids = $$('#careRow video');
   if (!reduce) {
     vids.forEach(v => io(v, ([e]) => { if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause(); }, { threshold: .4 }));
   } else vids.forEach(v => v.controls = true);
 
-  $$('.ba').forEach(ba => { const r = $('input', ba); r.addEventListener('input', () => ba.style.setProperty('--p', r.value + '%')); });
+  $$('[data-ba]').forEach(ba => { const r = $('input', ba); r.addEventListener('input', () => ba.style.setProperty('--p', r.value + '%')); });
 
   const area = $('#area');
   if (area) { const q = new URLSearchParams(location.search).get('care'); if (q && !area.value) area.value = q; }
@@ -230,7 +228,7 @@ const CONFIG = {
       $('#fName').classList.toggle('err', !name);
       $('#fPhone').classList.toggle('err', !/^01\d{8,9}$/.test(tel));
       $('#fAgree').classList.toggle('err', !agree);
-      const bad = $('.f.err', form); if (bad) { $('input', bad).focus(); return; }
+      const bad = $('.err', form); if (bad) { $('input', bad).focus(); return; }
       const data = { name, phone: phone.value, area: area ? area.value.trim() : '', page: location.href };
       if (CONFIG.formEndpoint) { try { await fetch(CONFIG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); } catch (err) {} }
       if (window.fbq) fbq('track', 'Lead');

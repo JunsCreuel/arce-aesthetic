@@ -19,146 +19,145 @@
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-<header class="hdr" id="hdr">
-  <div class="wrap hdr__in">
-    <a href="index.html" class="logo" aria-label="아르쎄에스테틱 홈"><img src="assets/logo-header.png" width="152" height="56" alt="ARCÉ 아르쎄에스테틱"></a>
-    <nav class="nav" aria-label="주요 메뉴"><div class="nav__item"><a class="nav__top" href="brand.html">ARCÉ</a><div class="sub"><a href="brand.html#about">브랜드 소개<small>ABOUT</small></a><a href="brand.html#director">대표원장<small>DIRECTOR</small></a><a href="brand.html#space">공간<small>SPACE</small></a><a href="brand.html#care">관리 현장<small>IN CARE</small></a></div></div><div class="nav__item"><a class="nav__top" href="method.html">조막얼굴메소드®</a><div class="sub"><a href="method.html">메소드 소개<small>SIGNATURE METHOD</small></a><a href="method.html#result">관리 전후<small>BEFORE & AFTER</small></a></div></div><div class="nav__item"><a class="nav__top" href="program-face.html">관리 프로그램</a><div class="sub"><a href="program-face.html">페이스 윤곽 케어<small>FACE CONTOUR</small></a><a href="program-aging.html">안티에이징 케어<small>ANTI-AGING</small></a><a href="program-body.html">바디 밸런스 케어<small>BODY BALANCE</small></a><a href="program-mom.html">산전·산후 케어<small>PRENATAL & POSTPARTUM</small></a></div></div><div class="nav__item"><a class="nav__top" href="equipment.html">장비</a><div class="sub"><a href="equipment.html#lpg">LPG® 알리안스<small>LPG</small></a><a href="equipment.html#thermawave">써마웨이브™<small>THERMAWAVE</small></a><a href="equipment.html#zionic">자이오닉<small>ZIONIC</small></a></div></div><div class="nav__item cur"><a class="nav__top" href="review.html" aria-current="page">고객후기</a><div class="sub"><a href="review.html">방문자 리뷰<small>REVIEW</small></a></div></div><div class="nav__item"><a class="nav__top" href="contact.html">상담·오시는 길</a><div class="sub"><a href="contact.html#reserve">상담 문의<small>CONTACT</small></a><a href="contact.html#clinic">오시는 길<small>LOCATION</small></a></div></div></nav>
-    <a href="contact.html#reserve" class="btn btn--ink hdr__cta">상담 예약</a>
-    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><span><i></i><i></i></span></button>
+<header id="hdr" class="fixed inset-x-0 top-0 z-50 h-[calc(var(--hh)+env(safe-area-inset-top,0px))] pt-[env(safe-area-inset-top,0px)] bg-ivory text-text shadow-[0_1px_0_#E2D6C4] transition-[background-color,transform,box-shadow] duration-300 ease-soft [&.hide]:-translate-y-full">
+  <div class="w-full max-w-site mx-auto px-gutter h-hh flex items-center justify-between gap-6">
+    <a href="index.html" class="flex items-center min-h-12" aria-label="아르쎄에스테틱 홈"><img class="block w-auto h-[38px] sm:h-[46px]" src="assets/logo-header.png" width="152" height="56" alt="ARCÉ 아르쎄에스테틱"></a>
+    <nav class="hidden xl:flex gap-1" aria-label="주요 메뉴"><div class="group relative"><a class="relative flex items-center gap-1.5 py-3 px-4 min-h-12 text-[15px] tracking-[.04em] font-normal max-[1180px]:px-2.5 max-[1180px]:text-[14px]" href="brand.html">ARCÉ</a><div class="absolute top-full left-1/2 min-w-[200px] p-3 bg-ivory text-text rounded-2xl shadow-[0_12px_32px_rgba(52,41,32,.14)] opacity-0 invisible -translate-x-1/2 translate-y-1.5 transition-[opacity,transform,visibility] duration-200 ease-soft group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0"><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="brand.html#about">브랜드 소개<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">ABOUT</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="brand.html#director">대표원장<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">DIRECTOR</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="brand.html#space">공간<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">SPACE</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="brand.html#care">관리 현장<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">IN CARE</small></a></div></div><div class="group relative"><a class="relative flex items-center gap-1.5 py-3 px-4 min-h-12 text-[15px] tracking-[.04em] font-normal max-[1180px]:px-2.5 max-[1180px]:text-[14px]" href="method.html">조막얼굴메소드®</a><div class="absolute top-full left-1/2 min-w-[200px] p-3 bg-ivory text-text rounded-2xl shadow-[0_12px_32px_rgba(52,41,32,.14)] opacity-0 invisible -translate-x-1/2 translate-y-1.5 transition-[opacity,transform,visibility] duration-200 ease-soft group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0"><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="method.html">메소드 소개<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">SIGNATURE METHOD</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="method.html#result">관리 전후<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">BEFORE & AFTER</small></a></div></div><div class="group relative"><a class="relative flex items-center gap-1.5 py-3 px-4 min-h-12 text-[15px] tracking-[.04em] font-normal max-[1180px]:px-2.5 max-[1180px]:text-[14px]" href="program-face.html">관리 프로그램</a><div class="absolute top-full left-1/2 min-w-[200px] p-3 bg-ivory text-text rounded-2xl shadow-[0_12px_32px_rgba(52,41,32,.14)] opacity-0 invisible -translate-x-1/2 translate-y-1.5 transition-[opacity,transform,visibility] duration-200 ease-soft group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0"><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="program-face.html">페이스 윤곽 케어<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">FACE CONTOUR</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="program-aging.html">안티에이징 케어<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">ANTI-AGING</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="program-body.html">바디 밸런스 케어<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">BODY BALANCE</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="program-mom.html">산전·산후 케어<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">PRENATAL & POSTPARTUM</small></a></div></div><div class="group relative"><a class="relative flex items-center gap-1.5 py-3 px-4 min-h-12 text-[15px] tracking-[.04em] font-normal max-[1180px]:px-2.5 max-[1180px]:text-[14px]" href="equipment.html">장비</a><div class="absolute top-full left-1/2 min-w-[200px] p-3 bg-ivory text-text rounded-2xl shadow-[0_12px_32px_rgba(52,41,32,.14)] opacity-0 invisible -translate-x-1/2 translate-y-1.5 transition-[opacity,transform,visibility] duration-200 ease-soft group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0"><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="equipment.html#lpg">LPG® 알리안스<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">LPG</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="equipment.html#thermawave">써마웨이브™<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">THERMAWAVE</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="equipment.html#zionic">자이오닉<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">ZIONIC</small></a></div></div><div class="group relative"><a class="relative flex items-center gap-1.5 py-3 px-4 min-h-12 text-[15px] tracking-[.04em] font-medium max-[1180px]:px-2.5 max-[1180px]:text-[14px]" href="review.html">고객후기</a><div class="absolute top-full left-1/2 min-w-[200px] p-3 bg-ivory text-text rounded-2xl shadow-[0_12px_32px_rgba(52,41,32,.14)] opacity-0 invisible -translate-x-1/2 translate-y-1.5 transition-[opacity,transform,visibility] duration-200 ease-soft group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0"><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="review.html">방문자 리뷰<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">REVIEW</small></a></div></div><div class="group relative"><a class="relative flex items-center gap-1.5 py-3 px-4 min-h-12 text-[15px] tracking-[.04em] font-normal max-[1180px]:px-2.5 max-[1180px]:text-[14px]" href="contact.html">상담·오시는 길</a><div class="absolute top-full left-1/2 min-w-[200px] p-3 bg-ivory text-text rounded-2xl shadow-[0_12px_32px_rgba(52,41,32,.14)] opacity-0 invisible -translate-x-1/2 translate-y-1.5 transition-[opacity,transform,visibility] duration-200 ease-soft group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0"><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="contact.html#reserve">상담 문의<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">CONTACT</small></a><a class="relative block py-2.5 px-3.5 rounded-[10px] text-[14px] font-medium whitespace-nowrap hover:bg-beige" href="contact.html#clinic">오시는 길<small class="block font-mark text-[11px] tracking-[.12em] text-sub mt-0.5">LOCATION</small></a></div></div></nav>
+    <a href="contact.html#reserve" class="inline-flex items-center justify-center gap-2.5 rounded-[2px] font-medium tracking-[.04em] transition-[background-color,color,transform] duration-150 ease-soft active:scale-[.97] [-webkit-tap-highlight-color:transparent] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:flex-none h-[42px] px-[22px] text-[14px] bg-ink text-white hover:bg-bronze hidden xl:flex !text-ivory">상담 예약</a>
+    <button class="group grid xl:hidden w-12 h-12 place-items-center -mr-3" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><span class="flex flex-col"><i class="block w-6 h-[1.5px] bg-text transition-transform duration-[250ms] ease-soft group-aria-expanded:translate-y-[4.25px] group-aria-expanded:rotate-45"></i><i class="block w-6 h-[1.5px] mt-[7px] bg-text transition-transform duration-[250ms] ease-soft group-aria-expanded:-translate-y-[4.25px] group-aria-expanded:-rotate-45"></i></span></button>
   </div>
 </header>
-<div class="drawer" id="drawer" aria-hidden="true">
-  <div class="dgroup"><a class="dgroup__t" href="brand.html">ARCÉ</a><div class="dgroup__l"><a href="brand.html#about">브랜드 소개</a><a href="brand.html#director">대표원장</a><a href="brand.html#space">공간</a><a href="brand.html#care">관리 현장</a></div></div><div class="dgroup"><a class="dgroup__t" href="method.html">조막얼굴메소드®</a><div class="dgroup__l"><a href="method.html">메소드 소개</a><a href="method.html#result">관리 전후</a></div></div><div class="dgroup"><a class="dgroup__t" href="program-face.html">관리 프로그램</a><div class="dgroup__l"><a href="program-face.html">페이스 윤곽 케어</a><a href="program-aging.html">안티에이징 케어</a><a href="program-body.html">바디 밸런스 케어</a><a href="program-mom.html">산전·산후 케어</a></div></div><div class="dgroup"><a class="dgroup__t" href="equipment.html">장비</a><div class="dgroup__l"><a href="equipment.html#lpg">LPG® 알리안스</a><a href="equipment.html#thermawave">써마웨이브™</a><a href="equipment.html#zionic">자이오닉</a></div></div><div class="dgroup"><a class="dgroup__t" href="review.html">고객후기</a><div class="dgroup__l"><a href="review.html">방문자 리뷰</a></div></div><div class="dgroup"><a class="dgroup__t" href="contact.html">상담·오시는 길</a><div class="dgroup__l"><a href="contact.html#reserve">상담 문의</a><a href="contact.html#clinic">오시는 길</a></div></div>
-  <div class="drawer__cta">
-    <a class="btn btn--kakao js-kakao" href="#">카카오톡 상담</a>
-    <a class="btn btn--line js-tel" href="#"><span class="js-tel-text"></span></a>
+<div id="drawer" class="fixed inset-0 z-[49] flex flex-col gap-2 overflow-y-auto bg-ivory pt-[calc(var(--hh)+32px+env(safe-area-inset-top,0px))] px-gutter pb-[calc(32px+env(safe-area-inset-bottom,0px))] opacity-0 invisible transition-[opacity,visibility] duration-200 ease-soft [&.open]:opacity-100 [&.open]:visible" aria-hidden="true">
+  <div class="border-b border-line py-3"><a class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[24px] block py-1.5" href="brand.html">ARCÉ</a><div class="flex flex-wrap gap-x-4 gap-y-1 mt-1.5"><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="brand.html#about">브랜드 소개</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="brand.html#director">대표원장</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="brand.html#space">공간</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="brand.html#care">관리 현장</a></div></div><div class="border-b border-line py-3"><a class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[24px] block py-1.5" href="method.html">조막얼굴메소드®</a><div class="flex flex-wrap gap-x-4 gap-y-1 mt-1.5"><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="method.html">메소드 소개</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="method.html#result">관리 전후</a></div></div><div class="border-b border-line py-3"><a class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[24px] block py-1.5" href="program-face.html">관리 프로그램</a><div class="flex flex-wrap gap-x-4 gap-y-1 mt-1.5"><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="program-face.html">페이스 윤곽 케어</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="program-aging.html">안티에이징 케어</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="program-body.html">바디 밸런스 케어</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="program-mom.html">산전·산후 케어</a></div></div><div class="border-b border-line py-3"><a class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[24px] block py-1.5" href="equipment.html">장비</a><div class="flex flex-wrap gap-x-4 gap-y-1 mt-1.5"><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="equipment.html#lpg">LPG® 알리안스</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="equipment.html#thermawave">써마웨이브™</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="equipment.html#zionic">자이오닉</a></div></div><div class="border-b border-line py-3"><a class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[24px] block py-1.5" href="review.html">고객후기</a><div class="flex flex-wrap gap-x-4 gap-y-1 mt-1.5"><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="review.html">방문자 리뷰</a></div></div><div class="border-b border-line py-3"><a class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[24px] block py-1.5" href="contact.html">상담·오시는 길</a><div class="flex flex-wrap gap-x-4 gap-y-1 mt-1.5"><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="contact.html#reserve">상담 문의</a><a class="text-[15px] text-sub py-2 min-h-10 inline-flex items-center" href="contact.html#clinic">오시는 길</a></div></div>
+  <div class="mt-8 grid gap-2">
+    <a class="inline-flex items-center justify-center gap-2.5 rounded-[2px] font-medium tracking-[.04em] transition-[background-color,color,transform] duration-150 ease-soft active:scale-[.97] [-webkit-tap-highlight-color:transparent] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:flex-none h-[54px] px-[30px] text-[15px] bg-ink text-ivory hover:bg-bronze js-kakao" href="#">카카오톡 상담</a>
+    <a class="inline-flex items-center justify-center gap-2.5 rounded-[2px] font-medium tracking-[.04em] transition-[background-color,color,transform] duration-150 ease-soft active:scale-[.97] [-webkit-tap-highlight-color:transparent] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:flex-none h-[54px] px-[30px] text-[15px] border border-current hover:bg-text hover:text-white hover:border-text js-tel" href="#"><span class="js-tel-text"></span></a>
   </div>
 </div>
 <main>
-<section class="phero" id="top">
-  <div class="phero__bg" aria-hidden="true"><img src="assets/lounge-masks.webp" alt="" style="object-position:50% 60%"></div>
-  <div class="wrap phero__in">
-    <nav class="crumb" aria-label="현재 위치"><a href="index.html">홈</a> <span aria-hidden="true">/</span> <span>고객후기</span></nav>
-    <p class="phero__en">REVIEW</p>
-    <h1>고객후기</h1>
-    <p class="phero__d">네이버 플레이스에 고객님들이 직접 남겨주신 방문자 리뷰입니다.</p>
+<section id="top" class="relative isolate flex items-end min-h-[min(62svh,560px)] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[linear-gradient(180deg,rgba(52,41,32,.45)_0%,rgba(52,41,32,.35)_40%,rgba(52,41,32,.88)_100%)]">
+  <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover will-change-transform" src="assets/lounge-masks.webp" alt="" style="object-position:50% 60%"></div>
+  <div class="w-full max-w-site mx-auto px-gutter pt-[calc(var(--hh)+48px)] pb-[clamp(40px,6vw,72px)]">
+    <nav class="flex gap-2 text-[13px] text-white/75 mb-5" aria-label="현재 위치"><a class="underline underline-offset-[3px] decoration-white/35" href="index.html">홈</a> <span aria-hidden="true">/</span> <span>고객후기</span></nav>
+    <p class="font-mark text-[12px] tracking-[.36em] text-champagne mb-3">REVIEW</p>
+    <h1 class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[clamp(32px,4vw,56px)]">고객후기</h1>
+    <p class="mt-4 text-[clamp(15px,.8vw+11px,19px)] font-light text-white/85 max-w-[34em] leading-[1.7]">네이버 플레이스에 고객님들이 직접 남겨주신 방문자 리뷰입니다.</p>
   </div>
 </section>
-<section class="rvs" id="reviews" aria-labelledby="rvT" style="background:var(--white)">
-  <div class="wrap rvs__head">
+<section id="reviews" class="py-[clamp(96px,10vw,140px)] bg-ivory" aria-labelledby="rvT">
+  <div class="w-full max-w-site mx-auto px-gutter grid gap-8 mb-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,480px)] lg:items-end">
     <div>
-      <h2 id="rvT">방문자 리뷰 <span class="num">133</span></h2>
-      <p>네이버 플레이스에 고객님들이 직접 남겨주신 후기입니다.</p>
+      <h2 id="rvT" class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[clamp(26px,2.6vw,38px)]">방문자 리뷰 <span class="font-display font-medium text-[1.25em] text-bronze tabular-nums" data-count>133</span></h2>
+      <p class="mt-3 text-sub text-[15px]">네이버 플레이스에 고객님들이 직접 남겨주신 후기입니다.</p>
     </div>
-    <ul class="kw" id="kw" aria-label="리뷰 키워드 통계"><li><span class="kw__n">관리 효과가 좋아요</span><span class="kw__bar"><i style="--w:1.000"></i></span><span class="kw__c">115</span></li><li><span class="kw__n">맞춤 케어를 잘해줘요</span><span class="kw__bar"><i style="--w:0.922"></i></span><span class="kw__c">106</span></li><li><span class="kw__n">친절해요</span><span class="kw__bar"><i style="--w:0.809"></i></span><span class="kw__c">93</span></li><li><span class="kw__n">시술이 꼼꼼해요</span><span class="kw__bar"><i style="--w:0.791"></i></span><span class="kw__c">91</span></li></ul>
+    <ul class="group grid gap-3 max-w-[520px] w-full" id="kw" aria-label="리뷰 키워드 통계"><li class="grid grid-cols-[132px_minmax(0,1fr)_36px] items-center gap-3 text-[13px] text-sub"><span>관리 효과가 좋아요</span><span class="h-px bg-[rgba(58,48,41,.16)]"><i class="block h-px bg-ink origin-left scale-x-[.02] transition-transform duration-1000 ease-soft group-[.in]:scale-x-[var(--w)]" style="--w:1.000"></i></span><span class="text-right font-display text-[16px] tabular-nums">115</span></li><li class="grid grid-cols-[132px_minmax(0,1fr)_36px] items-center gap-3 text-[13px] text-sub"><span>맞춤 케어를 잘해줘요</span><span class="h-px bg-[rgba(58,48,41,.16)]"><i class="block h-px bg-ink origin-left scale-x-[.02] transition-transform duration-1000 ease-soft group-[.in]:scale-x-[var(--w)]" style="--w:0.922"></i></span><span class="text-right font-display text-[16px] tabular-nums">106</span></li><li class="grid grid-cols-[132px_minmax(0,1fr)_36px] items-center gap-3 text-[13px] text-sub"><span>친절해요</span><span class="h-px bg-[rgba(58,48,41,.16)]"><i class="block h-px bg-ink origin-left scale-x-[.02] transition-transform duration-1000 ease-soft group-[.in]:scale-x-[var(--w)]" style="--w:0.809"></i></span><span class="text-right font-display text-[16px] tabular-nums">93</span></li><li class="grid grid-cols-[132px_minmax(0,1fr)_36px] items-center gap-3 text-[13px] text-sub"><span>시술이 꼼꼼해요</span><span class="h-px bg-[rgba(58,48,41,.16)]"><i class="block h-px bg-ink origin-left scale-x-[.02] transition-transform duration-1000 ease-soft group-[.in]:scale-x-[var(--w)]" style="--w:0.791"></i></span><span class="text-right font-display text-[16px] tabular-nums">91</span></li></ul>
   </div>
-  
-  <div class="rv-grid">
-<article class="rv">
-        <div class="rv__top"><b>집에****</b><span>10.20.화 방문</span></div>
-        <p class="rv__body">나이들면서 쳐지는 볼살이 너무 신경쓰여서 고민고민하다가 결제했어요.<br>매장도 매우 청결하고 원장님, 실장님 모두 친절하셨어요. 차분한 분위기에 만족하며 시술받았습니다. 과하게 권하지 않고 제가 필요한 관리 말씀 드리니까 그에 맞게 잘 상담해주셨어요. 관리 너무 꼼꼼하게 잘해주시고 1회만 받았는데 변화가 느껴져서 너무 좋아요 ㅎㅎ 앞으로 꾸준히 다녀보려고합니다. 남은 회차들이 기대되요~</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>관리 효과가 좋아요</span><span>맞춤 케어를 잘해줘요</span></div>
+  <div class="grid gap-x-10 gap-y-12 px-gutter max-w-site mx-auto md:grid-cols-2 2xl:grid-cols-3">
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">집에****</b><span>10.20.화 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>나이들면서 쳐지는 볼살이 너무 신경쓰여서 고민고민하다가 결제했어요.<br>매장도 매우 청결하고 원장님, 실장님 모두 친절하셨어요. 차분한 분위기에 만족하며 시술받았습니다. 과하게 권하지 않고 제가 필요한 관리 말씀 드리니까 그에 맞게 잘 상담해주셨어요. 관리 너무 꼼꼼하게 잘해주시고 1회만 받았는데 변화가 느껴져서 너무 좋아요 ㅎㅎ 앞으로 꾸준히 다녀보려고합니다. 남은 회차들이 기대되요~</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">관리 효과가 좋아요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">맞춤 케어를 잘해줘요</span></div>
       </article>
-<article class="rv">
-        <div class="rv__top"><b>de****</b><span>10.17.토 방문 · 2번째 방문</span></div>
-        <p class="rv__body">10회 내돈내산 후기 입니다 <br>온바디 체험하러 왔다가 원장님이 따뜻한 마음에 반해 10회 시원하게 결제 했습니다 어깨랑 목부분이 안좋아서 관리 받는거였는데  매주 올때 마다 저번주 관리 받고 어때는지 계속 체크 해주시고 관리하는 중간중간에 어떤지  계속 체크 해주셔서 좋았어요 한주 한주 조금 편하게 지낼수 있어서 너무 좋았습니다 10회 정도 받고 나니 통증도 거의 살아지고 살만해서 좋습니다</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>관리 효과가 좋아요</span><span>맞춤 케어를 잘해줘요</span></div>
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">de****</b><span>10.17.토 방문 · 2번째 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>10회 내돈내산 후기 입니다 <br>온바디 체험하러 왔다가 원장님이 따뜻한 마음에 반해 10회 시원하게 결제 했습니다 어깨랑 목부분이 안좋아서 관리 받는거였는데  매주 올때 마다 저번주 관리 받고 어때는지 계속 체크 해주시고 관리하는 중간중간에 어떤지  계속 체크 해주셔서 좋았어요 한주 한주 조금 편하게 지낼수 있어서 너무 좋았습니다 10회 정도 받고 나니 통증도 거의 살아지고 살만해서 좋습니다</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">관리 효과가 좋아요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">맞춤 케어를 잘해줘요</span></div>
       </article>
-<article class="rv">
-        <div class="rv__top"><b>셀린****</b><span>10.8.목 방문 · 2번째 방문</span></div>
-        <p class="rv__body">원장님과 관리해주시는 선생님들<br>친절하고 꼼꼼하게 관리 잘해주세요~! <br><br>그날그날 컨디션에 맞게<br>세심하게 케어해주셔서 편하게 찾는 샵이에요✨☺️</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>관리 효과가 좋아요</span><span>맞춤 케어를 잘해줘요</span></div>
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">셀린****</b><span>10.8.목 방문 · 2번째 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>원장님과 관리해주시는 선생님들<br>친절하고 꼼꼼하게 관리 잘해주세요~! <br><br>그날그날 컨디션에 맞게<br>세심하게 케어해주셔서 편하게 찾는 샵이에요✨☺️</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">관리 효과가 좋아요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">맞춤 케어를 잘해줘요</span></div>
       </article>
-<article class="rv">
-        <div class="rv__top"><b>r2****</b><span>10.3.토 방문</span></div>
-        <p class="rv__body">오랜 병원 시술로 정기적으로 병원에서 몇 년간 안받아본시술이. 없음 갈수록 더 피부는 얇아지고 더 예민해지는 피부 에스테틱 관리는 더 예민해진 다 고 해서 고민하다 지인소개로 방문한지 한달째입니다 피부는 훨씬 건강해 지고 밝아진 피부를 보면서 놀 랍 기만 합니다 그 동안 시술에 쏟아 부은 돈 ㅜㅜ원장님 말씀대로 꾸준히 건강하게 예뻐지는 방법을 찾았습니다 저처럼 병원 시술이다라고 다라고 생각하셨던 분들 멈추기 힘든 분들 잠시 멈추고 피부를 건강하게 하는 샵 아르쎄 강추합니다</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>상담이 자세해요</span><span>관리법을 잘 알려줘요</span></div>
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">r2****</b><span>10.3.토 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>오랜 병원 시술로 정기적으로 병원에서 몇 년간 안받아본시술이. 없음 갈수록 더 피부는 얇아지고 더 예민해지는 피부 에스테틱 관리는 더 예민해진 다 고 해서 고민하다 지인소개로 방문한지 한달째입니다 피부는 훨씬 건강해 지고 밝아진 피부를 보면서 놀 랍 기만 합니다 그 동안 시술에 쏟아 부은 돈 ㅜㅜ원장님 말씀대로 꾸준히 건강하게 예뻐지는 방법을 찾았습니다 저처럼 병원 시술이다라고 다라고 생각하셨던 분들 멈추기 힘든 분들 잠시 멈추고 피부를 건강하게 하는 샵 아르쎄 강추합니다</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">상담이 자세해요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">관리법을 잘 알려줘요</span></div>
       </article>
-<article class="rv">
-        <div class="rv__top"><b>gq****</b><span>10.3.토 방문</span></div>
-        <p class="rv__body">비대칭고민으로 좋다는건다해 봣으나 그때문였어요 직장동료 변화는 얼굴보고 상담이라도 우선해보자했는데 첫방문부터 반했네요 이론적으로 설명해주시고 조금씩 변화는 얼굴에 신기하만합니다</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>맞춤 케어를 잘해줘요</span><span>고급스러워요</span></div>
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">gq****</b><span>10.3.토 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>비대칭고민으로 좋다는건다해 봣으나 그때문였어요 직장동료 변화는 얼굴보고 상담이라도 우선해보자했는데 첫방문부터 반했네요 이론적으로 설명해주시고 조금씩 변화는 얼굴에 신기하만합니다</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">맞춤 케어를 잘해줘요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">고급스러워요</span></div>
       </article>
-<article class="rv">
-        <div class="rv__top"><b>f2****</b><span>10.2.금 방문</span></div>
-        <p class="rv__body">장유에. 터주대감 아르쎄에스틱. 예전스파현부터 꾸준히15년째 방문중입니다 시술없이 예뻐지는 방법은 혀니원장님 손길이 답. 변함없이. 그자리에 있어주는 샵 감사합니다</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>관리 효과가 좋아요</span><span>고급스러워요</span></div>
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">f2****</b><span>10.2.금 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>장유에. 터주대감 아르쎄에스틱. 예전스파현부터 꾸준히15년째 방문중입니다 시술없이 예뻐지는 방법은 혀니원장님 손길이 답. 변함없이. 그자리에 있어주는 샵 감사합니다</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">관리 효과가 좋아요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">고급스러워요</span></div>
       </article>
-<article class="rv">
-        <div class="rv__top"><b>ho****</b><span>10.2.금 방문</span></div>
-        <p class="rv__body">현에스테틱 때부터 지금까지 꾸준히 다니는 이유는 원장님이 제 얼굴과 몸을 너무 잘 알고 계시기 때문이에요. 웨딩관리도 잘하시고 산후관리도 꼼꼼하고 특히 얼굴 비대칭과 윤곽, 승모근과 목선 관리가 정말 만족스럽습니다.</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>친절해요</span><span>관리법을 잘 알려줘요</span></div>
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">ho****</b><span>10.2.금 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>현에스테틱 때부터 지금까지 꾸준히 다니는 이유는 원장님이 제 얼굴과 몸을 너무 잘 알고 계시기 때문이에요. 웨딩관리도 잘하시고 산후관리도 꼼꼼하고 특히 얼굴 비대칭과 윤곽, 승모근과 목선 관리가 정말 만족스럽습니다.</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">친절해요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">관리법을 잘 알려줘요</span></div>
       </article>
-<article class="rv">
-        <div class="rv__top"><b>tn****</b><span>10.1.목 방문</span></div>
-        <p class="rv__body">원장님 믿고 오래 다녔습니다. 스파현, 끌리메를 거쳐 지금까지 계속 다니고 있어요. 특히 얼굴 윤곽과 비대칭 관리는 정말 믿고 맡길 수 있고 승모근과 목 라인 관리도 만족도가 높습니다.</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>관리법을 잘 알려줘요</span><span>분위기가 편안해요</span></div>
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">tn****</b><span>10.1.목 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>원장님 믿고 오래 다녔습니다. 스파현, 끌리메를 거쳐 지금까지 계속 다니고 있어요. 특히 얼굴 윤곽과 비대칭 관리는 정말 믿고 맡길 수 있고 승모근과 목 라인 관리도 만족도가 높습니다.</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">관리법을 잘 알려줘요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">분위기가 편안해요</span></div>
       </article>
-<article class="rv">
-        <div class="rv__top"><b>cj****</b><span>10.1.목 방문</span></div>
-        <p class="rv__body">웨딩관리부터 산후관리까지 한 곳에서 받고 있어요. 결혼 전에는 얼굴선과 드레스 라인, 출산 후에는 부기와 바디 밸런스를 관리받았습니다. 오래된 경력만큼 고객 상태를 보는 눈이 정말 정확한 것 같아요.</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>고급스러워요</span><span>맞춤 케어를 잘해줘요</span></div>
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">cj****</b><span>10.1.목 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>웨딩관리부터 산후관리까지 한 곳에서 받고 있어요. 결혼 전에는 얼굴선과 드레스 라인, 출산 후에는 부기와 바디 밸런스를 관리받았습니다. 오래된 경력만큼 고객 상태를 보는 눈이 정말 정확한 것 같아요.</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">고급스러워요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">맞춤 케어를 잘해줘요</span></div>
       </article>
-<article class="rv">
-        <div class="rv__top"><b>gf****</b><span>9.30.수 방문</span></div>
-        <p class="rv__body">결혼한 친구가 강력 추천해서 방문한 곳이에요. 친구가 웨딩관리 받고 너무 예뻐져서 저도 바로 등록했어요. 얼굴 윤곽과 승모근, 목 라인을 정말 잘 관리해주셔서 저 역시 주변에 추천하고 있습니다.</p>
-        <button class="rv__more" type="button" hidden>더보기</button>
-        <div class="rv__kw"><span>맞춤 케어를 잘해줘요</span><span>고급스러워요</span></div>
+<article class="group  flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
+        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">gf****</b><span>9.30.수 방문</span></div>
+        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>결혼한 친구가 강력 추천해서 방문한 곳이에요. 친구가 웨딩관리 받고 너무 예뻐져서 저도 바로 등록했어요. 얼굴 윤곽과 승모근, 목 라인을 정말 잘 관리해주셔서 저 역시 주변에 추천하고 있습니다.</p>
+        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+        <div class="mt-auto flex flex-wrap gap-1.5"><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">맞춤 케어를 잘해줘요</span><span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">고급스러워요</span></div>
       </article>
   </div>
-  <div class="wrap"><a class="rvs__link" href="https://m.place.naver.com/place/2088530746/review/visitor" target="_blank" rel="noopener">네이버에서 리뷰 전체 보기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
+  <div class="w-full max-w-site mx-auto px-gutter"><a class="inline-flex items-center gap-2 font-medium tracking-[.04em] min-h-12 border-b border-current [&_svg]:transition-transform [&_svg]:duration-200 [&_svg]:ease-soft [&:hover_svg]:translate-x-1 mt-8" href="https://m.place.naver.com/place/2088530746/review/visitor" target="_blank" rel="noopener">네이버에서 리뷰 전체 보기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
 </section>
-<section class="sec sec--mint">
-  <div class="wrap">
-    <div class="sh"><p class="sh__en">BEFORE &amp; AFTER</p><h2>관리 전후 비교</h2></div>
-    <div class="ba-wrap ba-wrap--solo">
-          <div class="ba ba--solo">
-            <img src="assets/ba-after.webp" width="346" height="639" alt="조막얼굴 윤곽관리 후 얼굴 라인" loading="lazy">
-            <img class="ba__before" src="assets/ba-before.webp" width="346" height="639" alt="조막얼굴 윤곽관리 전 얼굴 라인" loading="lazy">
-            <span class="ba__tag ba__tag--b">BEFORE</span><span class="ba__tag ba__tag--a">AFTER</span>
-            <span class="ba__line" aria-hidden="true"><span class="ba__knob"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 5 L2 10 L7 15 M13 5 L18 10 L13 15"/></svg></span></span>
-            <input type="range" min="0" max="100" value="50" aria-label="관리 전후 비교, 좌우로 움직여 보세요">
-          </div>
-          <p class="ba__note">실제 고객 관리 전후 사진입니다. 개인에 따라 결과는 다를 수 있습니다.</p>
-        </div>
+<section class="py-[clamp(96px,11vw,160px)] bg-beige">
+  <div class="w-full max-w-site mx-auto px-gutter">
+    <div class="mb-[clamp(32px,4vw,56px)]"><p class="mt-4 font-mark tracking-[.36em] text-sub text-[clamp(15px,.6vw+12px,18px)] max-w-[36em] leading-[1.75]">BEFORE &amp; AFTER</p><h2 class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[clamp(28px,3vw,44px)]">관리 전후 비교</h2></div>
+    <div class="grid justify-items-center gap-2">
+      <div class="relative w-full max-w-[360px] mx-auto aspect-[346/639] overflow-hidden rounded-[4px] bg-ivory touch-pan-y select-none [--p:50%]" data-ba>
+        <img class="absolute inset-0 w-full h-full object-cover pointer-events-none" src="assets/ba-after.webp" width="346" height="639" alt="조막얼굴 윤곽관리 후 얼굴 라인" loading="lazy">
+        <img class="absolute inset-0 w-full h-full object-cover pointer-events-none [clip-path:inset(0_calc(100%-var(--p))_0_0)]" src="assets/ba-before.webp" width="346" height="639" alt="조막얼굴 윤곽관리 전 얼굴 라인" loading="lazy">
+        <span class="absolute top-3 z-[2] text-[11px] font-bold tracking-[.12em] py-1.5 px-2.5 rounded-full bg-white/90 text-ink left-3">BEFORE</span><span class="absolute top-3 z-[2] text-[11px] font-bold tracking-[.12em] py-1.5 px-2.5 rounded-full bg-white/90 text-ink right-3">AFTER</span>
+        <span class="absolute inset-y-0 left-[var(--p)] w-0.5 -ml-px bg-white z-[2] pointer-events-none" aria-hidden="true"><span class="absolute top-1/2 left-1/2 w-11 h-11 -mt-[22px] -ml-[22px] rounded-full bg-white grid place-items-center text-ink shadow-[0_2px_10px_rgba(52,41,32,.25)]"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 5 L2 10 L7 15 M13 5 L18 10 L13 15"/></svg></span></span>
+        <input class="absolute inset-0 w-full h-full m-0 opacity-0 cursor-ew-resize z-[3]" type="range" min="0" max="100" value="50" aria-label="관리 전후 비교, 좌우로 움직여 보세요">
+      </div>
+      <p class="mt-2 text-[12px] text-sub text-center">실제 고객 관리 전후 사진입니다. 개인에 따라 결과는 다를 수 있습니다.</p>
+    </div>
   </div>
 </section>
-<section class="ctaband">
-  <div class="wrap ctaband__in">
-    <div><h2>다음 후기의 주인공이 되어 보세요.</h2><p>1:1 상담으로 지금 상태에 맞는 관리를 안내해 드립니다.</p></div>
-    <div class="ctaband__btns">
-      <a class="btn btn--kakao js-kakao" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
-      <a class="btn btn--ink" href="contact.html#reserve">상담 예약</a>
+<section class="bg-ivory border-t border-line py-[clamp(72px,8vw,112px)]">
+  <div class="w-full max-w-site mx-auto px-gutter flex flex-wrap justify-between items-center gap-x-10 gap-y-6">
+    <div><h2 class="font-serif font-medium tracking-[-.025em] leading-[1.38] text-[clamp(22px,2.2vw,32px)] text-ink">다음 후기의 주인공이 되어 보세요.</h2><p class="mt-2.5 text-ink opacity-80">1:1 상담으로 지금 상태에 맞는 관리를 안내해 드립니다.</p></div>
+    <div class="flex flex-wrap gap-2">
+      <a class="inline-flex items-center justify-center gap-2.5 rounded-[2px] font-medium tracking-[.04em] transition-[background-color,color,transform] duration-150 ease-soft active:scale-[.97] [-webkit-tap-highlight-color:transparent] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:flex-none h-[54px] px-[30px] text-[15px] bg-ink text-ivory hover:bg-bronze js-kakao" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
+      <a class="inline-flex items-center justify-center gap-2.5 rounded-[2px] font-medium tracking-[.04em] transition-[background-color,color,transform] duration-150 ease-soft active:scale-[.97] [-webkit-tap-highlight-color:transparent] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:flex-none h-[54px] px-[30px] text-[15px] bg-ink text-white hover:bg-bronze" href="contact.html#reserve">상담 예약</a>
     </div>
   </div>
 </section>
 
 </main>
-<footer class="ftr">
-  <div class="wrap">
-    <p class="ftr__mark"><img src="assets/logo.webp" width="260" height="267" alt="ARCÉ" loading="lazy"></p>
-    <dl>
-      <div><dt>상호</dt><dd>아르쎄에스테틱</dd></div>
-      <div><dt>대표</dt><dd>조외현</dd></div>
-      <div><dt>사업자등록번호</dt><dd class="num">641-43-00735</dd></div>
-      <div><dt>전화</dt><dd class="js-tel-text num"></dd></div>
-      <div><dt>주소</dt><dd class="js-addr"></dd></div>
+<footer class="bg-paper text-ink pt-[72px] pb-[calc(120px+env(safe-area-inset-bottom,0px))] lg:pb-[72px] text-[13px]">
+  <div class="w-full max-w-site mx-auto px-gutter">
+    <p class="mb-10 leading-[0]"><img class="block w-auto h-[clamp(120px,14vw,190px)]" src="assets/logo.webp" width="260" height="267" alt="ARCÉ" loading="lazy"></p>
+    <dl class="flex flex-wrap gap-x-8 gap-y-2">
+      <div class="flex gap-2"><dt class="font-medium">상호</dt><dd>아르쎄에스테틱</dd></div>
+      <div class="flex gap-2"><dt class="font-medium">대표</dt><dd>조외현</dd></div>
+      <div class="flex gap-2"><dt class="font-medium">사업자등록번호</dt><dd class="tabular-nums">641-43-00735</dd></div>
+      <div class="flex gap-2"><dt class="font-medium">전화</dt><dd class="js-tel-text tabular-nums"></dd></div>
+      <div class="flex gap-2"><dt class="font-medium">주소</dt><dd class="js-addr"></dd></div>
     </dl>
-    <p style="margin:32px 0 0">© ARCÉ AESTHETIC</p>
+    <p class="mt-8">© ARCÉ AESTHETIC</p>
   </div>
 </footer>
-<div class="mcta" id="mcta">
-  <a class="btn btn--kakao js-kakao" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
-  <a class="btn btn--line js-tel" href="#" aria-label="전화 문의">전화</a>
+<div id="mcta" class="fixed inset-x-0 bottom-0 z-40 grid lg:hidden grid-cols-[7fr_3fr] gap-2 pt-3 px-[max(16px,env(safe-area-inset-left,0px))] pb-[calc(12px+env(safe-area-inset-bottom,0px))] bg-ivory shadow-[0_-1px_0_#E2D6C4] translate-y-[110%] transition-transform duration-300 ease-soft [&.show]:translate-y-0">
+  <a class="inline-flex items-center justify-center gap-2.5 rounded-[2px] font-medium tracking-[.04em] transition-[background-color,color,transform] duration-150 ease-soft active:scale-[.97] [-webkit-tap-highlight-color:transparent] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:flex-none h-[52px] px-3 text-[15px] bg-ink text-ivory hover:bg-bronze js-kakao" href="#"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
+  <a class="inline-flex items-center justify-center gap-2.5 rounded-[2px] font-medium tracking-[.04em] transition-[background-color,color,transform] duration-150 ease-soft active:scale-[.97] [-webkit-tap-highlight-color:transparent] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:flex-none h-[52px] px-3 text-[15px] border border-current hover:bg-text hover:text-white hover:border-text js-tel" href="#" aria-label="전화 문의">전화</a>
 </div>
 <script src="assets/js/site.js"></script>
 </body>

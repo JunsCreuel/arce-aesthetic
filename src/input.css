@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --gutter: max(20px, env(safe-area-inset-left, 0px), 4vw);
+    --hh: 72px;
+    --ease: cubic-bezier(0.23,1,0.32,1);
+  }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-ivory text-text font-sans text-base font-normal antialiased; line-height: 1.75; letter-spacing: -.005em; word-break: keep-all; overflow-wrap: break-word; overflow-x: clip; }
+  sup { font-size: smaller; vertical-align: super; line-height: inherit; position: static; }
+  :focus-visible { outline: 2px solid theme('colors.bronze'); outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  }
+}
+
+@layer components {
+  .ph { clip-path: inset(18% 0 0 0); transition: clip-path 1.3s var(--ease); }
+  .ph.is-in { clip-path: inset(0 0 0 0); }
+}

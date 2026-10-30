@@ -1,0 +1,13 @@
+{
+  "name": "arce-aesthetic",
+  "private": true,
+  "scripts": {
+    "build:html": "python3 src/build.py",
+    "build:css": "tailwindcss -i src/input.css -o assets/css/site.css --minify",
+    "build": "npm run build:html && npm run build:css",
+    "watch": "tailwindcss -i src/input.css -o assets/css/site.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
