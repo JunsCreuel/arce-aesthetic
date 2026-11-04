@@ -150,6 +150,9 @@ const CONFIG = {
       clearTimeout(ht); if (!reduce) ht = setTimeout(() => show((hi + 1) % slides.length), 6000);
     };
     dots.forEach((d, i) => d.addEventListener('click', () => show(i)));
+    const hp = $('[data-hs=prev]', hs), hn = $('[data-hs=next]', hs);
+    if (hp) hp.addEventListener('click', () => show((hi - 1 + slides.length) % slides.length));
+    if (hn) hn.addEventListener('click', () => show((hi + 1) % slides.length));
     show(0);
   }
 

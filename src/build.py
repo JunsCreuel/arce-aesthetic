@@ -8,7 +8,9 @@ VER = __import__('time').strftime('%y%m%d%H%M')
 REVIEWS = json.loads((ROOT / 'src' / 'reviews.json').read_text(encoding='utf-8'))
 
 WRAP = 'w-full max-w-site mx-auto px-gutter'
-SERIF = 'font-serif font-medium tracking-[-.025em] leading-[1.38]'
+SERIF = 'font-sans font-semibold tracking-[-.03em] leading-[1.38]'
+DISP = 'font-display font-normal leading-[1.05] tracking-[.01em]'
+PILL = 'inline-flex items-center gap-2 h-11 px-6 rounded-full border border-current text-[14px] font-medium tracking-[.02em] transition-colors duration-200 hover:bg-ink hover:text-ivory hover:border-ink'
 EN = 'font-mark text-[12px] tracking-[.36em]'
 SUB_TEXT = 'text-sub text-[clamp(15px,.6vw+12px,18px)]'
 EASE = 'ease-soft'
@@ -149,7 +151,7 @@ def page(fn, title, desc, cur, body, og='assets/corridor.webp'):
 
 def sh(en, title, desc=''):
     p = f'<p class="mt-4 {SUB_TEXT} max-w-[36em] leading-[1.75]">{desc}</p>' if desc else ''
-    return f'<div class="mb-[clamp(32px,4vw,56px)]"><p class="mt-4 font-mark tracking-[.36em] {SUB_TEXT} max-w-[36em] leading-[1.75]">{en}</p><h2 class="{SERIF} text-[clamp(28px,3vw,44px)]">{title}</h2>{p}</div>'
+    return f'<div class="mb-[clamp(32px,4vw,56px)]"><h2 class="{SERIF} text-[clamp(28px,3vw,44px)]">{title}</h2>{p}</div>'
 
 
 def phero(img, en, title, desc, crumbs, pos='50% 50%'):
@@ -161,7 +163,6 @@ def phero(img, en, title, desc, crumbs, pos='50% 50%'):
   <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover will-change-transform" src="assets/{img}" alt="" style="object-position:{pos}"></div>
   <div class="{WRAP} pt-[calc(var(--hh)+48px)] pb-[clamp(40px,6vw,72px)]">
     <nav class="flex gap-2 text-[13px] text-white/75 mb-5" aria-label="현재 위치">{trail}</nav>
-    <p class="{EN} text-champagne mb-3">{en}</p>
     <h1 class="{SERIF} text-[clamp(32px,4vw,56px)]">{title}</h1>
     <p class="mt-4 text-[clamp(15px,.8vw+11px,19px)] font-light text-white/85 max-w-[34em] leading-[1.7]">{desc}</p>
   </div>
@@ -200,22 +201,27 @@ def hero_slider():
         for i, (img, pos, *_r) in enumerate(HS))
     txts = ''.join(
         f'<div class="hidden [&.on]:block [&.on]:animate-swap-slow{" on" if i == 0 else ""}" data-hs="txt">'
-        f'<p class="{EN} text-champagne mb-4">{en}</p>'
-        f'<p class="{SERIF} text-[clamp(32px,4.2vw,62px)]">{t}</p>'
-        f'<p class="mt-5 text-[clamp(15px,1vw+10px,20px)] font-light text-white/85 max-w-[30em] leading-[1.7]">{d}</p></div>'
+        f'<p class="font-sans font-semibold tracking-[-.03em] leading-[1.35] text-[clamp(30px,4vw,56px)]">{t}</p>'
+        f'<p class="mt-6 text-[clamp(15px,1vw+10px,19px)] text-white/85 max-w-[34em] mx-auto leading-[1.7]">{d}</p></div>'
         for i, (_img, _pos, en, t, d) in enumerate(HS))
     dots = ''.join(
-        f'<button class="group w-12 h-8 flex items-center{" on" if i == 0 else ""}" type="button" aria-label="{i + 1}번째 슬라이드" data-hs="dot">'
-        f'<i class="relative block w-full h-0.5 bg-white/30 overflow-hidden after:content-[\'\'] after:absolute after:inset-0 after:bg-white after:scale-x-0 after:origin-left group-[.on]:after:animate-fill-6 group-[.is-done]:after:scale-x-100"></i></button>'
+        f'<button class="group w-10 h-6 flex items-center{" on" if i == 0 else ""}" type="button" aria-label="{i + 1}번째 슬라이드" data-hs="dot">'
+        f'<i class="relative block w-full h-px bg-white/35 overflow-hidden after:content-[\'\'] after:absolute after:inset-0 after:bg-white after:scale-x-0 after:origin-left group-[.on]:after:animate-fill-6 group-[.is-done]:after:scale-x-100"></i></button>'
         for i in range(len(HS)))
-    return f'''<section id="hs" class="relative isolate flex items-end lg:items-center min-h-[100svh] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[linear-gradient(180deg,rgba(52,41,32,.35)_0%,rgba(52,41,32,.2)_35%,rgba(52,41,32,.6)_65%,rgba(52,41,32,.92)_100%)] lg:before:bg-[linear-gradient(90deg,rgba(52,41,32,.85)_0%,rgba(52,41,32,.5)_45%,rgba(52,41,32,.1)_80%)]">
+    return f'''<section id="hs" class="relative isolate flex items-center justify-center min-h-[100svh] overflow-hidden bg-ink text-white text-center before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.42)]">
   <h1 class="sr-only">아르쎄에스테틱 김해 장유 윤곽관리 · 조막얼굴메소드®</h1>
   {slides}
-  <div class="{WRAP} pt-hh pb-[calc(40px+env(safe-area-inset-bottom,0px))] lg:pb-0">
+  <div class="{WRAP} pt-hh">
     <div id="top" class="absolute inset-0 pointer-events-none"></div>
     {txts}
-    <div class="flex items-center gap-4 mt-10"><div class="flex gap-2">{dots}</div><span class="text-[13px] tabular-nums text-white/75" id="hsNum">01 / 03</span></div>
+    <div class="flex items-center justify-center gap-5 mt-12 text-[13px] text-white/80">
+      <button class="font-display text-[15px] tracking-[.06em] hover:text-white" type="button" data-hs="prev">Prev</button>
+      <div class="flex gap-1.5">{dots}</div>
+      <button class="font-display text-[15px] tracking-[.06em] hover:text-white" type="button" data-hs="next">Next</button>
+    </div>
+    <span class="sr-only" id="hsNum">01 / 03</span>
   </div>
+  <div class="absolute left-1/2 bottom-8 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70" aria-hidden="true"><span class="font-display text-[14px] tracking-[.08em]">Scroll down</span><span class="block w-px h-10 bg-white/50"></span></div>
 </section>'''
 
 
@@ -354,34 +360,32 @@ PCARDS = [
     ('program-mom.html', 'lounge.webp', '40% 60%', 'PRENATAL &amp; POSTPARTUM', '산전·산후 케어', '시기에 맞춘 안전한 회복 관리'),
 ]
 
+HOME_FIND = [
+    ('붓기 · 비대칭 · 턱선', 'program-face.html'), ('탄력과 피부결', 'program-aging.html'), ('목 · 어깨 · 승모근', 'program-body.html'),
+    ('산전 · 산후 회복', 'program-mom.html'), ('조막얼굴메소드®', 'method.html'), ('정품 장비', 'equipment.html'),
+]
+
 home = f'''{hero_slider()}
 
-<section class="{SEC}">
-  <div class="{WRAP}">
-    <div>
-      <p class="{EN} text-bronze mb-4">ABOUT ARCÉ</p>
-      <p class="{LEAD}"><b>아르쎄에스테틱</b>은 윤곽관리 26년 경력의 조외현 대표원장이 직접 진단하고 관리하는 김해 장유의 윤곽 전문 에스테틱입니다.</p>
-      <p class="{LEAD}">유행하는 시술 대신, 얼굴과 몸이 가진 본래의 균형을 해부학적으로 읽어내고 정돈하는 것. 처음에는 느리지만 시간이 갈수록 가속도가 붙는 변화를 지향합니다.</p>
-      <p class="mt-8 mb-4"><a class="{MORE}" href="brand.html">브랜드 스토리 {ARROW}</a></p>
-    </div>
+<section class="grid lg:grid-cols-2">
+  <div class="bg-beige flex flex-col items-center justify-center text-center px-gutter py-[clamp(80px,9vw,140px)] lg:min-h-[640px]" data-reveal>
+    <h2 class="{DISP} text-[clamp(48px,5.4vw,80px)] text-ink">About Us</h2>
+    <p class="mt-8 text-[clamp(17px,1.2vw+10px,21px)] font-semibold tracking-[-.02em] leading-[1.6] max-w-[22em]">윤곽관리 26년 경력의 조외현 대표원장이<br>직접 진단하고 관리합니다.</p>
+    <p class="mt-5 text-[15px] text-sub leading-[1.8] max-w-[30em]">유행하는 시술 대신, 얼굴과 몸이 가진 본래의 균형을 해부학적으로 읽어내고 정돈하는 것. 처음에는 느리지만 시간이 갈수록 가속도가 붙는 변화를 지향합니다.</p>
+    <a class="{PILL} mt-10" href="brand.html">View More {ARROW}</a>
   </div>
+  <figure class="relative min-h-[360px] overflow-hidden" data-par><img class="absolute inset-0 w-full h-full object-cover" src="assets/interior-hero.webp" alt="아르쎄에스테틱 리셉션" loading="lazy" style="object-position:50% 50%"></figure>
 </section>
 
-<div class="py-[clamp(48px,6vw,96px)] overflow-hidden whitespace-nowrap select-none" aria-hidden="true">
-  <p class="font-mark text-[clamp(56px,9vw,150px)] leading-[1.1] tracking-[.02em] text-transparent [-webkit-text-stroke:1px_#3A3029] will-change-transform" data-mq="-1"><span class="inline-block">FACE CONTOUR, REBALANCED &nbsp;·&nbsp; FACE CONTOUR, REBALANCED &nbsp;·&nbsp; FACE CONTOUR, REBALANCED &nbsp;·&nbsp;</span></p>
-  <p class="font-mark text-[clamp(56px,9vw,150px)] leading-[1.1] tracking-[.02em] text-ink will-change-transform" data-mq="1"><span class="inline-block">ARCÉ AESTHETIC &nbsp;·&nbsp; ARCÉ AESTHETIC &nbsp;·&nbsp; ARCÉ AESTHETIC &nbsp;·&nbsp; ARCÉ AESTHETIC &nbsp;·&nbsp;</span></p>
-</div>
-
-{method_sec()}
-
-{eq_sec()}
-
 <section class="{SEC}">
   <div class="{WRAP}">
-    {sh('CARE PROGRAM', '고민에 맞춘<br>네 가지 관리 프로그램')}
-    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 2xl:grid-cols-4">
+    <div class="text-center mb-[clamp(40px,5vw,64px)]">
+      <h2 class="{DISP} text-[clamp(44px,5vw,72px)] text-ink">Care Program</h2>
+      <p class="mt-4 text-[clamp(16px,1vw+10px,19px)] text-sub">고민에 맞춘 네 가지 관리 프로그램</p>
+    </div>
+    <div class="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-12 2xl:grid-cols-4">
 ''' + '\n'.join(
-    f'''      <a data-reveal class="group relative isolate flex flex-col justify-end min-h-[360px] 2xl:min-h-[480px] rounded-[4px] overflow-hidden text-white p-7 before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[linear-gradient(180deg,rgba(52,41,32,0)_30%,rgba(52,41,32,.85)_100%)]" href="{href}"><img class="absolute inset-0 w-full h-full object-cover -z-[2] transition-transform duration-[600ms] {EASE} group-hover:scale-[1.04]" src="assets/{img}" alt="" loading="lazy" style="object-position:{pos}"><span class="{EN} text-champagne">{en}</span><span class="mt-2 {SERIF} text-[clamp(20px,1vw+14px,26px)] !leading-[1.3]">{t}</span><span class="mt-2 text-[14px] text-white/85 leading-[1.6]">{d}</span><span class="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium tracking-[.04em]">자세히 보기 {ARROW}</span></a>'''
+    f'''      <a class="group block" href="{href}" data-reveal><figure class="aspect-[4/3] overflow-hidden rounded-xl bg-beige"><img class="w-full h-full object-cover transition-transform duration-[600ms] {EASE} group-hover:scale-[1.05]" src="assets/{img}" alt="" loading="lazy" style="object-position:{pos}"></figure><p class="mt-4 sm:mt-5 text-[16px] sm:text-[20px] font-semibold tracking-[-.02em]">{t}</p><p class="mt-1.5 text-[14px] text-sub">{d}</p><span class="{PILL} mt-5 h-10 px-5 text-[13px] group-hover:bg-ink group-hover:text-ivory group-hover:border-ink">View More {ARROW}</span></a>'''
     for href, img, pos, en, t, d in PCARDS) + f'''
     </div>
   </div>
@@ -395,9 +399,41 @@ home = f'''{hero_slider()}
   <div class="{WRAP} flex flex-wrap gap-x-8 gap-y-2"><a class="{MORE} mt-8" href="review.html">후기 모두 보기 {ARROW}</a><a class="{MORE} mt-8" href="{NAVER}" target="_blank" rel="noopener">네이버에서 리뷰 전체 보기 {ARROW}</a></div>
 </section>
 
-{clinic_sec()}
+<section id="location" class="{SEC}">
+  <div class="{WRAP}">
+    <div class="text-center mb-[clamp(40px,5vw,64px)]">
+      <h2 class="{DISP} text-[clamp(44px,5vw,72px)] text-ink">Location</h2>
+      <p class="mt-4 text-[clamp(16px,1vw+10px,19px)] text-sub">김해 장유, 율하숲길</p>
+    </div>
+    <div class="relative">
+      <figure class="aspect-[4/3] md:aspect-[16/8] overflow-hidden rounded-2xl bg-beige" data-par><img class="w-full h-full object-cover" src="assets/entrance.webp" alt="아르쎄에스테틱 입구" loading="lazy" style="object-position:50% 45%"></figure>
+      <div class="relative -mt-16 mx-4 md:mx-0 md:absolute md:left-10 md:-bottom-10 md:mt-0 md:w-[min(520px,55%)] rounded-2xl bg-espresso text-linen p-8 md:p-10 shadow-[0_20px_50px_rgba(46,38,33,.25)]" data-reveal>
+        <p class="font-mark text-[13px] tracking-[.24em] text-champagne">ARCÉ AESTHETIC</p>
+        <p class="mt-3 text-[clamp(22px,2vw,28px)] font-semibold tracking-[-.02em]">아르쎄에스테틱</p>
+        <dl class="mt-6 grid gap-2 text-[15px] [&>div]:flex [&>div]:gap-4 [&_dt]:w-16 [&_dt]:flex-none [&_dt]:text-champagne">
+          <div><dt>주소</dt><dd class="js-addr"></dd></div>
+          <div><dt>영업</dt><dd>월–토 10:00 – 21:00 · 일요일 휴무</dd></div>
+          <div><dt>주차</dt><dd>지하주차장</dd></div>
+        </dl>
+        <p class="mt-5 font-display text-[clamp(26px,2.4vw,34px)] tabular-nums"><a class="js-tel js-tel-text" href="#"></a></p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <a class="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-[#FEE500] text-[#191919] text-[14px] font-medium js-kakao" href="#"><svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
+          <a class="inline-flex items-center gap-2 h-11 px-5 rounded-full border border-linen/50 text-[14px] font-medium hover:bg-linen hover:text-espresso transition-colors js-map" href="#" target="_blank" rel="noopener">네이버 지도 {ARROW}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-{ctaband('관리 전, 지금 얼굴의 균형부터 확인해 보세요.', '1:1 상담은 대표원장이 직접 진행합니다. 상담 후 결정하셔도 괜찮습니다.')}
+<section class="pt-[clamp(80px,9vw,140px)] pb-[clamp(96px,11vw,160px)] bg-mist">
+  <div class="{WRAP} text-center">
+    <h2 class="text-[clamp(24px,2.4vw,34px)] font-semibold tracking-[-.03em]">나에게 맞는 관리 찾기</h2>
+    <div class="mt-10 grid gap-3 grid-cols-2 lg:grid-cols-3 max-w-[960px] mx-auto">
+''' + ''.join(
+    f'''      <a class="flex items-center justify-between gap-3 min-h-[56px] px-5 rounded-md border border-line bg-ivory text-[15px] text-left transition-colors duration-200 hover:border-ink hover:bg-white" href="{h}">{t}{ARROW}</a>
+''' for t, h in HOME_FIND) + '''    </div>
+  </div>
+</section>
 '''
 page('index.html', '아르쎄에스테틱 | 김해 장유 윤곽관리 · 조막얼굴메소드®', '윤곽관리 26년, 조외현 대표원장이 직접 진단하고 관리하는 김해 장유 아르쎄에스테틱. 해부학 기반 조막얼굴메소드®.', 'home', home)
 
@@ -619,7 +655,7 @@ def program(fn, img, pos, en, title, desc, intro, recs, steps, devices, note, ca
       {''.join(f'<p class="{LEAD}">{x}</p>' for x in intro)}
     </div>
     <div>
-      <p class="{EN} text-bronze mb-5">RECOMMENDED FOR</p>
+      <p class="text-[15px] font-semibold text-bronze mb-5">이런 분께 추천해요</p>
       <ul class="{CHK}">{rec}</ul>
       {notep}
     </div>
