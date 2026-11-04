@@ -110,6 +110,7 @@ def page(fn, title, desc, cur, body, og='assets/corridor.webp'):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<script>if('scrollRestoration' in history)history.scrollRestoration='manual'</script>
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta property="og:title" content="{title}">

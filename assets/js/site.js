@@ -8,7 +8,15 @@ const CONFIG = {
 
 (() => {
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  if (!location.hash) { document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0); document.documentElement.style.scrollBehavior = ''; }
+  if (!location.hash) {
+    let touched = false;
+    const mark = () => { touched = true; };
+    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(t => addEventListener(t, mark, { once: true, passive: true }));
+    const toTop = () => { if (touched || location.hash) return; window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); };
+    toTop();
+    addEventListener('load', () => { toTop(); setTimeout(toTop, 300); setTimeout(toTop, 1000); });
+    addEventListener('pageshow', e => { if (e.persisted) touched = true; });
+  }
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
