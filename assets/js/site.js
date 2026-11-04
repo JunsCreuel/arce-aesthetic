@@ -1,6 +1,6 @@
 const CONFIG = {
   phone: '055-903-3002',
-  kakaoUrl: 'https://pf.kakao.com/',
+  kakaoUrl: 'https://pf.kakao.com/_xeaxfFC',
   address: '경남 김해시 율하숲길 21 303호',
   mapUrl: 'https://map.naver.com/p/search/' + encodeURIComponent('경남 김해시 율하숲길 21'),
   formEndpoint: ''
