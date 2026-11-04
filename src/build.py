@@ -496,14 +496,11 @@ def feed_row(i, img, pos, t1, t2, d):
     </article>"""
 
 
-brand = f"""<section id="top" class="relative flex flex-col items-center justify-center min-h-[min(64svh,560px)] bg-sand text-white text-center pt-hh">
-  <h1 class="{DISP} text-[clamp(56px,7vw,104px)]">Brand</h1>
-  <p class="mt-4 text-[clamp(15px,1vw+10px,18px)] text-white/90">얼굴을 더하지 않고, 흩어진 균형을 바로잡습니다</p>
-  <div class="absolute left-1/2 bottom-8 -translate-x-1/2 flex flex-col items-center gap-2 text-white/85" aria-hidden="true"><span class="font-display text-[14px] tracking-[.08em]">Scroll down</span><span class="relative block w-px h-12 bg-white/50 after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-0 after:w-1.5 after:h-1.5 after:rounded-full after:bg-white motion-safe:after:animate-[cue_2.4s_ease-in-out_infinite]"></span></div>
-</section>
-<section id="about" class="relative isolate overflow-hidden bg-espresso text-linen py-[clamp(120px,15vw,220px)] text-center before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.62)]" aria-label="아르쎄의 철학">
+brand = f"""<section id="about" class="relative isolate overflow-hidden bg-espresso text-linen pt-[calc(var(--hh)+clamp(96px,12vw,180px))] pb-[clamp(120px,15vw,220px)] min-h-[100svh] flex items-center text-center before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.62)]" aria-label="아르쎄의 철학">
+  <div id="top" class="absolute inset-0 pointer-events-none"></div>
   <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover" src="assets/corridor.webp" alt="" loading="lazy" style="object-position:50% 40%"></div>
   <div class="{WRAP}">
+    <h1 class="sr-only">아르쎄에스테틱 브랜드 소개</h1>
     <p class="{DISP} text-[clamp(40px,6vw,92px)] text-ivory">Face Contour, Rebalanced</p>
     <p class="mt-10 text-[clamp(15px,1vw+10px,18px)] text-ivory/85 leading-[2]">같은 골격이라도 씹는 습관, 자세, 순환 상태에 따라<br class="max-sm:hidden"> 얼굴의 윤곽은 달라집니다.<br><br>아르쎄는 무언가를 더하기보다<br class="max-sm:hidden"> 흩어진 균형을 제자리로 돌려놓습니다.</p>
     <p class="mt-10 text-[clamp(17px,1.2vw+10px,22px)] font-semibold text-champagne leading-[1.7]">처음에는 느리지만,<br>시간이 갈수록 가속도가 붙는 변화.</p>
