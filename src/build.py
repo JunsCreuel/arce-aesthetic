@@ -479,37 +479,42 @@ CARE = [
 H4 = 'mb-3 text-[14px] font-bold text-bronze'
 
 FEED = [('consult.webp', '60% 50%', '관리 전, 원장이', '직접 진단합니다', '얼굴 비율과 좌우 균형, 근육의 긴장도를 먼저 분석하고 지금 필요한 관리만 제안합니다.'), ('method-3.webp', '50% 55%', '정교한 손기술 위에', '엄선한 정품 장비', '프랑스 LPG®, 스페인 Termosalud 등 검증된 장비를 손기술과 함께 설계해 관리의 깊이를 더합니다.'), ('method-2.webp', '50% 45%', '대표원장이 직접,', '처음부터 끝까지.', '상담부터 관리, 사후 홈케어 가이드까지 한 분이 책임집니다.')]
-CIRCLES = [('DIAGNOSIS FIRST', '진단이 먼저입니다', '대표원장의 1:1 진단 후 필요한 관리만 제안합니다.'), ('ANATOMY BASED', '해부학에 근거합니다', '근육과 근막의 구조를 따라 관리하는 조막얼굴메소드®'), ('WELL AGEING', '시술 없이 아름답게', '본래의 균형을 회복하는 웰에이징 관리')]
+CIRCLES = [('diag', 'DIAGNOSIS FIRST', '진단이 먼저입니다', '대표원장의 1:1 진단 후<br>필요한 관리만 제안합니다.'), ('anat', 'ANATOMY BASED', '해부학에 근거합니다', '근육과 근막의 구조를 따라<br>관리하는 조막얼굴메소드®'), ('well', 'WELL AGEING', '시술 없이 아름답게', '본래의 균형을 회복하는<br>웰에이징 관리'), ('one', 'ONE DIRECTOR', '처음부터 끝까지', '상담부터 관리, 홈케어 가이드까지<br>대표원장이 직접')]
+CIRCLE_ICON = {'diag': '<path d="M12 4a4 4 0 0 1 4 4c0 3-4 5-4 5s-4-2-4-5a4 4 0 0 1 4-4z"/><path d="M6 20c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5"/><path d="M17 8h3M18.5 6.5v3"/>', 'anat': '<path d="M12 3v18"/><path d="M8 6c-2 2-2 5 0 7M16 6c2 2 2 5 0 7"/><path d="M6 17c2 1.5 4 2 6 2s4-.5 6-2"/>', 'well': '<path d="M12 21c-4-3-7-6.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 3.5-3 7-7 10z"/><path d="M9 12h6M12 9v6"/>', 'one': '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.5 3.8-5.5 7-5.5s5.8 2 7 5.5"/><path d="M4 4l2 2M20 4l-2 2"/>'}
 FIND = [('붓기 · 비대칭 · 턱선', 'program-face.html'), ('탄력과 피부결', 'program-aging.html'), ('목 · 어깨 · 승모근', 'program-body.html'), ('산전 · 산후 회복', 'program-mom.html'), ('조막얼굴메소드®', 'method.html'), ('정품 장비', 'equipment.html')]
-HL = 'bg-[linear-gradient(transparent_58%,#EADFCE_58%)] px-1 -mx-1'
+HL = 'bg-[linear-gradient(transparent_55%,#E6D3B8_55%)] px-1 -mx-1'
 
 
 def feed_row(i, img, pos, t1, t2, d):
     rev = i % 2 == 1
-    return f"""    <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-24">
-      <div class="{'lg:order-2' if rev else ''}" data-reveal>
-        <h3 class="{SERIF} text-[clamp(24px,2.4vw,36px)]">{t1}<br><span class="{HL}">{t2}</span></h3>
-        <p class="mt-6 text-sub text-[15px] leading-[1.8] max-w-[26em]">{d}</p>
+    return f"""    <article class="grid items-center lg:grid-cols-2">
+      <div class="px-gutter py-12 lg:py-0 {'lg:order-2 lg:pl-20' if rev else 'lg:pl-[max(var(--gutter),calc((100vw-1360px)/2+var(--gutter)))] lg:pr-20'}" data-reveal>
+        <h3 class="text-[clamp(24px,2.2vw,34px)] font-semibold tracking-[-.03em] leading-[1.45]">{t1}<br><span class="{HL}">{t2}</span></h3>
+        <p class="mt-6 text-sub text-[15px] leading-[1.85] max-w-[26em]">{d}</p>
       </div>
-      <figure class="relative aspect-[5/4] overflow-hidden rounded-[4px] bg-beige {'lg:order-1' if rev else ''}" data-reveal data-par><img class="w-full h-full object-cover" src="assets/{img}" alt="" loading="lazy" style="object-position:{pos}"></figure>
+      <figure class="relative aspect-[4/3] lg:aspect-auto lg:h-[min(46vw,560px)] overflow-hidden bg-beige {'lg:order-1' if rev else ''}" data-par><img class="w-full h-full object-cover" src="assets/{img}" alt="" loading="lazy" style="object-position:{pos}"></figure>
     </article>"""
 
 
-brand = phero('corridor.webp', 'ABOUT ARCÉ', '얼굴을 더하지 않습니다', '흩어진 균형을 제자리로 돌려놓는 것. 아르쎄가 26년간 지켜온 관리의 기준입니다.', [('ARCÉ', None)], '50% 40%') + f"""
-<section id="about" class="relative isolate overflow-hidden bg-espresso text-linen py-[clamp(120px,15vw,220px)] text-center before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.72)]" aria-label="아르쎄의 철학">
-  <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover" src="assets/interior-hero.webp" alt="" loading="lazy" style="object-position:50% 50%"></div>
+brand = f"""<section id="top" class="relative flex flex-col items-center justify-center min-h-[min(64svh,560px)] bg-sand text-white text-center pt-hh">
+  <h1 class="{DISP} text-[clamp(56px,7vw,104px)]">Brand</h1>
+  <p class="mt-4 text-[clamp(15px,1vw+10px,18px)] text-white/90">얼굴을 더하지 않고, 흩어진 균형을 바로잡습니다</p>
+  <div class="absolute left-1/2 bottom-8 -translate-x-1/2 flex flex-col items-center gap-2 text-white/85" aria-hidden="true"><span class="font-display text-[14px] tracking-[.08em]">Scroll down</span><span class="relative block w-px h-12 bg-white/50 after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-0 after:w-1.5 after:h-1.5 after:rounded-full after:bg-white motion-safe:after:animate-[cue_2.4s_ease-in-out_infinite]"></span></div>
+</section>
+<section id="about" class="relative isolate overflow-hidden bg-espresso text-linen py-[clamp(120px,15vw,220px)] text-center before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.62)]" aria-label="아르쎄의 철학">
+  <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover" src="assets/corridor.webp" alt="" loading="lazy" style="object-position:50% 40%"></div>
   <div class="{WRAP}">
-    <p class="font-mark text-[clamp(30px,5vw,72px)] tracking-[.08em] leading-[1.15] text-ivory">FACE CONTOUR, REBALANCED</p>
-    <p class="mt-10 {SERIF} text-[clamp(20px,1.8vw,28px)] text-ivory/90">얼굴을 더하지 않습니다.<br>흩어진 균형을 제자리로 돌려놓습니다.</p>
-    <p class="mt-6 text-[clamp(15px,1vw+10px,18px)] text-champagne">처음에는 느리지만, 시간이 갈수록 가속도가 붙는 변화.</p>
+    <p class="{DISP} text-[clamp(40px,6vw,92px)] text-ivory">Face Contour, Rebalanced</p>
+    <p class="mt-10 text-[clamp(15px,1vw+10px,18px)] text-ivory/85 leading-[2]">같은 골격이라도 씹는 습관, 자세, 순환 상태에 따라<br class="max-sm:hidden"> 얼굴의 윤곽은 달라집니다.<br><br>아르쎄는 무언가를 더하기보다<br class="max-sm:hidden"> 흩어진 균형을 제자리로 돌려놓습니다.</p>
+    <p class="mt-10 text-[clamp(17px,1.2vw+10px,22px)] font-semibold text-champagne leading-[1.7]">처음에는 느리지만,<br>시간이 갈수록 가속도가 붙는 변화.</p>
   </div>
 </section>
 <section class="{SEC}">
   <div class="{WRAP}">
-    <div class="grid justify-items-center gap-6 md:grid-cols-3 md:gap-0 md:justify-items-stretch max-w-[1080px] mx-auto">
+    <div class="grid grid-cols-2 gap-3 justify-items-center lg:flex lg:justify-center lg:gap-0 max-w-[1240px] mx-auto">
 """ + ''.join(
-    f"""      <div class="grid place-items-center text-center aspect-square w-full max-w-[280px] md:max-w-[340px] rounded-full {'bg-beige' if i == 1 else 'border border-line'} px-[12%] md:-mx-3" data-reveal><div><p class="font-mark text-[11px] tracking-[.24em] text-bronze">{en}</p><p class="mt-3 {SERIF} text-[clamp(18px,1.4vw,22px)]">{t}</p><p class="mt-3 text-[14px] text-sub leading-[1.7]">{d}</p></div></div>
-""" for i, (en, t, d) in enumerate(CIRCLES)) + f"""    </div>
+    f"""      <div class="flex items-center justify-center text-center aspect-square w-full max-w-[300px] lg:w-[300px] lg:flex-none rounded-full {'bg-beige border border-beige' if i % 2 == 1 else 'border border-line'} px-4 sm:px-9 lg:-mx-4" data-reveal><div class="w-full"><svg class="mx-auto w-9 h-9 sm:w-11 sm:h-11 text-bronze" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{CIRCLE_ICON[ic]}</svg><p class="mt-3 font-mark text-[10px] sm:text-[11px] tracking-[.2em] text-bronze">{en}</p><p class="mt-2 text-[15px] sm:text-[18px] font-semibold tracking-[-.02em]">{t}</p><p class="mt-2 text-[12px] sm:text-[13px] text-sub leading-[1.65] max-sm:hidden">{d}</p></div></div>
+""" for i, (ic, en, t, d) in enumerate(CIRCLES)) + f"""    </div>
   </div>
 </section>
 <section id="space" class="py-[clamp(96px,10vw,140px)] bg-mist" aria-labelledby="spaceT">
@@ -531,8 +536,8 @@ brand = phero('corridor.webp', 'ABOUT ARCÉ', '얼굴을 더하지 않습니다'
     </div>
   </div>
 </section>
-<section class="{SEC}">
-  <div class="{WRAP} grid gap-[clamp(96px,10vw,160px)]">
+<section class="py-[clamp(48px,6vw,96px)]">
+  <div class="grid gap-[clamp(24px,4vw,64px)]">
 """ + '\n'.join(feed_row(i, *r) for i, r in enumerate(FEED)) + f"""
   </div>
 </section>

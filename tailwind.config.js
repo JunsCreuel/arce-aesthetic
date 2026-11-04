@@ -51,6 +51,7 @@ module.exports = {
         rise: { from: { opacity: '0', transform: 'translateY(16px) scale(.97)' }, to: { opacity: '1', transform: 'none' } },
         pop: { from: { opacity: '0', transform: 'scale(.96)' }, to: { opacity: '1', transform: 'none' } },
         fade: { from: { opacity: '0' }, to: { opacity: '1' } },
+        cue: { '0%': { transform: 'translate(-50%,0)', opacity: '0' }, '20%': { opacity: '1' }, '100%': { transform: 'translate(-50%,42px)', opacity: '0' } },
         float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } }
       },
       animation: {
