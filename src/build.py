@@ -3,6 +3,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
+SITE = 'https://arceaesthetic.com'
 REVIEWS = json.loads((ROOT / 'src' / 'reviews.json').read_text(encoding='utf-8'))
 
 WRAP = 'w-full max-w-site mx-auto px-gutter'
@@ -115,7 +116,11 @@ def page(fn, title, desc, cur, body, og='assets/corridor.webp'):
 <meta name="description" content="{desc}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="{og}">
+<meta property="og:image" content="{SITE}/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="{SITE}/{"" if fn == "index.html" else fn}">
+<meta property="og:type" content="website">
 <meta name="theme-color" content="#1E3A4C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
