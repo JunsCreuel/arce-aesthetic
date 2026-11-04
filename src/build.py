@@ -1,3 +1,4 @@
+import re
 import json
 from pathlib import Path
 from urllib.parse import quote
@@ -288,33 +289,25 @@ def eq_sec(head=True):
 </section>'''
 
 
-def review_card(r, grid=False):
-    kw = ''.join(f'<span class="text-[12px] py-1 px-2.5 rounded-[2px] border border-line text-ink">{k}</span>' for k in r['kw'])
-    flex = '' if grid else 'flex-[0_0_min(84vw,360px)] snap-start'
-    return f'''<article class="group {flex} flex flex-col gap-3 border-t border-[rgba(58,48,41,.28)] pt-6 px-1 pb-2" data-rv>
-        <div class="flex justify-between items-baseline gap-3 text-[13px] text-sub"><b class="text-[15px] text-text">{r['who']}</b><span>{r['when']}</span></div>
-        <p class="text-[15px] leading-[1.7] line-clamp-6 group-[.open]:line-clamp-none" data-rv-body>{r['body']}</p>
-        <button class="self-start text-[13px] font-medium tracking-[.04em] text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
-        <div class="mt-auto flex flex-wrap gap-1.5">{kw}</div>
+def review_title(body):
+    t = re.sub(r'<br\s*/?>', '\n', body)
+    t = re.sub(r'<[^>]+>', '', t).strip()
+    first = re.split(r'(?<=[.!?~])\s|\n', t)[0].strip()
+    first = re.sub(r'[\s~.!]+$', '', first)
+    return first if len(first) <= 34 else first[:32].rstrip() + '…'
+
+
+def review_card(r, extra=''):
+    kw = ''.join(f'<span class="text-[12px] py-1 px-2.5 rounded-full bg-mist text-ink">{k}</span>' for k in r['kw'])
+    return f'''<article class="group flex flex-col rounded-xl border border-line bg-white overflow-hidden {extra}" data-rv data-reveal>
+        <div class="flex-1 flex flex-col p-6">
+          <h3 class="text-[17px] font-semibold tracking-[-.02em] leading-[1.45] line-clamp-2">{review_title(r['body'])}</h3>
+          <p class="mt-3 text-[14px] text-sub leading-[1.75] line-clamp-4 group-[.open]:line-clamp-none" data-rv-body>{r['body']}</p>
+          <button class="self-start mt-2 text-[13px] font-medium text-bronze min-h-8" type="button" hidden data-rv-more>더보기</button>
+          <div class="mt-auto pt-5 flex flex-wrap gap-1.5">{kw}</div>
+        </div>
+        <div class="flex justify-between items-center gap-3 px-6 py-3.5 bg-mist text-[13px] text-sub"><span class="font-medium text-text">{r['who']}</span><span>{r['when']}</span></div>
       </article>'''
-
-
-KW = [('관리 효과가 좋아요', 115), ('맞춤 케어를 잘해줘요', 106), ('친절해요', 93), ('시술이 꼼꼼해요', 91)]
-
-
-def rv_head():
-    rows = ''.join(
-        f'<li class="grid grid-cols-[132px_minmax(0,1fr)_36px] items-center gap-3 text-[13px] text-sub"><span>{n}</span>'
-        f'<span class="h-px bg-[rgba(58,48,41,.16)]"><i class="block h-px bg-ink origin-left scale-x-[.02] transition-transform duration-1000 {EASE} group-[.in]:scale-x-[var(--w)]" style="--w:{c / KW[0][1]:.3f}"></i></span>'
-        f'<span class="text-right font-display text-[16px] tabular-nums">{c}</span></li>'
-        for n, c in KW)
-    return f'''<div class="{WRAP} grid gap-8 mb-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,480px)] lg:items-end">
-    <div>
-      <h2 id="rvT" class="{SERIF} text-[clamp(26px,2.6vw,38px)]">방문자 리뷰 <span class="font-display font-medium text-[1.25em] text-bronze tabular-nums" data-count>133</span></h2>
-      <p class="mt-3 text-sub text-[15px]">네이버 플레이스에 고객님들이 직접 남겨주신 후기입니다.</p>
-    </div>
-    <ul class="group grid gap-3 max-w-[520px] w-full" id="kw" aria-label="리뷰 키워드 통계">{rows}</ul>
-  </div>'''
 
 
 NAVER = 'https://m.place.naver.com/place/2088530746/review/visitor'
@@ -391,12 +384,18 @@ home = f'''{hero_slider()}
   </div>
 </section>
 
-<section id="reviews" class="py-[clamp(96px,10vw,140px)] bg-beige" aria-labelledby="rvT">
-  {rv_head()}
-  <div class="flex gap-8 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-gutter pb-2 scroll-px-gutter cursor-grab overscroll-x-contain" id="rvTrack" tabindex="0" aria-label="방문자 리뷰">
-      {''.join(review_card(r) for r in REVIEWS)}
+<section id="reviews" class="{SEC} bg-mist" aria-labelledby="rvT">
+  <div class="{WRAP}">
+    <div class="text-center mb-[clamp(40px,5vw,64px)]">
+      <h2 id="rvT" class="{DISP} text-[clamp(44px,5vw,72px)] text-ink">Review</h2>
+      <p class="mt-4 text-[clamp(16px,1vw+10px,19px)] text-sub">네이버 플레이스에 고객님들이 직접 남겨주신 후기입니다.</p>
+    </div>
+    <div class="flex justify-between items-end gap-4 mb-5 text-[14px] text-sub"><p>Total <b class="text-bronze tabular-nums" data-count>133</b>건</p><a class="inline-flex items-center gap-1.5 hover:text-text" href="{NAVER}" target="_blank" rel="noopener">네이버에서 보기 {ARROW}</a></div>
+    <div class="grid grid-flow-col auto-cols-[82%] gap-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-gutter px-gutter scroll-px-gutter md:mx-0 md:px-0 md:grid-flow-row md:auto-cols-auto md:grid-cols-2 xl:grid-cols-4 md:overflow-visible">
+      {''.join(review_card(r, 'snap-start') for r in REVIEWS[:4])}
+    </div>
+    <div class="mt-12 text-center"><a class="{PILL}" href="review.html">후기 모두 보기 {ARROW}</a></div>
   </div>
-  <div class="{WRAP} flex flex-wrap gap-x-8 gap-y-2"><a class="{MORE} mt-8" href="review.html">후기 모두 보기 {ARROW}</a><a class="{MORE} mt-8" href="{NAVER}" target="_blank" rel="noopener">네이버에서 리뷰 전체 보기 {ARROW}</a></div>
 </section>
 
 <section id="location" class="{SEC}">
@@ -709,12 +708,17 @@ eq = phero('interior-hero.webp', 'PREMIUM DEVICE', '손기술 위에, 정품 장
 page('equipment.html', '장비 소개 | 아르쎄에스테틱', '프랑스 LPG® 알리안스, 써마웨이브™, 스페인 Termosalud 자이오닉. 아르쎄에스테틱의 프리미엄 장비.', 'equipment', eq, 'assets/eq-lpg.webp')
 
 review = phero('lounge-masks.webp', 'REVIEW', '고객후기', '네이버 플레이스에 고객님들이 직접 남겨주신 방문자 리뷰입니다.', [('고객후기', None)], '50% 60%') + f'''
-<section id="reviews" class="py-[clamp(96px,10vw,140px)] bg-ivory" aria-labelledby="rvT">
-  {rv_head()}
-  <div class="grid gap-x-10 gap-y-12 px-gutter max-w-site mx-auto md:grid-cols-2 2xl:grid-cols-3">
-{chr(10).join(review_card(r, grid=True) for r in REVIEWS)}
+<section id="reviews" class="{SEC}" aria-labelledby="rvT">
+  <div class="{WRAP}">
+    <div class="text-center mb-[clamp(40px,5vw,64px)]">
+      <h2 id="rvT" class="text-[clamp(28px,2.8vw,40px)] font-semibold tracking-[-.03em]">방문자 리뷰</h2>
+      <p class="mt-3 text-[clamp(15px,.6vw+12px,18px)] text-sub">네이버 플레이스에 고객님들이 직접 남겨주신 후기입니다.</p>
+    </div>
+    <div class="flex justify-between items-end gap-4 mb-5 text-[14px] text-sub"><p>Total <b class="text-bronze tabular-nums" data-count>133</b>건</p><a class="inline-flex items-center gap-1.5 hover:text-text" href="{NAVER}" target="_blank" rel="noopener">네이버에서 보기 {ARROW}</a></div>
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+{chr(10).join(review_card(r) for r in REVIEWS)}
+    </div>
   </div>
-  <div class="{WRAP}"><a class="{MORE} mt-8" href="{NAVER}" target="_blank" rel="noopener">네이버에서 리뷰 전체 보기 {ARROW}</a></div>
 </section>
 <section class="{SEC} bg-beige">
   <div class="{WRAP}">
