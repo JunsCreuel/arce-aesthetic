@@ -4,6 +4,7 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = 'https://arceaesthetic.com'
+VER = __import__('time').strftime('%y%m%d%H%M')
 REVIEWS = json.loads((ROOT / 'src' / 'reviews.json').read_text(encoding='utf-8'))
 
 WRAP = 'w-full max-w-site mx-auto px-gutter'
@@ -127,7 +128,7 @@ def page(fn, title, desc, cur, body, og='assets/corridor.webp'):
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v={VER}">
 </head>
 <body>
 {header(cur)}
@@ -135,7 +136,7 @@ def page(fn, title, desc, cur, body, og='assets/corridor.webp'):
 {body}
 </main>
 {FOOTER}
-<script src="assets/js/site.js"></script>
+<script src="assets/js/site.js?v={VER}"></script>
 </body>
 </html>
 '''
