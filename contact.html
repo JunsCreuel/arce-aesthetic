@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/site.css?v=2611040627">
+<link rel="stylesheet" href="assets/css/site.css?v=2611040634">
 </head>
 <body>
 <header id="hdr" class="fixed inset-x-0 top-0 z-50 h-[calc(var(--hh)+env(safe-area-inset-top,0px))] pt-[env(safe-area-inset-top,0px)] bg-ivory text-text shadow-[0_1px_0_#E2D6C4] transition-[background-color,transform,box-shadow] duration-300 ease-soft [&.hide]:-translate-y-full">
@@ -70,18 +70,27 @@
     </div>
   </div>
 </section>
-<section id="clinic" class="relative isolate flex items-end min-h-[100svh] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[linear-gradient(180deg,rgba(52,41,32,0)_30%,rgba(52,41,32,.6)_55%,rgba(52,41,32,.94)_100%)] lg:before:bg-[linear-gradient(180deg,rgba(52,41,32,0)_35%,rgba(52,41,32,.55)_60%,rgba(52,41,32,.92)_100%)]" aria-labelledby="clinicT">
-  <div class="absolute inset-0 -z-[2]" aria-hidden="true"><img id="clinicImg" class="w-full h-[118%] object-cover object-[50%_45%] will-change-transform motion-reduce:!transform-none" src="assets/entrance.webp" alt="" loading="lazy" width="1500" height="2000"></div>
-  <div class="w-full max-w-site mx-auto px-gutter pt-[120px] pb-[clamp(56px,7vw,96px)]">
-    <h2 id="clinicT" class="leading-[0]"><img class="block w-auto h-[clamp(150px,17vw,250px)]" src="assets/logo-light.webp" width="260" height="267" alt="아르쎄에스테틱 오시는 길" loading="lazy"></h2>
-    <dl class="mt-12 grid grid-cols-2 gap-x-4 gap-y-6 border-t border-white/30 pt-6 lg:grid-cols-4">
-      <div class="grid gap-1"><dt class="text-[13px] text-champagne">영업시간</dt><dd class="text-[17px] font-medium tabular-nums">월–토 10:00 – 21:00</dd></div>
-      <div class="grid gap-1"><dt class="text-[13px] text-champagne">휴무</dt><dd class="text-[17px] font-medium tabular-nums">일요일 정기휴무</dd></div>
-      <div class="grid gap-1"><dt class="text-[13px] text-champagne">주차</dt><dd class="text-[17px] font-medium tabular-nums">지하주차장</dd></div>
-      <div class="grid gap-1"><dt class="text-[13px] text-champagne">전화</dt><dd class="text-[17px] font-medium tabular-nums"><a class="js-tel js-tel-text underline underline-offset-4 decoration-white/40" href="#"></a></dd></div>
-      <div class="grid gap-1 lg:col-span-2"><dt class="text-[13px] text-champagne">주소</dt><dd class="text-[17px] font-medium tabular-nums js-addr"></dd></div>
-    </dl>
-    <a class="inline-flex items-center gap-2.5 font-medium tracking-[.04em] min-h-12 border-b border-current [&_svg]:transition-transform [&_svg]:duration-200 [&_svg]:ease-soft [&:hover_svg]:translate-x-1 mt-8 js-map" href="#" target="_blank" rel="noopener">네이버 지도에서 보기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a>
+<section id="clinic" class="py-[clamp(96px,11vw,160px)] bg-mist" aria-labelledby="clinicT">
+  <div class="w-full max-w-site mx-auto px-gutter">
+    <div class="text-center mb-[clamp(40px,5vw,64px)]">
+      <h2 id="clinicT" class="font-display font-normal leading-[1.05] tracking-[.01em] text-[clamp(44px,5vw,72px)] text-ink">Location</h2>
+      <p class="mt-4 text-[clamp(16px,1vw+10px,19px)] text-sub">오시는 길</p>
+    </div>
+    <div class="grid gap-8 lg:grid-cols-[7fr_5fr] lg:gap-14 items-stretch">
+      <div class="relative min-h-[320px] lg:min-h-[480px] overflow-hidden rounded-2xl bg-beige border border-line" data-reveal>
+        <iframe class="absolute inset-0 w-full h-full border-0" src="https://maps.google.com/maps?q=%EA%B2%BD%EB%82%A8%20%EA%B9%80%ED%95%B4%EC%8B%9C%20%EC%9C%A8%ED%95%98%EC%88%B2%EA%B8%B8%2021&z=17&output=embed" title="아르쎄에스테틱 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="flex flex-col" data-reveal>
+        <img class="w-auto h-[64px] self-start" src="assets/logo.webp" width="260" height="267" alt="" loading="lazy">
+        <p class="mt-4 text-[clamp(22px,2vw,28px)] font-semibold tracking-[-.02em]">아르쎄에스테틱</p>
+        <dl class="mt-5 border-t border-text"><div class="grid grid-cols-[88px_minmax(0,1fr)] gap-4 py-4 border-b border-line"><dt class="text-[14px] font-semibold text-bronze">주소</dt><dd class="text-[15px] leading-[1.7]"><span class="js-addr"></span></dd></div><div class="grid grid-cols-[88px_minmax(0,1fr)] gap-4 py-4 border-b border-line"><dt class="text-[14px] font-semibold text-bronze">영업시간</dt><dd class="text-[15px] leading-[1.7]">월요일 – 토요일 10:00 – 21:00</dd></div><div class="grid grid-cols-[88px_minmax(0,1fr)] gap-4 py-4 border-b border-line"><dt class="text-[14px] font-semibold text-bronze">휴무</dt><dd class="text-[15px] leading-[1.7]">일요일 정기휴무</dd></div><div class="grid grid-cols-[88px_minmax(0,1fr)] gap-4 py-4 border-b border-line"><dt class="text-[14px] font-semibold text-bronze">주차</dt><dd class="text-[15px] leading-[1.7]">건물 지하주차장 이용</dd></div><div class="grid grid-cols-[88px_minmax(0,1fr)] gap-4 py-4 border-b border-line"><dt class="text-[14px] font-semibold text-bronze">전화</dt><dd class="text-[15px] leading-[1.7]"><a class="js-tel js-tel-text underline underline-offset-4 decoration-line" href="#"></a></dd></div><div class="grid grid-cols-[88px_minmax(0,1fr)] gap-4 py-4 border-b border-line"><dt class="text-[14px] font-semibold text-bronze">상담</dt><dd class="text-[15px] leading-[1.7]"><a class="js-kakao underline underline-offset-4 decoration-line" href="#">카카오톡 상담</a> · <a class="underline underline-offset-4 decoration-line" href="contact.html#reserve">상담 예약 신청</a></dd></div></dl>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <a class="inline-flex items-center gap-2 h-11 px-5 rounded-full border border-line bg-white text-[14px] font-medium transition-colors duration-200 hover:bg-ink hover:text-ivory hover:border-ink js-map" href="#" target="_blank" rel="noopener">네이버 지도 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a>
+          <a class="inline-flex items-center gap-2 h-11 px-5 rounded-full border border-line bg-white text-[14px] font-medium transition-colors duration-200 hover:bg-ink hover:text-ivory hover:border-ink" href="https://map.kakao.com/link/search/%EA%B2%BD%EB%82%A8%20%EA%B9%80%ED%95%B4%EC%8B%9C%20%EC%9C%A8%ED%95%98%EC%88%B2%EA%B8%B8%2021" target="_blank" rel="noopener">카카오맵 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a>
+          <a class="inline-flex items-center gap-2 h-11 px-5 rounded-full border border-line bg-white text-[14px] font-medium transition-colors duration-200 hover:bg-ink hover:text-ivory hover:border-ink" href="https://www.google.com/maps/search/?api=1&query=%EA%B2%BD%EB%82%A8%20%EA%B9%80%ED%95%B4%EC%8B%9C%20%EC%9C%A8%ED%95%98%EC%88%B2%EA%B8%B8%2021" target="_blank" rel="noopener">구글 지도 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -107,6 +116,6 @@
     <button class="block w-full h-11 xl:h-12 border-t border-line/80 font-mark text-[12px] xl:text-[14px] tracking-[.12em] text-text transition-colors duration-200 hover:bg-white/70" id="toTop" type="button" aria-label="맨 위로">TOP</button>
   </div>
 </aside>
-<script src="assets/js/site.js?v=2611040627"></script>
+<script src="assets/js/site.js?v=2611040634"></script>
 </body>
 </html>

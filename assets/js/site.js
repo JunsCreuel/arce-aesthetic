@@ -76,17 +76,6 @@ const CONFIG = {
       requestAnimationFrame(drift);
     }
 
-    const clinic = $('#clinic');
-    if (clinic) {
-      const cl = () => {
-        const r = clinic.getBoundingClientRect(), vh = innerHeight;
-        if (r.bottom < 0 || r.top > vh) return;
-        const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * .8)));
-        const inset = (1 - p) * Math.min(innerWidth * .06, 72);
-        clinic.style.clipPath = `inset(0 ${inset.toFixed(1)}px round ${((1 - p) * 24).toFixed(1)}px)`;
-      };
-      addEventListener('scroll', () => requestAnimationFrame(cl), { passive: true }); cl();
-    }
 
     const par = $$('[data-par] img');
     const rows = $$('[data-mq]');

@@ -313,23 +313,43 @@ def review_card(r, extra=''):
 NAVER = 'https://m.place.naver.com/place/2088530746/review/visitor'
 
 
-def clinic_sec():
-    dd = 'text-[17px] font-medium tabular-nums'
-    dt = 'text-[13px] text-champagne'
-    return f'''<section id="clinic" class="relative isolate flex items-end min-h-[100svh] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[linear-gradient(180deg,rgba(52,41,32,0)_30%,rgba(52,41,32,.6)_55%,rgba(52,41,32,.94)_100%)] lg:before:bg-[linear-gradient(180deg,rgba(52,41,32,0)_35%,rgba(52,41,32,.55)_60%,rgba(52,41,32,.92)_100%)]" aria-labelledby="clinicT">
-  <div class="absolute inset-0 -z-[2]" aria-hidden="true"><img id="clinicImg" class="w-full h-[118%] object-cover object-[50%_45%] will-change-transform motion-reduce:!transform-none" src="assets/entrance.webp" alt="" loading="lazy" width="1500" height="2000"></div>
-  <div class="{WRAP} pt-[120px] pb-[clamp(56px,7vw,96px)]">
-    <h2 id="clinicT" class="leading-[0]"><img class="block w-auto h-[clamp(150px,17vw,250px)]" src="assets/logo-light.webp" width="260" height="267" alt="아르쎄에스테틱 오시는 길" loading="lazy"></h2>
-    <dl class="mt-12 grid grid-cols-2 gap-x-4 gap-y-6 border-t border-white/30 pt-6 lg:grid-cols-4">
-      <div class="grid gap-1"><dt class="{dt}">영업시간</dt><dd class="{dd}">월–토 10:00 – 21:00</dd></div>
-      <div class="grid gap-1"><dt class="{dt}">휴무</dt><dd class="{dd}">일요일 정기휴무</dd></div>
-      <div class="grid gap-1"><dt class="{dt}">주차</dt><dd class="{dd}">지하주차장</dd></div>
-      <div class="grid gap-1"><dt class="{dt}">전화</dt><dd class="{dd}"><a class="js-tel js-tel-text underline underline-offset-4 decoration-white/40" href="#"></a></dd></div>
-      <div class="grid gap-1 lg:col-span-2"><dt class="{dt}">주소</dt><dd class="{dd} js-addr"></dd></div>
-    </dl>
-    <a class="{MORE.replace('gap-2', 'gap-2.5')} mt-8 js-map" href="#" target="_blank" rel="noopener">네이버 지도에서 보기 {ARROW}</a>
+MAP_Q = '%EA%B2%BD%EB%82%A8%20%EA%B9%80%ED%95%B4%EC%8B%9C%20%EC%9C%A8%ED%95%98%EC%88%B2%EA%B8%B8%2021'
+LOC_BTN = 'inline-flex items-center gap-2 h-11 px-5 rounded-full border border-line bg-white text-[14px] font-medium transition-colors duration-200 hover:bg-ink hover:text-ivory hover:border-ink'
+
+
+def location_sec(sid='clinic', title_tag='h2'):
+    rows = [
+        ('주소', '<span class="js-addr"></span>'),
+        ('영업시간', '월요일 – 토요일 10:00 – 21:00'),
+        ('휴무', '일요일 정기휴무'),
+        ('주차', '건물 지하주차장 이용'),
+        ('전화', '<a class="js-tel js-tel-text underline underline-offset-4 decoration-line" href="#"></a>'),
+        ('상담', '<a class="js-kakao underline underline-offset-4 decoration-line" href="#">카카오톡 상담</a> · <a class="underline underline-offset-4 decoration-line" href="contact.html#reserve">상담 예약 신청</a>'),
+    ]
+    dl = ''.join(f'<div class="grid grid-cols-[88px_minmax(0,1fr)] gap-4 py-4 border-b border-line"><dt class="text-[14px] font-semibold text-bronze">{k}</dt><dd class="text-[15px] leading-[1.7]">{v}</dd></div>' for k, v in rows)
+    return f"""<section id="{sid}" class="{SEC} bg-mist" aria-labelledby="{sid}T">
+  <div class="{WRAP}">
+    <div class="text-center mb-[clamp(40px,5vw,64px)]">
+      <{title_tag} id="{sid}T" class="{DISP} text-[clamp(44px,5vw,72px)] text-ink">Location</{title_tag}>
+      <p class="mt-4 text-[clamp(16px,1vw+10px,19px)] text-sub">오시는 길</p>
+    </div>
+    <div class="grid gap-8 lg:grid-cols-[7fr_5fr] lg:gap-14 items-stretch">
+      <div class="relative min-h-[320px] lg:min-h-[480px] overflow-hidden rounded-2xl bg-beige border border-line" data-reveal>
+        <iframe class="absolute inset-0 w-full h-full border-0" src="https://maps.google.com/maps?q={MAP_Q}&z=17&output=embed" title="아르쎄에스테틱 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="flex flex-col" data-reveal>
+        <img class="w-auto h-[64px] self-start" src="assets/logo.webp" width="260" height="267" alt="" loading="lazy">
+        <p class="mt-4 text-[clamp(22px,2vw,28px)] font-semibold tracking-[-.02em]">아르쎄에스테틱</p>
+        <dl class="mt-5 border-t border-text">{dl}</dl>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <a class="{LOC_BTN} js-map" href="#" target="_blank" rel="noopener">네이버 지도 {ARROW}</a>
+          <a class="{LOC_BTN}" href="https://map.kakao.com/link/search/{MAP_Q}" target="_blank" rel="noopener">카카오맵 {ARROW}</a>
+          <a class="{LOC_BTN}" href="https://www.google.com/maps/search/?api=1&query={MAP_Q}" target="_blank" rel="noopener">구글 지도 {ARROW}</a>
+        </div>
+      </div>
+    </div>
   </div>
-</section>'''
+</section>"""
 
 
 def ba_solo():
@@ -398,31 +418,7 @@ home = f'''{hero_slider()}
   </div>
 </section>
 
-<section id="location" class="{SEC}">
-  <div class="{WRAP}">
-    <div class="text-center mb-[clamp(40px,5vw,64px)]">
-      <h2 class="{DISP} text-[clamp(44px,5vw,72px)] text-ink">Location</h2>
-      <p class="mt-4 text-[clamp(16px,1vw+10px,19px)] text-sub">김해 장유, 율하숲길</p>
-    </div>
-    <div class="relative">
-      <figure class="aspect-[4/3] md:aspect-[16/8] overflow-hidden rounded-2xl bg-beige" data-par><img class="w-full h-full object-cover" src="assets/entrance.webp" alt="아르쎄에스테틱 입구" loading="lazy" style="object-position:50% 45%"></figure>
-      <div class="relative -mt-16 mx-4 md:mx-0 md:absolute md:left-10 md:-bottom-10 md:mt-0 md:w-[min(520px,55%)] rounded-2xl bg-espresso text-linen p-8 md:p-10 shadow-[0_20px_50px_rgba(46,38,33,.25)]" data-reveal>
-        <p class="font-mark text-[13px] tracking-[.24em] text-champagne">ARCÉ AESTHETIC</p>
-        <p class="mt-3 text-[clamp(22px,2vw,28px)] font-semibold tracking-[-.02em]">아르쎄에스테틱</p>
-        <dl class="mt-6 grid gap-2 text-[15px] [&>div]:flex [&>div]:gap-4 [&_dt]:w-16 [&_dt]:flex-none [&_dt]:text-champagne">
-          <div><dt>주소</dt><dd class="js-addr"></dd></div>
-          <div><dt>영업</dt><dd>월–토 10:00 – 21:00 · 일요일 휴무</dd></div>
-          <div><dt>주차</dt><dd>지하주차장</dd></div>
-        </dl>
-        <p class="mt-5 font-display text-[clamp(26px,2.4vw,34px)] tabular-nums"><a class="js-tel js-tel-text" href="#"></a></p>
-        <div class="mt-6 flex flex-wrap gap-2">
-          <a class="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-[#FEE500] text-[#191919] text-[14px] font-medium js-kakao" href="#"><svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg>카카오톡 상담</a>
-          <a class="inline-flex items-center gap-2 h-11 px-5 rounded-full border border-linen/50 text-[14px] font-medium hover:bg-linen hover:text-espresso transition-colors js-map" href="#" target="_blank" rel="noopener">네이버 지도 {ARROW}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{location_sec('location')}
 
 <section class="pt-[clamp(80px,9vw,140px)] pb-[clamp(96px,11vw,160px)] bg-mist">
   <div class="{WRAP} text-center">
@@ -862,6 +858,6 @@ contact = phero('entrance.webp', 'CONTACT &amp; LOCATION', '상담·오시는 �
     </div>
   </div>
 </section>
-{clinic_sec()}
+{location_sec()}
 '''
 page('contact.html', '상담·오시는 길 | 아르쎄에스테틱', '경남 김해시 율하숲길 21 303호. 월–토 10:00–21:00, 일요일 정기휴무. 아르쎄에스테틱 상담 문의.', 'contact', contact, 'assets/entrance.webp')
