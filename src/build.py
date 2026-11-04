@@ -110,7 +110,6 @@ def page(fn, title, desc, cur, body, og='assets/corridor.webp'):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
 <script>if('scrollRestoration' in history)history.scrollRestoration='manual'</script>
 <title>{title}</title>
 <meta name="description" content="{desc}">
@@ -192,7 +191,7 @@ HS = [
 
 def hero_slider():
     slides = ''.join(
-        f'<div class="group absolute inset-0 -z-[2] opacity-0 transition-opacity duration-[1200ms] {EASE} [&.on]:opacity-100{" on" if i == 0 else ""}" aria-hidden="true" data-hs="slide">'
+        f'<div class="group absolute inset-0 -z-[2] opacity-0 [&>img]:will-change-transform transition-opacity duration-[1200ms] {EASE} [&.on]:opacity-100{" on" if i == 0 else ""}" aria-hidden="true" data-hs="slide">'
         f'<img class="w-full h-full object-cover scale-[1.08] transition-transform duration-[7000ms] ease-linear group-[.on]:scale-100" src="assets/{img}" alt="" style="object-position:{pos}"{" fetchpriority=high" if i == 0 else " loading=lazy"}></div>'
         for i, (img, pos, *_r) in enumerate(HS))
     txts = ''.join(
@@ -249,7 +248,7 @@ def method_sec():
         <p class="mt-5 text-[clamp(16px,.8vw+12px,20px)] text-[rgba(243,235,221,.66)] max-w-[22em]" id="stepD">좌우 비율과 근육의 긴장을 원장이 직접 확인합니다.</p>
       </div>
     </div>
-    <figure class="relative w-full max-w-[480px] justify-self-center aspect-[4/5] overflow-hidden rounded-[4px] bg-ink" id="face">{imgs}</figure>
+    <figure class="relative w-full max-w-[480px] justify-self-center aspect-[4/5] overflow-hidden rounded-[4px] bg-ink" id="face" data-reveal>{imgs}</figure>
   </div>
 </section>'''
 
@@ -271,7 +270,7 @@ def eq_sec(head=True):
     {head_html}
     <div class="flex gap-2 {"mt-10" if head else ""} overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="장비 선택" id="eqTabs">{tabs}</div>
     <div class="grid gap-8 mt-8 items-center lg:grid-cols-[6fr_5fr] lg:gap-20" id="eqPanel" role="tabpanel" aria-live="polite">
-      <div class="relative aspect-square max-h-[640px] w-full grid place-items-center overflow-hidden bg-[radial-gradient(closest-side,#EEE3D2_0%,#EEE3D2_62%,rgba(210,237,233,0)_100%)]"><img class="max-w-[72%] max-h-[84%] w-auto h-auto object-contain drop-shadow-[0_24px_32px_rgba(52,41,32,.16)] animate-rise" id="eqImg" src="assets/eq-lpg.webp" alt="LPG 알리안스 장비" width="530" height="852" loading="lazy"></div>
+      <div class="relative aspect-square max-h-[640px] w-full overflow-hidden [perspective:900px] bg-[radial-gradient(closest-side,#EEE3D2_0%,#EEE3D2_62%,rgba(210,237,233,0)_100%)]" id="eqStage" data-reveal><div class="absolute inset-0 transition-transform duration-500 ease-soft [transform-style:preserve-3d]" id="eqTilt"><div class="absolute inset-0 motion-safe:animate-float"><img class="absolute inset-0 m-auto w-[72%] h-[84%] object-contain drop-shadow-[0_24px_32px_rgba(52,41,32,.16)] animate-rise" id="eqImg" src="assets/eq-lpg.webp" alt="LPG 알리안스 장비" width="530" height="852" loading="lazy"></div></div></div>
       <div class="animate-swap" id="eqText">
         <p class="my-3 font-mark text-[12px] tracking-[.24em] text-bronze" id="eqBrand">LPG® · 프랑스</p>
         <h3 class="mt-2 {SERIF} text-[clamp(30px,3vw,44px)] !leading-[1.2]" id="eqName">LPG® 알리안스</h3>
@@ -382,7 +381,7 @@ home = f'''{hero_slider()}
     {sh('CARE PROGRAM', '고민에 맞춘<br>네 가지 관리 프로그램')}
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 2xl:grid-cols-4">
 ''' + '\n'.join(
-    f'''      <a class="group relative isolate flex flex-col justify-end min-h-[360px] 2xl:min-h-[480px] rounded-[4px] overflow-hidden text-white p-7 before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[linear-gradient(180deg,rgba(52,41,32,0)_30%,rgba(52,41,32,.85)_100%)]" href="{href}"><img class="absolute inset-0 w-full h-full object-cover -z-[2] transition-transform duration-[600ms] {EASE} group-hover:scale-[1.04]" src="assets/{img}" alt="" loading="lazy" style="object-position:{pos}"><span class="{EN} text-champagne">{en}</span><span class="mt-2 {SERIF} text-[clamp(20px,1vw+14px,26px)] !leading-[1.3]">{t}</span><span class="mt-2 text-[14px] text-white/85 leading-[1.6]">{d}</span><span class="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium tracking-[.04em]">자세히 보기 {ARROW}</span></a>'''
+    f'''      <a data-reveal class="group relative isolate flex flex-col justify-end min-h-[360px] 2xl:min-h-[480px] rounded-[4px] overflow-hidden text-white p-7 before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[linear-gradient(180deg,rgba(52,41,32,0)_30%,rgba(52,41,32,.85)_100%)]" href="{href}"><img class="absolute inset-0 w-full h-full object-cover -z-[2] transition-transform duration-[600ms] {EASE} group-hover:scale-[1.04]" src="assets/{img}" alt="" loading="lazy" style="object-position:{pos}"><span class="{EN} text-champagne">{en}</span><span class="mt-2 {SERIF} text-[clamp(20px,1vw+14px,26px)] !leading-[1.3]">{t}</span><span class="mt-2 text-[14px] text-white/85 leading-[1.6]">{d}</span><span class="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium tracking-[.04em]">자세히 보기 {ARROW}</span></a>'''
     for href, img, pos, en, t, d in PCARDS) + f'''
     </div>
   </div>
@@ -499,7 +498,7 @@ brand = phero('corridor.webp', 'ABOUT ARCÉ', '얼굴을 더하지 않습니다'
   </div>
   <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-gutter scroll-px-gutter cursor-grab overscroll-x-contain" id="gal" tabindex="0" aria-label="매장 사진">
 ''' + ''.join(
-    f'''    <figure class="group relative flex-none snap-start overflow-hidden rounded-[4px] bg-mist h-[clamp(420px,68vh,720px)] {"aspect-[4/3] max-sm:w-[90vw]" if wide else "aspect-[3/4] max-sm:w-[78vw]"} max-sm:h-auto"><img class="w-full h-full object-cover pointer-events-none transition-transform duration-[600ms] {EASE} group-hover:scale-[1.03]" src="assets/{src}" width="{w}" height="{h}" alt="{alt}" loading="lazy"><figcaption class="absolute left-4 bottom-3.5 text-white text-[14px] font-semibold [text-shadow:0_1px_8px_rgba(0,0,0,.35)]">{cap}</figcaption></figure>
+    f'''    <figure data-reveal class="group relative flex-none snap-start overflow-hidden rounded-[4px] bg-mist h-[clamp(420px,68vh,720px)] {"aspect-[4/3] max-sm:w-[90vw]" if wide else "aspect-[3/4] max-sm:w-[78vw]"} max-sm:h-auto"><img class="w-full h-full object-cover pointer-events-none transition-transform duration-[600ms] {EASE} group-hover:scale-[1.03]" src="assets/{src}" width="{w}" height="{h}" alt="{alt}" loading="lazy"><figcaption class="absolute left-4 bottom-3.5 text-white text-[14px] font-semibold [text-shadow:0_1px_8px_rgba(0,0,0,.35)]">{cap}</figcaption></figure>
 ''' for src, w, h, alt, cap, wide in GAL) + f'''  </div>
 </section>
 <section id="care" class="py-[clamp(96px,10vw,140px)]" aria-labelledby="careT">
@@ -509,7 +508,7 @@ brand = phero('corridor.webp', 'ABOUT ARCÉ', '얼굴을 더하지 않습니다'
   </div>
   <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-gutter scroll-px-gutter lg:max-w-site lg:mx-auto lg:justify-center lg:overflow-visible" id="careRow">
 ''' + ''.join(
-    f'''    <figure class="flex-[0_0_min(64vw,300px)] snap-start aspect-[9/16] rounded-[4px] overflow-hidden bg-beige lg:flex-[1_1_0] lg:max-w-[340px]"><video class="block w-full h-full object-cover" poster="assets/{n}.jpg" muted loop playsinline preload="none" aria-label="{a}"><source src="assets/{n}.mp4" type="video/mp4"><source src="assets/{n}.webm" type="video/webm"></video></figure>
+    f'''    <figure data-reveal class="flex-[0_0_min(64vw,300px)] snap-start aspect-[9/16] rounded-[4px] overflow-hidden bg-beige lg:flex-[1_1_0] lg:max-w-[340px]"><video class="block w-full h-full object-cover" poster="assets/{n}.jpg" muted loop playsinline preload="none" aria-label="{a}"><source src="assets/{n}.mp4" type="video/mp4"><source src="assets/{n}.webm" type="video/webm"></video></figure>
 ''' for n, a in CARE) + f'''  </div>
 </section>
 {ctaband('대표원장이 직접, 처음부터 끝까지.', '상담부터 관리, 사후 홈케어 가이드까지 한 분이 책임집니다.')}

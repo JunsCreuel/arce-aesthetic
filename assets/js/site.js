@@ -33,6 +33,61 @@ const CONFIG = {
     const once = (el, cls = 'is-in', th = .3) => io(el, ([e], o) => { if (e.isIntersecting) { el.classList.add(cls); o.disconnect(); } }, { threshold: th });
     $$('[data-ph]').forEach(el => { el.classList.add('ph'); once(el, 'is-in', .25); });
 
+    $$('[data-reveal]').forEach(el => {
+      const sibs = [...el.parentElement.children].filter(c => c.hasAttribute('data-reveal'));
+      el.style.setProperty('--d', Math.max(0, sibs.indexOf(el)) % 4);
+      el.classList.add('rv-up'); once(el, 'is-in', .15);
+    });
+
+    const hsEl = $('#hs');
+    if (hsEl && matchMedia('(pointer:fine)').matches) {
+      const hsSlides = $$('[data-hs=slide]', hsEl);
+      hsSlides.forEach(sl => { sl.style.transition += ', transform .8s cubic-bezier(0.23,1,0.32,1)'; sl.style.transform = 'scale(1.04)'; });
+      hsEl.addEventListener('pointermove', e => {
+        const x = (e.clientX / innerWidth - .5) * -24, y = (e.clientY / innerHeight - .5) * -16;
+        hsSlides.forEach(sl => { sl.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) scale(1.04)`; });
+      });
+    }
+
+    const stage = $('#eqStage'), tilt = $('#eqTilt');
+    if (stage && tilt && matchMedia('(pointer:fine)').matches) {
+      stage.addEventListener('pointermove', e => {
+        const r = stage.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        tilt.style.transform = `rotateY(${(x * 14).toFixed(2)}deg) rotateX(${(y * -10).toFixed(2)}deg)`;
+      });
+      stage.addEventListener('pointerleave', () => { tilt.style.transform = ''; });
+    }
+
+    const track = $('#rvTrack');
+    if (track) {
+      let hold = false, vis = false, acc = 0;
+      ['pointerenter', 'touchstart', 'focusin'].forEach(t => track.addEventListener(t, () => { hold = true; track.style.scrollSnapType = ''; }, { passive: true }));
+      ['pointerleave', 'focusout'].forEach(t => track.addEventListener(t, () => { hold = false; }));
+      io(track, ([e]) => { vis = e.isIntersecting; }, { threshold: .2 });
+      const drift = () => {
+        if (vis && !hold) {
+          track.style.scrollSnapType = 'none';
+          acc += .5; const step = Math.floor(acc); acc -= step;
+          if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 2) track.scrollLeft = 0; else track.scrollLeft += step;
+        }
+        requestAnimationFrame(drift);
+      };
+      requestAnimationFrame(drift);
+    }
+
+    const clinic = $('#clinic');
+    if (clinic) {
+      const cl = () => {
+        const r = clinic.getBoundingClientRect(), vh = innerHeight;
+        if (r.bottom < 0 || r.top > vh) return;
+        const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * .8)));
+        const inset = (1 - p) * Math.min(innerWidth * .06, 72);
+        clinic.style.clipPath = `inset(0 ${inset.toFixed(1)}px round ${((1 - p) * 24).toFixed(1)}px)`;
+      };
+      addEventListener('scroll', () => requestAnimationFrame(cl), { passive: true }); cl();
+    }
+
     const par = $$('[data-par] img');
     const rows = $$('[data-mq]');
     rows.forEach(row => { const sp = row.firstElementChild; sp.innerHTML += sp.innerHTML; });
@@ -164,10 +219,14 @@ const CONFIG = {
     };
     eqTabs.forEach((t, i) => {
       t.addEventListener('click', () => setEq(i));
-      t.addEventListener('keydown', e => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; const n = (i + d + EQ.length) % EQ.length; setEq(n); eqTabs[n].focus(); });
+      t.addEventListener('keydown', e => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; const n = (i + d + EQ.length) % EQ.length; eqManual = true; ei = n; setEq(n); eqTabs[n].focus(); });
     });
     const start = Math.max(0, ['lpg', 'thermawave', 'zionic'].indexOf(location.hash.slice(1)));
     setEq(start);
+    let ei = start, eqManual = false, eqVis = false, eqT = null;
+    const eqNext = () => { clearTimeout(eqT); if (reduce || eqManual || !eqVis) return; eqT = setTimeout(() => { ei = (ei + 1) % EQ.length; setEq(ei); eqNext(); }, 5000); };
+    eqTabs.forEach((t, i) => t.addEventListener('click', () => { eqManual = true; ei = i; clearTimeout(eqT); }));
+    io($('#eqPanel'), ([e]) => { eqVis = e.isIntersecting; eqNext(); }, { threshold: .4 });
   }
 
   const cv = $('#cv');

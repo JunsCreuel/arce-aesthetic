@@ -50,7 +50,8 @@ module.exports = {
         swap: { from: { opacity: '0', transform: 'translateY(10px)' }, to: { opacity: '1', transform: 'none' } },
         rise: { from: { opacity: '0', transform: 'translateY(16px) scale(.97)' }, to: { opacity: '1', transform: 'none' } },
         pop: { from: { opacity: '0', transform: 'scale(.96)' }, to: { opacity: '1', transform: 'none' } },
-        fade: { from: { opacity: '0' }, to: { opacity: '1' } }
+        fade: { from: { opacity: '0' }, to: { opacity: '1' } },
+        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } }
       },
       animation: {
         swap: 'swap .4s cubic-bezier(0.23,1,0.32,1)',
@@ -59,7 +60,8 @@ module.exports = {
         pop: 'pop .25s cubic-bezier(0.23,1,0.32,1)',
         fade: 'fade .2s cubic-bezier(0.23,1,0.32,1)',
         'fill-6': 'fill 6s linear forwards',
-        'fill-step': 'fill var(--dur,5s) linear forwards'
+        'fill-step': 'fill var(--dur,5s) linear forwards',
+        float: 'float 6s ease-in-out infinite'
       }
     }
   },
