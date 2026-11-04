@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/site.css?v=2611040600">
+<link rel="stylesheet" href="assets/css/site.css?v=2611040605">
 </head>
 <body>
 <header id="hdr" class="fixed inset-x-0 top-0 z-50 h-[calc(var(--hh)+env(safe-area-inset-top,0px))] pt-[env(safe-area-inset-top,0px)] bg-ivory text-text shadow-[0_1px_0_#E2D6C4] transition-[background-color,transform,box-shadow] duration-300 ease-soft [&.hide]:-translate-y-full">
@@ -39,45 +39,68 @@
   </div>
 </div>
 <main>
-<section id="top" class="relative isolate flex items-end min-h-[min(62svh,560px)] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[linear-gradient(180deg,rgba(52,41,32,.45)_0%,rgba(52,41,32,.35)_40%,rgba(52,41,32,.88)_100%)]">
+<section id="top" class="relative isolate flex items-center justify-center text-center min-h-[min(70svh,620px)] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.45)]">
   <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover will-change-transform" src="assets/stock-body.webp" alt="" style="object-position:50% 60%"></div>
-  <div class="w-full max-w-site mx-auto px-gutter pt-[calc(var(--hh)+48px)] pb-[clamp(40px,6vw,72px)]">
-    <nav class="flex gap-2 text-[13px] text-white/75 mb-5" aria-label="현재 위치"><a class="underline underline-offset-[3px] decoration-white/35" href="index.html">홈</a> <span aria-hidden="true">/</span> <a class="underline underline-offset-[3px] decoration-white/35" href="program-face.html">관리 프로그램</a> <span aria-hidden="true">/</span> <span>바디 밸런스 케어</span></nav>
-    <h1 class="font-sans font-semibold tracking-[-.03em] leading-[1.38] text-[clamp(32px,4vw,56px)]">바디 밸런스 케어</h1>
-    <p class="mt-4 text-[clamp(15px,.8vw+11px,19px)] font-light text-white/85 max-w-[34em] leading-[1.7]">목·어깨·승모근부터 바디 라인까지, 체형의 균형과 순환을 함께 다루는 관리입니다.</p>
+  <div class="w-full max-w-site mx-auto px-gutter pt-hh">
+    <p class="font-display font-normal leading-[1.05] tracking-[.01em] text-[clamp(44px,6vw,88px)]">Body Balance</p>
+    <h1 class="mt-3 text-[clamp(18px,1.4vw+10px,24px)] font-semibold tracking-[-.02em]">바디 밸런스 케어</h1>
+    <p class="mt-3 text-[clamp(14px,.6vw+11px,17px)] text-white/80 max-w-[34em] mx-auto leading-[1.7]">목·어깨·승모근부터 바디 라인까지, 체형의 균형과 순환을 함께 다루는 관리입니다.</p>
   </div>
+  <div class="absolute left-1/2 bottom-6 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70" aria-hidden="true"><span class="font-display text-[14px] tracking-[.08em]">Scroll down</span><span class="block w-px h-8 bg-white/50"></span></div>
 </section>
+<nav class="flex flex-wrap justify-center gap-2 px-gutter pt-10" aria-label="관리 프로그램"><a class="inline-flex items-center h-10 px-5 rounded-full text-[14px] border transition-colors duration-200 bg-ivory border-line text-sub hover:border-ink hover:text-text" href="program-face.html">페이스 윤곽 케어</a><a class="inline-flex items-center h-10 px-5 rounded-full text-[14px] border transition-colors duration-200 bg-ivory border-line text-sub hover:border-ink hover:text-text" href="program-aging.html">안티에이징 케어</a><a class="inline-flex items-center h-10 px-5 rounded-full text-[14px] border transition-colors duration-200 bg-ink text-ivory border-ink" href="program-body.html" aria-current=page>바디 밸런스 케어</a><a class="inline-flex items-center h-10 px-5 rounded-full text-[14px] border transition-colors duration-200 bg-ivory border-line text-sub hover:border-ink hover:text-text" href="program-mom.html">산전·산후 케어</a></nav>
 <section class="py-[clamp(96px,11vw,160px)]">
-  <div class="w-full max-w-site mx-auto px-gutter grid gap-10 items-center lg:grid-cols-[6fr_5fr] lg:gap-24">
+  <div class="w-full max-w-site mx-auto px-gutter grid gap-10 items-center lg:grid-cols-2 lg:gap-20">
+    <figure class="aspect-[4/5] max-h-[620px] w-full overflow-hidden rounded-2xl bg-beige" data-reveal data-par><img class="w-full h-full object-cover" src="assets/stock-body.webp" alt="" loading="lazy" style="object-position:50% 60%"></figure>
+    <div data-reveal>
+      <h2 class="text-[clamp(26px,2.6vw,38px)] font-semibold tracking-[-.03em] text-bronze">바디 밸런스 케어</h2>
+      <p class="mt-6 font-display text-[48px] leading-[.5] text-champagne" aria-hidden="true">“</p>
+      <p class="mt-3 text-[16px] leading-[1.85] max-w-[32em]">얼굴 라인은 목과 어깨에서 시작됩니다. 뭉친 승모근과 굽은 자세는 순환을 막아 얼굴 붓기와 바디 실루엣에까지 영향을 줍니다.</p><p class="mt-3 text-[16px] leading-[1.85] max-w-[32em]">바디 밸런스 케어는 체형의 불균형을 진단하고, 손기술과 정품 장비를 함께 사용해 뭉친 조직을 풀고 순환을 정돈합니다.</p>
+      <div class="mt-10 grid grid-cols-3 divide-x divide-line border-y border-line py-5"><div class="px-3 text-center"><p class="font-display text-[15px] text-bronze">진행</p><p class="mt-1 text-[14px] font-medium">대표원장 1:1</p></div><div class="px-3 text-center"><p class="font-display text-[15px] text-bronze">과정</p><p class="mt-1 text-[14px] font-medium">4 Steps</p></div><div class="px-3 text-center"><p class="font-display text-[15px] text-bronze">장비</p><p class="mt-1 text-[14px] font-medium">LPG® 알리안스 · 자이오닉</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="pb-[clamp(96px,11vw,160px)]">
+  <div class="w-full max-w-site mx-auto px-gutter max-w-[760px]">
+    <h2 class="text-center text-[clamp(22px,2vw,30px)] font-semibold tracking-[-.03em]">이런 분께 추천해요</h2>
+    <ul class="mt-8 rounded-2xl bg-white px-6 sm:px-10 py-3 text-[16px]" data-reveal><li class="flex gap-3 py-3.5 border-b border-line last:border-b-0"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>목·어깨·승모근이 늘 뭉쳐 있는 분</span></li><li class="flex gap-3 py-3.5 border-b border-line last:border-b-0"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>오래 앉아서 일하는 분</span></li><li class="flex gap-3 py-3.5 border-b border-line last:border-b-0"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>몸의 좌우 균형이 틀어진 느낌이 드는 분</span></li><li class="flex gap-3 py-3.5 border-b border-line last:border-b-0"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>셀룰라이트와 붓기가 고민인 분</span></li></ul>
+    
+  </div>
+</section>
+<section class="py-[clamp(96px,11vw,160px)] bg-espresso text-linen overflow-hidden">
+  <div class="w-full max-w-site mx-auto px-gutter grid gap-12 items-center lg:grid-cols-[5fr_6fr] lg:gap-20">
+    <figure class="aspect-[4/3] lg:aspect-[4/5] overflow-hidden rounded-2xl bg-ink" data-reveal data-par><img class="w-full h-full object-cover" src="assets/method-2.webp" alt="" loading="lazy" style="object-position:50% 45%"></figure>
     <div>
-      <div class="mb-[clamp(32px,4vw,56px)]"><h2 class="font-sans font-semibold tracking-[-.03em] leading-[1.38] text-[clamp(28px,3vw,44px)]">프로그램 소개</h2></div>
-      <p class="text-[clamp(18px,1vw+13px,24px)] leading-[1.75] font-light max-w-[30em] [&+&]:mt-5">얼굴 라인은 목과 어깨에서 시작됩니다. 뭉친 승모근과 굽은 자세는 순환을 막아 얼굴 붓기와 바디 실루엣에까지 영향을 줍니다.</p><p class="text-[clamp(18px,1vw+13px,24px)] leading-[1.75] font-light max-w-[30em] [&+&]:mt-5">바디 밸런스 케어는 체형의 불균형을 진단하고, 손기술과 정품 장비를 함께 사용해 뭉친 조직을 풀고 순환을 정돈합니다.</p>
-    </div>
-    <div>
-      <p class="text-[15px] font-semibold text-bronze mb-5">이런 분께 추천해요</p>
-      <ul class="grid gap-3.5 [&>li]:grid [&>li]:grid-cols-[20px_minmax(0,1fr)] [&>li]:gap-3.5 [&>li]:items-start [&>li]:text-[clamp(16px,.4vw+14px,18px)] [&>li]:leading-[1.6] [&>li]:before:content-[''] [&>li]:before:w-5 [&>li]:before:h-px [&>li]:before:mt-[.85em] [&>li]:before:bg-bronze"><li>목·어깨·승모근이 늘 뭉쳐 있는 분</li><li>오래 앉아서 일하는 분</li><li>몸의 좌우 균형이 틀어진 느낌이 드는 분</li><li>셀룰라이트와 붓기가 고민인 분</li></ul>
-      
+      <h2 class="font-display font-normal leading-[1.05] tracking-[.01em] text-[clamp(44px,5vw,72px)] text-ivory">Program Order</h2>
+      <ol class="mt-10 grid gap-7"><li class="flex gap-4 items-start" data-reveal><span class="flex-none inline-flex items-center h-7 px-3 rounded-full border border-champagne/60 font-display text-[13px] tracking-[.06em] text-champagne">STEP 1</span><div><p class="text-[17px] font-semibold">체형 진단</p><p class="mt-1 text-[14px] text-linen/70 leading-[1.7]">자세와 좌우 균형, 뭉침 부위를 확인합니다.</p></div></li><li class="flex gap-4 items-start" data-reveal><span class="flex-none inline-flex items-center h-7 px-3 rounded-full border border-champagne/60 font-display text-[13px] tracking-[.06em] text-champagne">STEP 2</span><div><p class="text-[17px] font-semibold">이완</p><p class="mt-1 text-[14px] text-linen/70 leading-[1.7]">목·어깨·등의 긴장을 손기술로 풉니다.</p></div></li><li class="flex gap-4 items-start" data-reveal><span class="flex-none inline-flex items-center h-7 px-3 rounded-full border border-champagne/60 font-display text-[13px] tracking-[.06em] text-champagne">STEP 3</span><div><p class="text-[17px] font-semibold">장비 케어</p><p class="mt-1 text-[14px] text-linen/70 leading-[1.7]">LPG®·자이오닉으로 순환과 바디 라인을 관리합니다.</p></div></li><li class="flex gap-4 items-start" data-reveal><span class="flex-none inline-flex items-center h-7 px-3 rounded-full border border-champagne/60 font-display text-[13px] tracking-[.06em] text-champagne">STEP 4</span><div><p class="text-[17px] font-semibold">홈케어</p><p class="mt-1 text-[14px] text-linen/70 leading-[1.7]">스트레칭과 생활 습관 가이드를 안내합니다.</p></div></li></ol>
     </div>
   </div>
 </section>
-<section class="py-[clamp(96px,11vw,160px)] bg-beige">
+<section class="py-[clamp(96px,11vw,160px)] bg-mist">
   <div class="w-full max-w-site mx-auto px-gutter">
-    <div class="mb-[clamp(32px,4vw,56px)]"><h2 class="font-sans font-semibold tracking-[-.03em] leading-[1.38] text-[clamp(28px,3vw,44px)]">관리 과정</h2></div>
-    <ol class="grid border-t border-text lg:grid-cols-4 lg:gap-x-8 lg:border-t-0"><li class="grid grid-cols-[64px_minmax(0,1fr)] gap-4 py-6 border-b border-line lg:grid-cols-1 lg:border-t lg:border-t-text lg:border-b-0 lg:pt-5"><span class="font-display text-[15px] text-bronze">01</span><div><b class="text-[clamp(17px,.6vw+14px,20px)]">체형 진단</b><p class="mt-1.5 text-sub text-[15px] leading-[1.7]">자세와 좌우 균형, 뭉침 부위를 확인합니다.</p></div></li><li class="grid grid-cols-[64px_minmax(0,1fr)] gap-4 py-6 border-b border-line lg:grid-cols-1 lg:border-t lg:border-t-text lg:border-b-0 lg:pt-5"><span class="font-display text-[15px] text-bronze">02</span><div><b class="text-[clamp(17px,.6vw+14px,20px)]">이완</b><p class="mt-1.5 text-sub text-[15px] leading-[1.7]">목·어깨·등의 긴장을 손기술로 풉니다.</p></div></li><li class="grid grid-cols-[64px_minmax(0,1fr)] gap-4 py-6 border-b border-line lg:grid-cols-1 lg:border-t lg:border-t-text lg:border-b-0 lg:pt-5"><span class="font-display text-[15px] text-bronze">03</span><div><b class="text-[clamp(17px,.6vw+14px,20px)]">장비 케어</b><p class="mt-1.5 text-sub text-[15px] leading-[1.7]">LPG®·자이오닉으로 순환과 바디 라인을 관리합니다.</p></div></li><li class="grid grid-cols-[64px_minmax(0,1fr)] gap-4 py-6 border-b border-line lg:grid-cols-1 lg:border-t lg:border-t-text lg:border-b-0 lg:pt-5"><span class="font-display text-[15px] text-bronze">04</span><div><b class="text-[clamp(17px,.6vw+14px,20px)]">홈케어</b><p class="mt-1.5 text-sub text-[15px] leading-[1.7]">스트레칭과 생활 습관 가이드를 안내합니다.</p></div></li></ol>
-  </div>
-</section>
-<section class="py-[clamp(96px,11vw,160px)]">
-  <div class="w-full max-w-site mx-auto px-gutter">
-    <div class="mb-[clamp(32px,4vw,56px)]"><h2 class="font-sans font-semibold tracking-[-.03em] leading-[1.38] text-[clamp(28px,3vw,44px)]">함께 사용하는 장비</h2><p class="mt-4 text-sub text-[clamp(15px,.6vw+12px,18px)] max-w-[36em] leading-[1.75]">상태에 따라 손기술에 아래 장비를 더해 관리합니다.</p></div>
-    <div class="flex flex-wrap gap-2"><a class="inline-flex items-center gap-2 min-h-12 px-5 rounded-[2px] border border-line bg-ivory text-[15px] font-medium tracking-[.02em] hover:border-ink" href="equipment.html#lpg">LPG® 알리안스 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a><a class="inline-flex items-center gap-2 min-h-12 px-5 rounded-[2px] border border-line bg-ivory text-[15px] font-medium tracking-[.02em] hover:border-ink" href="equipment.html#zionic">자이오닉 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
-  </div>
-</section>
-<section class="bg-ivory border-t border-line py-[clamp(72px,8vw,112px)]">
-  <div class="w-full max-w-site mx-auto px-gutter flex flex-wrap justify-between items-center gap-x-10 gap-y-6">
-    <div><h2 class="font-sans font-semibold tracking-[-.03em] leading-[1.38] text-[clamp(22px,2.2vw,32px)] text-ink">바디 밸런스 케어, 상담으로 시작하세요.</h2><p class="mt-2.5 text-ink opacity-80">현재 상태를 진단한 뒤 필요한 관리와 회차를 안내해 드립니다.</p></div>
-    <div class="flex flex-wrap gap-2">
-      <a class="inline-flex items-center justify-center gap-2.5 rounded-[2px] font-medium tracking-[.04em] transition-[background-color,color,transform] duration-150 ease-soft active:scale-[.97] [-webkit-tap-highlight-color:transparent] [&_svg]:w-5 [&_svg]:h-5 [&_svg]:flex-none h-[54px] px-[30px] text-[15px] bg-ink text-white hover:bg-bronze" href="contact.html?care=바디 밸런스 케어#reserve">상담 예약</a>
+    <div class="text-center mb-[clamp(40px,5vw,64px)]">
+      <h2 class="font-display font-normal leading-[1.05] tracking-[.01em] text-[clamp(44px,5vw,72px)] text-ink">Knowhow</h2>
+      <p class="mt-4 text-[clamp(16px,1vw+10px,19px)] text-sub">상태에 따라 손기술에 정품 장비를 더해 관리합니다.</p>
     </div>
+    <div class="grid gap-4 lg:grid-cols-2"><article class="grid sm:grid-cols-[200px_minmax(0,1fr)] gap-6 items-center rounded-2xl bg-white p-6" data-reveal>
+          <div class="aspect-[16/10] sm:aspect-square rounded-xl bg-mist grid place-items-center p-4 overflow-hidden"><img class="max-h-full max-w-full object-contain" src="assets/eq-lpg.webp" alt="LPG® 알리안스" loading="lazy"></div>
+          <div><p class="font-mark text-[12px] tracking-[.14em] text-bronze">LPG® · FRANCE</p><h3 class="mt-1.5 text-[20px] font-semibold tracking-[-.02em]">LPG® 알리안스</h3><p class="mt-2 text-[14px] text-sub leading-[1.7]">롤러와 음압으로 피부와 피하 조직을 부드럽게 자극해, 뭉친 조직을 풀고 순환을 돕는 엔더몰로지 장비입니다.</p>
+            <ul class="mt-3 grid gap-1 text-[14px]"><li class="flex gap-2"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>롤러 + 음압(흡입)을 이용한 기계적 자극</span></li><li class="flex gap-2"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>바디 라인, 셀룰라이트, 얼굴 탄력</span></li></ul>
+            <a class="inline-flex items-center gap-2 h-11 px-6 rounded-full border border-current text-[14px] font-medium tracking-[.02em] transition-colors duration-200 hover:bg-ink hover:text-ivory hover:border-ink mt-4 h-9 px-4 text-[13px]" href="equipment.html#lpg">장비 자세히 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
+        </article><article class="grid sm:grid-cols-[200px_minmax(0,1fr)] gap-6 items-center rounded-2xl bg-white p-6" data-reveal>
+          <div class="aspect-[16/10] sm:aspect-square rounded-xl bg-mist grid place-items-center p-4 overflow-hidden"><img class="max-h-full max-w-full object-contain" src="assets/eq-zionic.webp" alt="자이오닉" loading="lazy"></div>
+          <div><p class="font-mark text-[12px] tracking-[.14em] text-bronze">TERMOSALUD · SPAIN</p><h3 class="mt-1.5 text-[20px] font-semibold tracking-[-.02em]">자이오닉</h3><p class="mt-2 text-[14px] text-sub leading-[1.7]">깊게 회전하는 마사지와 고주파 열을 동시에 전달하는 바디 컨투어링 장비입니다.</p>
+            <ul class="mt-3 grid gap-1 text-[14px]"><li class="flex gap-2"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>회전 마사지(MARP) + 470kHz 모노폴라 고주파</span></li><li class="flex gap-2"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>복부, 허벅지, 엉덩이 등 바디</span></li></ul>
+            <a class="inline-flex items-center gap-2 h-11 px-6 rounded-full border border-current text-[14px] font-medium tracking-[.02em] transition-colors duration-200 hover:bg-ink hover:text-ivory hover:border-ink mt-4 h-9 px-4 text-[13px]" href="equipment.html#zionic">장비 자세히 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a></div>
+        </article></div>
+  </div>
+</section>
+<section class="py-[clamp(96px,11vw,160px)] text-center">
+  <div class="w-full max-w-site mx-auto px-gutter">
+    <img class="mx-auto w-auto h-[72px]" src="assets/logo.webp" width="260" height="267" alt="" loading="lazy">
+    <h2 class="mt-8 text-[clamp(22px,2.2vw,32px)] font-semibold tracking-[-.03em]">바디 밸런스 케어, 상담으로 시작하세요.</h2>
+    <p class="mt-3 text-sub">현재 상태를 진단한 뒤 필요한 관리와 회차를 안내해 드립니다.</p>
+    <a class="inline-flex items-center gap-2 h-11 px-6 rounded-full border border-current text-[14px] font-medium tracking-[.02em] transition-colors duration-200 hover:bg-ink hover:text-ivory hover:border-ink mt-8 bg-ink text-ivory border-ink hover:bg-bronze hover:border-bronze" href="contact.html?care=바디 밸런스 케어#reserve">상담 예약 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8 H13 M9 4 L13 8 L9 12"/></svg></a>
   </div>
 </section>
 
@@ -103,6 +126,6 @@
     <button class="block w-full h-11 xl:h-12 border-t border-line/80 font-mark text-[12px] xl:text-[14px] tracking-[.12em] text-text transition-colors duration-200 hover:bg-white/70" id="toTop" type="button" aria-label="맨 위로">TOP</button>
   </div>
 </aside>
-<script src="assets/js/site.js?v=2611040600"></script>
+<script src="assets/js/site.js?v=2611040605"></script>
 </body>
 </html>

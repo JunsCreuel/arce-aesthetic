@@ -631,43 +631,98 @@ method = phero('interior-hero.webp', 'SIGNATURE METHOD', '조막얼굴메소드<
 page('method.html', '조막얼굴메소드® | 아르쎄에스테틱', '해부학 기반으로 대표원장이 직접 개발하고 상표 등록한 아르쎄의 윤곽관리 프로토콜, 조막얼굴메소드®.', 'method', method, 'assets/interior-hero.webp')
 
 
+PROGRAM_TABS = [('program-face.html', '페이스 윤곽 케어'), ('program-aging.html', '안티에이징 케어'), ('program-body.html', '바디 밸런스 케어'), ('program-mom.html', '산전·산후 케어')]
+PROGRAM_EXTRA = {
+    'program-face.html': ('Face Contour', 'method-3.webp', '50% 55%'),
+    'program-aging.html': ('Anti-Aging', 'consult.webp', '60% 50%'),
+    'program-body.html': ('Body Balance', 'method-2.webp', '50% 45%'),
+    'program-mom.html': ('Prenatal Care', 'interior-hero.webp', '50% 50%'),
+}
+DEVICES = {
+    'lpg': ('eq-lpg.webp', 'LPG® · FRANCE', 'LPG® 알리안스', '롤러와 음압으로 피부와 피하 조직을 부드럽게 자극해, 뭉친 조직을 풀고 순환을 돕는 엔더몰로지 장비입니다.', ['롤러 + 음압(흡입)을 이용한 기계적 자극', '바디 라인, 셀룰라이트, 얼굴 탄력']),
+    'thermawave': ('eq-thermawave.webp', 'LPHYSIO · WELLNESS DEVICE', '써마웨이브™', '따뜻한 열감을 이용해 얼굴과 바디의 라인, 탄력을 함께 관리하는 장비입니다.', ['열감을 이용한 관리', '얼굴 라인, 바디 라인']),
+    'zionic': ('eq-zionic.webp', 'TERMOSALUD · SPAIN', '자이오닉', '깊게 회전하는 마사지와 고주파 열을 동시에 전달하는 바디 컨투어링 장비입니다.', ['회전 마사지(MARP) + 470kHz 모노폴라 고주파', '복부, 허벅지, 엉덩이 등 바디']),
+}
+CHECK = '<svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>'
+
+
 def program(fn, img, pos, en, title, desc, intro, recs, steps, devices, note, care):
-    rec = ''.join(f'<li>{r}</li>' for r in recs)
+    disp, oimg, opos = PROGRAM_EXTRA[fn]
+    tabs = ''.join(
+        f'<a class="inline-flex items-center h-10 px-5 rounded-full text-[14px] border transition-colors duration-200 {"bg-ink text-ivory border-ink" if h == fn else "bg-ivory border-line text-sub hover:border-ink hover:text-text"}" href="{h}"{" aria-current=page" if h == fn else ""}>{t}</a>'
+        for h, t in PROGRAM_TABS)
+    dev_names = ' · '.join(DEVICES[h][2] for _, h in devices) if devices else '손기술 중심'
+    info = [('진행', '대표원장 1:1'), ('과정', f'{len(steps)} Steps'), ('장비', dev_names)]
+    info_html = ''.join(
+        f'<div class="px-3 text-center"><p class="font-display text-[15px] text-bronze">{k}</p><p class="mt-1 text-[14px] font-medium">{v}</p></div>'
+        for k, v in info)
+    rec = ''.join(f'<li class="flex gap-3 py-3.5 border-b border-line last:border-b-0">{CHECK}<span>{r}</span></li>' for r in recs)
     st = ''.join(
-        f'<li class="grid grid-cols-[64px_minmax(0,1fr)] gap-4 py-6 border-b border-line lg:grid-cols-1 lg:border-t lg:border-t-text lg:border-b-0 lg:pt-5"><span class="font-display text-[15px] text-bronze">0{i + 1}</span><div><b class="text-[clamp(17px,.6vw+14px,20px)]">{t}</b><p class="mt-1.5 text-sub text-[15px] leading-[1.7]">{d}</p></div></li>'
+        f'<li class="flex gap-4 items-start" data-reveal><span class="flex-none inline-flex items-center h-7 px-3 rounded-full border border-champagne/60 font-display text-[13px] tracking-[.06em] text-champagne">STEP {i + 1}</span><div><p class="text-[17px] font-semibold">{t}</p><p class="mt-1 text-[14px] text-linen/70 leading-[1.7]">{d}</p></div></li>'
         for i, (t, d) in enumerate(steps))
-    dev = ''.join(
-        f'<a class="inline-flex items-center gap-2 min-h-12 px-5 rounded-[2px] border border-line bg-ivory text-[15px] font-medium tracking-[.02em] hover:border-ink" href="equipment.html#{h}">{n} {ARROW}</a>'
-        for n, h in devices)
-    devsec = f'''<section class="{SEC}">
+    dev_cards = ''.join(
+        f'''<article class="grid sm:grid-cols-[200px_minmax(0,1fr)] gap-6 items-center rounded-2xl bg-white p-6" data-reveal>
+          <div class="aspect-[16/10] sm:aspect-square rounded-xl bg-mist grid place-items-center p-4 overflow-hidden"><img class="max-h-full max-w-full object-contain" src="assets/{DEVICES[h][0]}" alt="{DEVICES[h][2]}" loading="lazy"></div>
+          <div><p class="font-mark text-[12px] tracking-[.14em] text-bronze">{DEVICES[h][1]}</p><h3 class="mt-1.5 text-[20px] font-semibold tracking-[-.02em]">{DEVICES[h][2]}</h3><p class="mt-2 text-[14px] text-sub leading-[1.7]">{DEVICES[h][3]}</p>
+            <ul class="mt-3 grid gap-1 text-[14px]">{''.join(f'<li class="flex gap-2">{CHECK}<span>{x}</span></li>' for x in DEVICES[h][4])}</ul>
+            <a class="{PILL} mt-4 h-9 px-4 text-[13px]" href="equipment.html#{h}">장비 자세히 {ARROW}</a></div>
+        </article>''' for _, h in devices)
+    devsec = f'''<section class="{SEC} bg-mist">
   <div class="{WRAP}">
-    {sh('DEVICE', '함께 사용하는 장비', '상태에 따라 손기술에 아래 장비를 더해 관리합니다.')}
-    <div class="flex flex-wrap gap-2">{dev}</div>
+    <div class="text-center mb-[clamp(40px,5vw,64px)]">
+      <h2 class="{DISP} text-[clamp(44px,5vw,72px)] text-ink">Knowhow</h2>
+      <p class="mt-4 text-[clamp(16px,1vw+10px,19px)] text-sub">상태에 따라 손기술에 정품 장비를 더해 관리합니다.</p>
+    </div>
+    <div class="grid gap-4 lg:grid-cols-2">{dev_cards}</div>
   </div>
 </section>''' if devices else ''
-    notep = f'<p class="mt-6 text-[13px] text-sub leading-[1.7]">{note}</p>' if note else ''
-    body = phero(img, en, title, desc, [('관리 프로그램', 'program-face.html'), (title, None)], pos) + f'''
+    notep = f'<p class="mt-5 text-[13px] text-sub leading-[1.7] text-center">{note}</p>' if note else ''
+    body = f'''<section id="top" class="relative isolate flex items-center justify-center text-center min-h-[min(70svh,620px)] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.45)]">
+  <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover will-change-transform" src="assets/{img}" alt="" style="object-position:{pos}"></div>
+  <div class="{WRAP} pt-hh">
+    <p class="{DISP} text-[clamp(44px,6vw,88px)]">{disp}</p>
+    <h1 class="mt-3 text-[clamp(18px,1.4vw+10px,24px)] font-semibold tracking-[-.02em]">{title}</h1>
+    <p class="mt-3 text-[clamp(14px,.6vw+11px,17px)] text-white/80 max-w-[34em] mx-auto leading-[1.7]">{desc}</p>
+  </div>
+  <div class="absolute left-1/2 bottom-6 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70" aria-hidden="true"><span class="font-display text-[14px] tracking-[.08em]">Scroll down</span><span class="block w-px h-8 bg-white/50"></span></div>
+</section>
+<nav class="flex flex-wrap justify-center gap-2 px-gutter pt-10" aria-label="관리 프로그램">{tabs}</nav>
 <section class="{SEC}">
-  <div class="{WRAP} {SPLIT}">
-    <div>
-      {sh('PROGRAM', '프로그램 소개')}
-      {''.join(f'<p class="{LEAD}">{x}</p>' for x in intro)}
-    </div>
-    <div>
-      <p class="text-[15px] font-semibold text-bronze mb-5">이런 분께 추천해요</p>
-      <ul class="{CHK}">{rec}</ul>
-      {notep}
+  <div class="{WRAP} grid gap-10 items-center lg:grid-cols-2 lg:gap-20">
+    <figure class="aspect-[4/5] max-h-[620px] w-full overflow-hidden rounded-2xl bg-beige" data-reveal data-par><img class="w-full h-full object-cover" src="assets/{img}" alt="" loading="lazy" style="object-position:{pos}"></figure>
+    <div data-reveal>
+      <h2 class="text-[clamp(26px,2.6vw,38px)] font-semibold tracking-[-.03em] text-bronze">{title}</h2>
+      <p class="mt-6 font-display text-[48px] leading-[.5] text-champagne" aria-hidden="true">“</p>
+      {''.join(f'<p class="mt-3 text-[16px] leading-[1.85] max-w-[32em]">{x}</p>' for x in intro)}
+      <div class="mt-10 grid grid-cols-3 divide-x divide-line border-y border-line py-5">{info_html}</div>
     </div>
   </div>
 </section>
-<section class="{SEC} bg-beige">
-  <div class="{WRAP}">
-    {sh('PROCESS', '관리 과정')}
-    <ol class="grid border-t border-text lg:grid-cols-4 lg:gap-x-8 lg:border-t-0">{st}</ol>
+<section class="pb-[clamp(96px,11vw,160px)]">
+  <div class="{WRAP} max-w-[760px]">
+    <h2 class="text-center text-[clamp(22px,2vw,30px)] font-semibold tracking-[-.03em]">이런 분께 추천해요</h2>
+    <ul class="mt-8 rounded-2xl bg-white px-6 sm:px-10 py-3 text-[16px]" data-reveal>{rec}</ul>
+    {notep}
+  </div>
+</section>
+<section class="{SEC} bg-espresso text-linen overflow-hidden">
+  <div class="{WRAP} grid gap-12 items-center lg:grid-cols-[5fr_6fr] lg:gap-20">
+    <figure class="aspect-[4/3] lg:aspect-[4/5] overflow-hidden rounded-2xl bg-ink" data-reveal data-par><img class="w-full h-full object-cover" src="assets/{oimg}" alt="" loading="lazy" style="object-position:{opos}"></figure>
+    <div>
+      <h2 class="{DISP} text-[clamp(44px,5vw,72px)] text-ivory">Program Order</h2>
+      <ol class="mt-10 grid gap-7">{st}</ol>
+    </div>
   </div>
 </section>
 {devsec}
-{ctaband(f'{title}, 상담으로 시작하세요.', '현재 상태를 진단한 뒤 필요한 관리와 회차를 안내해 드립니다.', care)}
+<section class="{SEC} text-center">
+  <div class="{WRAP}">
+    <img class="mx-auto w-auto h-[72px]" src="assets/logo.webp" width="260" height="267" alt="" loading="lazy">
+    <h2 class="mt-8 text-[clamp(22px,2.2vw,32px)] font-semibold tracking-[-.03em]">{title}, 상담으로 시작하세요.</h2>
+    <p class="mt-3 text-sub">현재 상태를 진단한 뒤 필요한 관리와 회차를 안내해 드립니다.</p>
+    <a class="{PILL} mt-8 bg-ink text-ivory border-ink hover:bg-bronze hover:border-bronze" href="contact.html?care={care}#reserve">상담 예약 {ARROW}</a>
+  </div>
+</section>
 '''
     page(fn, f'{title} | 아르쎄에스테틱', desc, 'program', body, 'assets/' + img)
 
