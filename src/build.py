@@ -42,7 +42,7 @@ def kakao_btn(light=False, size='md', extra='', icon=True):
 MORE = f'inline-flex items-center gap-2 font-medium tracking-[.04em] min-h-12 border-b border-current [&_svg]:transition-transform [&_svg]:duration-200 [&_svg]:{EASE} [&:hover_svg]:translate-x-1'
 
 MENU = [
-    ('ARCÉ', 'brand.html', 'brand', [('브랜드 소개', 'brand.html#about', 'ABOUT'), ('대표원장', 'brand.html#director', 'DIRECTOR'), ('공간', 'brand.html#space', 'SPACE'), ('관리 현장', 'brand.html#care', 'IN CARE')]),
+    ('ARCÉ', 'brand.html', 'brand', [('브랜드 소개', 'brand.html#about', 'ABOUT'), ('공간', 'brand.html#space', 'SPACE'), ('관리 현장', 'brand.html#care', 'IN CARE')]),
     ('조막얼굴메소드®', 'method.html', 'method', [('메소드 소개', 'method.html', 'SIGNATURE METHOD'), ('관리 전후', 'method.html#result', 'BEFORE & AFTER')]),
     ('관리 프로그램', 'program-face.html', 'program', [('페이스 윤곽 케어', 'program-face.html', 'FACE CONTOUR'), ('안티에이징 케어', 'program-aging.html', 'ANTI-AGING'), ('바디 밸런스 케어', 'program-body.html', 'BODY BALANCE'), ('산전·산후 케어', 'program-mom.html', 'PRENATAL & POSTPARTUM')]),
     ('장비', 'equipment.html', 'equipment', [('LPG® 알리안스', 'equipment.html#lpg', 'LPG'), ('써마웨이브™', 'equipment.html#thermawave', 'THERMAWAVE'), ('자이오닉', 'equipment.html#zionic', 'ZIONIC')]),
@@ -211,10 +211,6 @@ def hero_slider():
   <div class="{WRAP} pt-hh pb-[calc(40px+env(safe-area-inset-bottom,0px))] lg:pb-0">
     <div id="top" class="absolute inset-0 pointer-events-none"></div>
     {txts}
-    <div class="flex flex-wrap gap-2 mt-8">
-      {kakao_btn(light=True, extra='flex-[1_1_180px] lg:flex-none')}
-      <a class="{btn_cls('line', extra='flex-[1_1_180px] lg:flex-none text-white')}" href="contact.html#reserve">상담 예약</a>
-    </div>
     <div class="flex items-center gap-4 mt-10"><div class="flex gap-2">{dots}</div><span class="text-[13px] tabular-nums text-white/75" id="hsNum">01 / 03</span></div>
   </div>
 </section>'''
@@ -464,34 +460,6 @@ brand = phero('corridor.webp', 'ABOUT ARCÉ', '얼굴을 더하지 않습니다'
 ''' for i, (t, d) in enumerate(VALS)) + f'''    </ul>
   </div>
 </section>
-<section id="director" class="py-[clamp(120px,14vw,200px)]" aria-labelledby="dirT">
-  <div class="{WRAP} grid grid-cols-[minmax(0,1fr)_minmax(0,44%)] [grid-template-areas:'top_photo'_'rest_rest'] gap-x-5 gap-y-8 items-start sm:grid-cols-[minmax(0,1fr)_minmax(0,42%)] sm:[grid-template-areas:'top_photo'_'rest_photo'] sm:grid-rows-[auto_1fr] sm:gap-x-[clamp(32px,6vw,96px)] 2xl:grid-cols-[minmax(0,560px)_minmax(0,460px)] 2xl:justify-center 2xl:gap-x-20">
-    <div class="[grid-area:top] min-w-0">
-      <p class="flex items-end mb-5 sm:mb-8 font-display text-[88px] sm:text-[clamp(112px,13vw,200px)] font-extralight tracking-[-.07em] leading-[.8] text-bronze tabular-nums" aria-label="26년" data-count>26<small class="font-mark text-[clamp(13px,1vw,18px)] tracking-[.3em] text-text font-normal mb-[.5em] ml-4 leading-[1.6]">YEARS</small></p>
-      <h2 class="{SERIF} text-[30px] sm:text-[clamp(30px,3vw,44px)] !leading-[1.2]" id="dirT">조외현<span class="block mt-2 sm:inline sm:mt-0 sm:ml-3 text-[.42em] font-medium text-sub tracking-normal">대표원장</span></h2>
-      <p class="mt-6 text-[16px] sm:text-[clamp(18px,1vw+12px,24px)] leading-[1.6] max-w-[20em]">“시술 없이 자연스럽게,<br>건강하고 아름답게 나이 드는 관리.”</p>
-    </div>
-    <figure class="group [grid-area:photo] sm:self-center relative aspect-[4/5] max-w-[520px] w-full overflow-hidden rounded-[4px] bg-cream" id="dirPhoto" data-ph><img class="w-full h-full object-cover object-[50%_0] scale-[1.04] transition-transform duration-[1200ms] {EASE} group-[.in]:scale-100" src="assets/director-tall.webp" width="484" height="870" alt="조외현 대표원장" loading="lazy"><figcaption class="hidden sm:block absolute left-5 bottom-4 font-mark text-[13px] tracking-[.24em] text-text">JO OE HYUN</figcaption></figure>
-    <div class="[grid-area:rest] min-w-0">
-      <ul class="mt-8 grid gap-3 text-[16px] text-sub">
-        <li><b class="text-text font-medium">누적 관리 고객 5만 명 이상</b></li>
-        <li>국제 시데스코(CIDESCO) 자격</li>
-        <li>대구한의대학교 대학원 한방피부미용학 석사</li>
-        <li>마산대학교 뷰티케어학과 겸임교수</li>
-        <li>2022–2025 경남기능경기대회 채점감독</li>
-      </ul>
-      <button class="{btn_cls('line', 'dir', 'mt-10')}" id="cvOpen" type="button">전체 이력 보기 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4 V16 M4 10 H16"/></svg></button>
-    </div>
-  </div>
-</section>
-<dialog class="border-0 p-0 w-[min(680px,calc(100%-32px))] max-h-[calc(100%-64px)] rounded-3xl bg-ivory text-text backdrop:bg-[rgba(52,41,32,.5)] open:animate-pop open:backdrop:animate-fade" id="cv" aria-labelledby="cvT">
-  <div class="pt-10 px-8 pb-8 grid gap-8">
-    <div class="flex justify-between items-start gap-4"><h3 id="cvT" class="text-[28px] font-bold tracking-[-.03em]">조외현 대표원장</h3><button class="w-12 h-12 rounded-full grid place-items-center bg-mist flex-none" id="cvClose" type="button" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3 L15 15 M15 3 L3 15"/></svg></button></div>
-    <div><h4 class="{H4}">학력 · 직위</h4>{cv_list(CV_EDU)}</div>
-    <div><h4 class="{H4}">경력</h4>{cv_list(CV_CAREER)}</div>
-    <div><h4 class="{H4}">자격 · 연수</h4>{cv_list(CV_CERT)}</div>
-  </div>
-</dialog>
 <section id="space" class="py-[clamp(96px,10vw,140px)]" aria-labelledby="spaceT">
   <div class="{WRAP} flex flex-wrap justify-between items-end gap-x-10 gap-y-4 mb-10">
     <h2 id="spaceT" class="{SERIF} text-[clamp(28px,3vw,44px)]">아르쎄의 공간</h2>
