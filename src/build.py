@@ -501,7 +501,7 @@ brand = f"""<section id="about" class="relative isolate overflow-hidden bg-espre
   <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover" src="assets/corridor.webp" alt="" loading="lazy" style="object-position:50% 40%"></div>
   <div class="{WRAP}">
     <h1 class="sr-only">아르쎄에스테틱 브랜드 소개</h1>
-    <p class="{DISP} text-[clamp(40px,6vw,92px)] text-ivory">Face Contour, Rebalanced</p>
+    <p class="{DISP} text-[clamp(40px,6vw,92px)] text-ivory">Arcé Aesthetic</p>
     <p class="mt-10 text-[clamp(15px,1vw+10px,18px)] text-ivory/85 leading-[2]">같은 골격이라도 씹는 습관, 자세, 순환 상태에 따라<br class="max-sm:hidden"> 얼굴의 윤곽은 달라집니다.<br><br>아르쎄는 무언가를 더하기보다<br class="max-sm:hidden"> 흩어진 균형을 제자리로 돌려놓습니다.</p>
     <p class="mt-10 text-[clamp(17px,1.2vw+10px,22px)] font-semibold text-champagne leading-[1.7]">처음에는 느리지만,<br>시간이 갈수록 가속도가 붙는 변화.</p>
   </div>
