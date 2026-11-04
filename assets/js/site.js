@@ -232,6 +232,31 @@ const CONFIG = {
     io($('#eqPanel'), ([e]) => { eqVis = e.isIntersecting; eqNext(); }, { threshold: .4 });
   }
 
+  const eqc = $('#eqCarousel');
+  if (eqc) {
+    const sl = $$('[data-eqs]', eqc), dt = $$('[data-eqd]', eqc), tb = $$('[data-eqt]', eqc), n = sl.length;
+    let ci = 0, ct = null, cVis = false, cManual = false;
+    const set = i => {
+      ci = (i + n) % n;
+      sl.forEach((el, k) => { const d = (k - ci + n) % n; el.dataset.pos = d === 0 ? 'c' : d === 1 ? 'r' : 'l'; el.setAttribute('aria-hidden', d !== 0); });
+      dt.forEach((el, k) => el.classList.toggle('hidden', k !== ci));
+      tb.forEach((el, k) => el.setAttribute('aria-selected', k === ci));
+      clearTimeout(ct); if (!reduce && cVis && !cManual) ct = setTimeout(() => set(ci + 1), 5000);
+    };
+    const user = i => { cManual = true; set(i); };
+    $$('[data-eqnav]', eqc).forEach(b => b.addEventListener('click', () => user(ci + +b.dataset.eqnav)));
+    tb.forEach((b, i) => b.addEventListener('click', () => user(i)));
+    sl.forEach((el, i) => el.addEventListener('click', () => { if (el.dataset.pos !== 'c') user(i); }));
+    let sx = null;
+    const tr = $('#eqTrack');
+    tr.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+    tr.addEventListener('touchend', e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) user(ci + (dx < 0 ? 1 : -1)); sx = null; });
+    eqc.addEventListener('keydown', e => { if (e.key === 'ArrowRight') user(ci + 1); else if (e.key === 'ArrowLeft') user(ci - 1); });
+    const start = Math.max(0, ['lpg', 'thermawave', 'zionic'].indexOf(location.hash.slice(1)));
+    io(eqc, ([e]) => { cVis = e.isIntersecting; set(ci); }, { threshold: .3 });
+    set(start);
+  }
+
   const cv = $('#cv');
   if (cv) {
     $('#cvOpen').addEventListener('click', () => { if (cv.showModal) cv.showModal(); else cv.setAttribute('open', ''); });

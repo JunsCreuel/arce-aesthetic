@@ -759,7 +759,56 @@ program('program-mom.html', 'lounge.webp', '40% 60%', 'PRENATAL &amp; POSTPARTUM
         [('상담', '임신 주수, 출산 시기, 현재 컨디션을 확인합니다.'), ('순환 케어', '부드러운 손기술로 붓기와 뭉침을 관리합니다.'), ('균형 회복', '출산 후 얼굴과 바디의 균형 회복을 돕습니다.'), ('생활 가이드', '시기에 맞는 홈케어와 생활 습관을 안내합니다.')],
         [], '임신 중 관리는 주수와 건강 상태를 상담으로 확인한 뒤 진행하며, 필요한 경우 담당 의료진과 먼저 상의해 주세요.', '산전·산후 케어')
 
-eq = phero('interior-hero.webp', 'PREMIUM DEVICE', '손기술 위에, 정품 장비', '엄선한 프리미엄 장비로 관리의 깊이를 더합니다.', [('장비', None)], '50% 40%') + '\n' + eq_sec(head=False) + '\n' + ctaband('어떤 장비가 맞을지, 상담으로 정해 드립니다.', '피부와 체형 상태에 따라 손기술과 장비를 함께 설계합니다.')
+EQ_ORDER = [('lpg', '붓기와 뭉침이 잦고 바디 라인이 고민인 분'), ('thermawave', '탄력 저하와 처짐이 고민인 분'), ('zionic', '셀룰라이트, 붓기, 처진 바디 라인이 고민인 분')]
+
+
+def eq_slide(i, key):
+    img, brand_, name, one, facts = DEVICES[key]
+    return f"""<li class="group/eq absolute top-0 left-1/2 w-[64%] sm:w-[44%] lg:w-[34%] h-full -translate-x-1/2 transition-[transform,opacity,filter] duration-700 ease-soft opacity-0 pointer-events-none data-[pos=c]:opacity-100 data-[pos=c]:pointer-events-auto data-[pos=l]:opacity-50 data-[pos=r]:opacity-50 data-[pos=l]:blur-[3px] data-[pos=r]:blur-[3px] data-[pos=l]:-translate-x-[150%] data-[pos=r]:translate-x-[50%] data-[pos=l]:scale-[.82] data-[pos=r]:scale-[.82] data-[pos=l]:pointer-events-auto data-[pos=r]:pointer-events-auto data-[pos=l]:cursor-pointer data-[pos=r]:cursor-pointer" data-eqs="{i}" data-pos="{'c' if i == 0 else 'r' if i == 1 else 'l'}" role="group" aria-roledescription="slide" aria-label="{name}">
+        <div class="relative h-full rounded-3xl bg-white shadow-[0_20px_50px_rgba(52,41,32,.08)]"><img class="absolute inset-[9%] w-[82%] h-[82%] object-contain drop-shadow-[0_18px_24px_rgba(52,41,32,.14)]" src="assets/{img}" alt="{name}" loading="lazy"></div>
+      </li>"""
+
+
+def eq_detail(i, key, who):
+    img, brand_, name, one, facts = DEVICES[key]
+    tags = ''.join(f'<span class="inline-flex items-center h-8 px-3.5 rounded-full border border-bronze/40 text-[13px] text-bronze">#{x}</span>' for x in facts)
+    return f"""<div class="{'' if i == 0 else 'hidden '}text-center animate-swap" data-eqd="{i}" id="{key}">
+        <p class="font-mark text-[12px] tracking-[.18em] text-bronze">{brand_}</p>
+        <h2 class="mt-3 text-[clamp(26px,2.6vw,38px)] font-semibold tracking-[-.03em]">{name}</h2>
+        <p class="mt-4 text-[16px] text-sub leading-[1.8] max-w-[34em] mx-auto">{one}</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-2">{tags}</div>
+        <p class="mt-6 inline-flex gap-2 text-[15px]">{CHECK}<span>이런 분께 · {who}</span></p>
+      </div>"""
+
+
+ARR_BTN = 'w-12 h-12 rounded-full bg-white grid place-items-center text-ink shadow-[0_4px_16px_rgba(52,41,32,.12)] transition-colors hover:bg-ink hover:text-ivory'
+eq = f"""<section id="top" class="relative isolate flex items-center justify-center text-center min-h-[min(70svh,620px)] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.45)]">
+  <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover will-change-transform" src="assets/interior-hero.webp" alt="" style="object-position:50% 40%"></div>
+  <div class="{WRAP} pt-hh">
+    <p class="{DISP} text-[clamp(44px,6vw,88px)]">Technology We Use</p>
+    <h1 class="mt-3 text-[clamp(18px,1.4vw+10px,24px)] font-semibold tracking-[-.02em]">손기술 위에, 정품 장비</h1>
+    <p class="mt-3 text-[clamp(14px,.6vw+11px,17px)] text-white/80">엄선한 프리미엄 장비로 관리의 깊이를 더합니다.</p>
+  </div>
+  <div class="absolute left-1/2 bottom-6 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70" aria-hidden="true"><span class="font-display text-[14px] tracking-[.08em]">Scroll down</span><span class="block w-px h-8 bg-white/50"></span></div>
+</section>
+<section id="eqCarousel" class="{SEC} bg-mist overflow-hidden" aria-roledescription="carousel" aria-label="장비 소개">
+  <div class="{WRAP}">
+    <div class="flex justify-center gap-2 mb-12" role="tablist" aria-label="장비 선택">""" + ''.join(
+    f'<button class="inline-flex items-center h-10 px-5 rounded-full text-[14px] border border-line bg-ivory text-sub transition-colors duration-200 hover:text-text aria-selected:bg-ink aria-selected:text-ivory aria-selected:border-ink" type="button" role="tab" aria-selected="{"true" if i == 0 else "false"}" data-eqt="{i}">{DEVICES[k][2]}</button>'
+    for i, (k, _) in enumerate(EQ_ORDER)) + f"""</div>
+    <div class="relative">
+      <ul class="relative h-[clamp(300px,42vw,520px)] touch-pan-y select-none" id="eqTrack">
+      """ + ''.join(eq_slide(i, k) for i, (k, _) in enumerate(EQ_ORDER)) + f"""
+      </ul>
+      <button class="absolute left-0 lg:left-[8%] top-1/2 -translate-y-1/2 z-10 {ARR_BTN}" type="button" data-eqnav="-1" aria-label="이전 장비"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3 L5 9 L11 15"/></svg></button>
+      <button class="absolute right-0 lg:right-[8%] top-1/2 -translate-y-1/2 z-10 {ARR_BTN}" type="button" data-eqnav="1" aria-label="다음 장비"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3 L13 9 L7 15"/></svg></button>
+    </div>
+    <div class="mt-12" aria-live="polite">
+      """ + ''.join(eq_detail(i, k, w) for i, (k, w) in enumerate(EQ_ORDER)) + f"""
+    </div>
+  </div>
+</section>
+""" + ctaband('어떤 장비가 맞을지, 상담으로 정해 드립니다.', '피부와 체형 상태에 따라 손기술과 장비를 함께 설계합니다.')
 page('equipment.html', '장비 소개 | 아르쎄에스테틱', '프랑스 LPG® 알리안스, 써마웨이브™, 스페인 Termosalud 자이오닉. 아르쎄에스테틱의 프리미엄 장비.', 'equipment', eq, 'assets/eq-lpg.webp')
 
 review = phero('lounge-masks.webp', 'REVIEW', '고객후기', '네이버 플레이스에 고객님들이 직접 남겨주신 방문자 리뷰입니다.', [('고객후기', None)], '50% 60%') + f'''

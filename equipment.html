@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/site.css?v=2611040605">
+<link rel="stylesheet" href="assets/css/site.css?v=2611040627">
 </head>
 <body>
 <header id="hdr" class="fixed inset-x-0 top-0 z-50 h-[calc(var(--hh)+env(safe-area-inset-top,0px))] pt-[env(safe-area-inset-top,0px)] bg-ivory text-text shadow-[0_1px_0_#E2D6C4] transition-[background-color,transform,box-shadow] duration-300 ease-soft [&.hide]:-translate-y-full">
@@ -39,25 +39,50 @@
   </div>
 </div>
 <main>
-<section id="top" class="relative isolate flex items-end min-h-[min(62svh,560px)] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[linear-gradient(180deg,rgba(52,41,32,.45)_0%,rgba(52,41,32,.35)_40%,rgba(52,41,32,.88)_100%)]">
+<section id="top" class="relative isolate flex items-center justify-center text-center min-h-[min(70svh,620px)] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.45)]">
   <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover will-change-transform" src="assets/interior-hero.webp" alt="" style="object-position:50% 40%"></div>
-  <div class="w-full max-w-site mx-auto px-gutter pt-[calc(var(--hh)+48px)] pb-[clamp(40px,6vw,72px)]">
-    <nav class="flex gap-2 text-[13px] text-white/75 mb-5" aria-label="현재 위치"><a class="underline underline-offset-[3px] decoration-white/35" href="index.html">홈</a> <span aria-hidden="true">/</span> <span>장비</span></nav>
-    <h1 class="font-sans font-semibold tracking-[-.03em] leading-[1.38] text-[clamp(32px,4vw,56px)]">손기술 위에, 정품 장비</h1>
-    <p class="mt-4 text-[clamp(15px,.8vw+11px,19px)] font-light text-white/85 max-w-[34em] leading-[1.7]">엄선한 프리미엄 장비로 관리의 깊이를 더합니다.</p>
+  <div class="w-full max-w-site mx-auto px-gutter pt-hh">
+    <p class="font-display font-normal leading-[1.05] tracking-[.01em] text-[clamp(44px,6vw,88px)]">Technology We Use</p>
+    <h1 class="mt-3 text-[clamp(18px,1.4vw+10px,24px)] font-semibold tracking-[-.02em]">손기술 위에, 정품 장비</h1>
+    <p class="mt-3 text-[clamp(14px,.6vw+11px,17px)] text-white/80">엄선한 프리미엄 장비로 관리의 깊이를 더합니다.</p>
   </div>
+  <div class="absolute left-1/2 bottom-6 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70" aria-hidden="true"><span class="font-display text-[14px] tracking-[.08em]">Scroll down</span><span class="block w-px h-8 bg-white/50"></span></div>
 </section>
-<section id="equipment" class="py-[clamp(120px,14vw,200px)] bg-mist" aria-labelledby="eqT">
+<section id="eqCarousel" class="py-[clamp(96px,11vw,160px)] bg-mist overflow-hidden" aria-roledescription="carousel" aria-label="장비 소개">
   <div class="w-full max-w-site mx-auto px-gutter">
-    <h2 id="eqT" class="sr-only">장비 소개</h2>
-    <div class="flex gap-2  overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="장비 선택" id="eqTabs"><button class="flex-none min-h-12 px-[22px] rounded-[2px] border border-line bg-transparent text-[15px] font-medium tracking-[.02em] text-sub transition-[background-color,color,border-color] duration-200 ease-soft aria-selected:bg-ink aria-selected:border-ink aria-selected:text-ivory" role="tab" aria-selected="true" aria-controls="eqPanel" data-i="0">LPG® 알리안스</button><button class="flex-none min-h-12 px-[22px] rounded-[2px] border border-line bg-transparent text-[15px] font-medium tracking-[.02em] text-sub transition-[background-color,color,border-color] duration-200 ease-soft aria-selected:bg-ink aria-selected:border-ink aria-selected:text-ivory" role="tab" aria-selected="false" aria-controls="eqPanel" data-i="1" tabindex=-1>써마웨이브™</button><button class="flex-none min-h-12 px-[22px] rounded-[2px] border border-line bg-transparent text-[15px] font-medium tracking-[.02em] text-sub transition-[background-color,color,border-color] duration-200 ease-soft aria-selected:bg-ink aria-selected:border-ink aria-selected:text-ivory" role="tab" aria-selected="false" aria-controls="eqPanel" data-i="2" tabindex=-1>자이오닉</button></div>
-    <div class="grid gap-8 mt-8 items-center lg:grid-cols-[6fr_5fr] lg:gap-20" id="eqPanel" role="tabpanel" aria-live="polite">
-      <div class="relative aspect-square max-h-[640px] w-full overflow-hidden [perspective:900px] bg-[radial-gradient(closest-side,#EEE3D2_0%,#EEE3D2_62%,rgba(210,237,233,0)_100%)]" id="eqStage" data-reveal><div class="absolute inset-0 transition-transform duration-500 ease-soft [transform-style:preserve-3d]" id="eqTilt"><div class="absolute inset-0 motion-safe:animate-float"><img class="absolute inset-0 m-auto w-[72%] h-[84%] object-contain drop-shadow-[0_24px_32px_rgba(52,41,32,.16)] animate-rise" id="eqImg" src="assets/eq-lpg.webp" alt="LPG 알리안스 장비" width="530" height="852" loading="lazy"></div></div></div>
-      <div class="animate-swap" id="eqText">
-        <p class="my-3 font-mark text-[12px] tracking-[.24em] text-bronze" id="eqBrand">LPG® · 프랑스</p>
-        <h3 class="mt-2 font-sans font-semibold tracking-[-.03em] leading-[1.38] text-[clamp(30px,3vw,44px)] !leading-[1.2]" id="eqName">LPG® 알리안스</h3>
-        <p class="mt-4 text-[clamp(17px,.8vw+13px,22px)] leading-[1.6] max-w-[24em]" id="eqOne">롤러와 음압으로 피부를 부드럽게 집어 올리고 굴려, 뭉친 조직을 풀고 순환을 돕는 엔더몰로지 장비입니다.</p>
-        <dl class="mt-8 grid border-t border-line [&>div]:grid [&>div]:grid-cols-[88px_minmax(0,1fr)] [&>div]:gap-4 [&>div]:py-4 [&>div]:border-b [&>div]:border-line [&>div]:text-[15px] [&_dt]:text-bronze [&_dt]:font-medium [&_dd]:text-sub" id="eqFacts"></dl>
+    <div class="flex justify-center gap-2 mb-12" role="tablist" aria-label="장비 선택"><button class="inline-flex items-center h-10 px-5 rounded-full text-[14px] border border-line bg-ivory text-sub transition-colors duration-200 hover:text-text aria-selected:bg-ink aria-selected:text-ivory aria-selected:border-ink" type="button" role="tab" aria-selected="true" data-eqt="0">LPG® 알리안스</button><button class="inline-flex items-center h-10 px-5 rounded-full text-[14px] border border-line bg-ivory text-sub transition-colors duration-200 hover:text-text aria-selected:bg-ink aria-selected:text-ivory aria-selected:border-ink" type="button" role="tab" aria-selected="false" data-eqt="1">써마웨이브™</button><button class="inline-flex items-center h-10 px-5 rounded-full text-[14px] border border-line bg-ivory text-sub transition-colors duration-200 hover:text-text aria-selected:bg-ink aria-selected:text-ivory aria-selected:border-ink" type="button" role="tab" aria-selected="false" data-eqt="2">자이오닉</button></div>
+    <div class="relative">
+      <ul class="relative h-[clamp(300px,42vw,520px)] touch-pan-y select-none" id="eqTrack">
+      <li class="group/eq absolute top-0 left-1/2 w-[64%] sm:w-[44%] lg:w-[34%] h-full -translate-x-1/2 transition-[transform,opacity,filter] duration-700 ease-soft opacity-0 pointer-events-none data-[pos=c]:opacity-100 data-[pos=c]:pointer-events-auto data-[pos=l]:opacity-50 data-[pos=r]:opacity-50 data-[pos=l]:blur-[3px] data-[pos=r]:blur-[3px] data-[pos=l]:-translate-x-[150%] data-[pos=r]:translate-x-[50%] data-[pos=l]:scale-[.82] data-[pos=r]:scale-[.82] data-[pos=l]:pointer-events-auto data-[pos=r]:pointer-events-auto data-[pos=l]:cursor-pointer data-[pos=r]:cursor-pointer" data-eqs="0" data-pos="c" role="group" aria-roledescription="slide" aria-label="LPG® 알리안스">
+        <div class="relative h-full rounded-3xl bg-white shadow-[0_20px_50px_rgba(52,41,32,.08)]"><img class="absolute inset-[9%] w-[82%] h-[82%] object-contain drop-shadow-[0_18px_24px_rgba(52,41,32,.14)]" src="assets/eq-lpg.webp" alt="LPG® 알리안스" loading="lazy"></div>
+      </li><li class="group/eq absolute top-0 left-1/2 w-[64%] sm:w-[44%] lg:w-[34%] h-full -translate-x-1/2 transition-[transform,opacity,filter] duration-700 ease-soft opacity-0 pointer-events-none data-[pos=c]:opacity-100 data-[pos=c]:pointer-events-auto data-[pos=l]:opacity-50 data-[pos=r]:opacity-50 data-[pos=l]:blur-[3px] data-[pos=r]:blur-[3px] data-[pos=l]:-translate-x-[150%] data-[pos=r]:translate-x-[50%] data-[pos=l]:scale-[.82] data-[pos=r]:scale-[.82] data-[pos=l]:pointer-events-auto data-[pos=r]:pointer-events-auto data-[pos=l]:cursor-pointer data-[pos=r]:cursor-pointer" data-eqs="1" data-pos="r" role="group" aria-roledescription="slide" aria-label="써마웨이브™">
+        <div class="relative h-full rounded-3xl bg-white shadow-[0_20px_50px_rgba(52,41,32,.08)]"><img class="absolute inset-[9%] w-[82%] h-[82%] object-contain drop-shadow-[0_18px_24px_rgba(52,41,32,.14)]" src="assets/eq-thermawave.webp" alt="써마웨이브™" loading="lazy"></div>
+      </li><li class="group/eq absolute top-0 left-1/2 w-[64%] sm:w-[44%] lg:w-[34%] h-full -translate-x-1/2 transition-[transform,opacity,filter] duration-700 ease-soft opacity-0 pointer-events-none data-[pos=c]:opacity-100 data-[pos=c]:pointer-events-auto data-[pos=l]:opacity-50 data-[pos=r]:opacity-50 data-[pos=l]:blur-[3px] data-[pos=r]:blur-[3px] data-[pos=l]:-translate-x-[150%] data-[pos=r]:translate-x-[50%] data-[pos=l]:scale-[.82] data-[pos=r]:scale-[.82] data-[pos=l]:pointer-events-auto data-[pos=r]:pointer-events-auto data-[pos=l]:cursor-pointer data-[pos=r]:cursor-pointer" data-eqs="2" data-pos="l" role="group" aria-roledescription="slide" aria-label="자이오닉">
+        <div class="relative h-full rounded-3xl bg-white shadow-[0_20px_50px_rgba(52,41,32,.08)]"><img class="absolute inset-[9%] w-[82%] h-[82%] object-contain drop-shadow-[0_18px_24px_rgba(52,41,32,.14)]" src="assets/eq-zionic.webp" alt="자이오닉" loading="lazy"></div>
+      </li>
+      </ul>
+      <button class="absolute left-0 lg:left-[8%] top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white grid place-items-center text-ink shadow-[0_4px_16px_rgba(52,41,32,.12)] transition-colors hover:bg-ink hover:text-ivory" type="button" data-eqnav="-1" aria-label="이전 장비"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3 L5 9 L11 15"/></svg></button>
+      <button class="absolute right-0 lg:right-[8%] top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white grid place-items-center text-ink shadow-[0_4px_16px_rgba(52,41,32,.12)] transition-colors hover:bg-ink hover:text-ivory" type="button" data-eqnav="1" aria-label="다음 장비"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3 L13 9 L7 15"/></svg></button>
+    </div>
+    <div class="mt-12" aria-live="polite">
+      <div class="text-center animate-swap" data-eqd="0" id="lpg">
+        <p class="font-mark text-[12px] tracking-[.18em] text-bronze">LPG® · FRANCE</p>
+        <h2 class="mt-3 text-[clamp(26px,2.6vw,38px)] font-semibold tracking-[-.03em]">LPG® 알리안스</h2>
+        <p class="mt-4 text-[16px] text-sub leading-[1.8] max-w-[34em] mx-auto">롤러와 음압으로 피부와 피하 조직을 부드럽게 자극해, 뭉친 조직을 풀고 순환을 돕는 엔더몰로지 장비입니다.</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-2"><span class="inline-flex items-center h-8 px-3.5 rounded-full border border-bronze/40 text-[13px] text-bronze">#롤러 + 음압(흡입)을 이용한 기계적 자극</span><span class="inline-flex items-center h-8 px-3.5 rounded-full border border-bronze/40 text-[13px] text-bronze">#바디 라인, 셀룰라이트, 얼굴 탄력</span></div>
+        <p class="mt-6 inline-flex gap-2 text-[15px]"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>이런 분께 · 붓기와 뭉침이 잦고 바디 라인이 고민인 분</span></p>
+      </div><div class="hidden text-center animate-swap" data-eqd="1" id="thermawave">
+        <p class="font-mark text-[12px] tracking-[.18em] text-bronze">LPHYSIO · WELLNESS DEVICE</p>
+        <h2 class="mt-3 text-[clamp(26px,2.6vw,38px)] font-semibold tracking-[-.03em]">써마웨이브™</h2>
+        <p class="mt-4 text-[16px] text-sub leading-[1.8] max-w-[34em] mx-auto">따뜻한 열감을 이용해 얼굴과 바디의 라인, 탄력을 함께 관리하는 장비입니다.</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-2"><span class="inline-flex items-center h-8 px-3.5 rounded-full border border-bronze/40 text-[13px] text-bronze">#열감을 이용한 관리</span><span class="inline-flex items-center h-8 px-3.5 rounded-full border border-bronze/40 text-[13px] text-bronze">#얼굴 라인, 바디 라인</span></div>
+        <p class="mt-6 inline-flex gap-2 text-[15px]"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>이런 분께 · 탄력 저하와 처짐이 고민인 분</span></p>
+      </div><div class="hidden text-center animate-swap" data-eqd="2" id="zionic">
+        <p class="font-mark text-[12px] tracking-[.18em] text-bronze">TERMOSALUD · SPAIN</p>
+        <h2 class="mt-3 text-[clamp(26px,2.6vw,38px)] font-semibold tracking-[-.03em]">자이오닉</h2>
+        <p class="mt-4 text-[16px] text-sub leading-[1.8] max-w-[34em] mx-auto">깊게 회전하는 마사지와 고주파 열을 동시에 전달하는 바디 컨투어링 장비입니다.</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-2"><span class="inline-flex items-center h-8 px-3.5 rounded-full border border-bronze/40 text-[13px] text-bronze">#회전 마사지(MARP) + 470kHz 모노폴라 고주파</span><span class="inline-flex items-center h-8 px-3.5 rounded-full border border-bronze/40 text-[13px] text-bronze">#복부, 허벅지, 엉덩이 등 바디</span></div>
+        <p class="mt-6 inline-flex gap-2 text-[15px]"><svg class="w-4 h-4 mt-1 flex-none text-bronze" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>이런 분께 · 셀룰라이트, 붓기, 처진 바디 라인이 고민인 분</span></p>
       </div>
     </div>
   </div>
@@ -92,6 +117,6 @@
     <button class="block w-full h-11 xl:h-12 border-t border-line/80 font-mark text-[12px] xl:text-[14px] tracking-[.12em] text-text transition-colors duration-200 hover:bg-white/70" id="toTop" type="button" aria-label="맨 위로">TOP</button>
   </div>
 </aside>
-<script src="assets/js/site.js?v=2611040605"></script>
+<script src="assets/js/site.js?v=2611040627"></script>
 </body>
 </html>
