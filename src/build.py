@@ -42,7 +42,7 @@ def kakao_btn(light=False, size='md', extra='', icon=True):
 MORE = f'inline-flex items-center gap-2 font-medium tracking-[.04em] min-h-12 border-b border-current [&_svg]:transition-transform [&_svg]:duration-200 [&_svg]:{EASE} [&:hover_svg]:translate-x-1'
 
 MENU = [
-    ('ARCÉ', 'brand.html', 'brand', [('브랜드 소개', 'brand.html#about', 'ABOUT'), ('공간', 'brand.html#space', 'SPACE'), ('관리 현장', 'brand.html#care', 'IN CARE')]),
+    ('ARCÉ', 'brand.html', 'brand', [('브랜드 소개', 'brand.html#about', 'ABOUT'), ('원장 약력', 'director.html', 'DIRECTOR'), ('공간', 'brand.html#space', 'SPACE'), ('관리 현장', 'brand.html#care', 'IN CARE')]),
     ('조막얼굴메소드®', 'method.html', 'method', [('메소드 소개', 'method.html', 'SIGNATURE METHOD'), ('관리 전후', 'method.html#result', 'BEFORE & AFTER')]),
     ('관리 프로그램', 'program-face.html', 'program', [('페이스 윤곽 케어', 'program-face.html', 'FACE CONTOUR'), ('안티에이징 케어', 'program-aging.html', 'ANTI-AGING'), ('바디 밸런스 케어', 'program-body.html', 'BODY BALANCE'), ('산전·산후 케어', 'program-mom.html', 'PRENATAL & POSTPARTUM')]),
     ('장비', 'equipment.html', 'equipment', [('LPG® 알리안스', 'equipment.html#lpg', 'LPG'), ('써마웨이브™', 'equipment.html#thermawave', 'THERMAWAVE'), ('자이오닉', 'equipment.html#zionic', 'ZIONIC')]),
@@ -79,9 +79,9 @@ def header(cur):
 </header>
 <div id="drawer" class="fixed inset-0 z-[49] flex flex-col gap-2 overflow-y-auto bg-ivory pt-[calc(var(--hh)+32px+env(safe-area-inset-top,0px))] px-gutter pb-[calc(32px+env(safe-area-inset-bottom,0px))] opacity-0 invisible transition-[opacity,visibility] duration-200 {EASE} [&.open]:opacity-100 [&.open]:visible" aria-hidden="true">
   {groups}
-  <div class="mt-8 grid gap-2">
-    {kakao_btn(icon=False)}
-    <a class="{btn_cls('line')} js-tel" href="#"><span class="js-tel-text"></span></a>
+  <div class="mt-8 flex flex-wrap gap-x-8 gap-y-2">
+    <a class="{MORE} js-kakao" href="#">카카오톡 상담 {ARROW}</a>
+    <a class="{MORE} js-tel" href="#">전화 문의 {ARROW}</a>
   </div>
 </div>'''
 
@@ -99,10 +99,14 @@ FOOTER = f'''<footer class="bg-paper text-ink pt-[72px] pb-[calc(120px+env(safe-
     <p class="mt-8">© ARCÉ AESTHETIC</p>
   </div>
 </footer>
-<div id="mcta" class="fixed inset-x-0 bottom-0 z-40 grid lg:hidden grid-cols-[7fr_3fr] gap-2 pt-3 px-[max(16px,env(safe-area-inset-left,0px))] pb-[calc(12px+env(safe-area-inset-bottom,0px))] bg-ivory shadow-[0_-1px_0_#E2D6C4] translate-y-[110%] transition-transform duration-300 {EASE} [&.show]:translate-y-0">
-  {kakao_btn(size='bar')}
-  <a class="{btn_cls('line', 'bar')} js-tel" href="#" aria-label="전화 문의">전화</a>
-</div>'''
+<aside id="quick" class="fixed right-0 z-40 bottom-[calc(16px+env(safe-area-inset-bottom,0px))] xl:bottom-auto xl:top-1/2 xl:-translate-y-1/2" aria-label="빠른 연락">
+  <div class="rounded-l-2xl bg-white/60 backdrop-blur-md shadow-[0_8px_30px_rgba(52,41,32,.12)] overflow-hidden">
+    <a class="flex items-center justify-center xl:justify-start gap-3 w-12 h-12 xl:w-auto xl:h-auto xl:px-5 xl:py-3.5 text-[13px] text-text transition-colors duration-200 hover:bg-white/70 js-kakao" href="#" aria-label="카카오톡 상담"><svg class="w-[22px] h-[22px] flex-none" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5c-5 0-9 3.1-9 7 0 2.5 1.7 4.7 4.2 6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8h1c5 0 9-3.1 9-7s-4-7.2-9-7.2z"/></svg><span class="hidden xl:inline">카톡 상담</span></a>
+    <a class="flex items-center justify-center xl:justify-start gap-3 w-12 h-12 xl:w-auto xl:h-auto xl:px-5 xl:py-3.5 text-[13px] text-text transition-colors duration-200 hover:bg-white/70 js-tel" href="#" aria-label="전화 문의"><svg class="w-[22px] h-[22px] flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="hidden xl:inline">전화 문의</span></a>
+    <a class="flex items-center justify-center xl:justify-start gap-3 w-12 h-12 xl:w-auto xl:h-auto xl:px-5 xl:py-3.5 text-[13px] text-text transition-colors duration-200 hover:bg-white/70" href="contact.html#clinic" aria-label="오시는 길"><svg class="w-[22px] h-[22px] flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="hidden xl:inline">오시는 길</span></a>
+    <button class="block w-full h-11 xl:h-12 border-t border-line/80 font-mark text-[12px] xl:text-[14px] tracking-[.12em] text-text transition-colors duration-200 hover:bg-white/70" id="toTop" type="button" aria-label="맨 위로">TOP</button>
+  </div>
+</aside>'''
 
 
 def page(fn, title, desc, cur, body, og='assets/corridor.webp'):
@@ -170,7 +174,6 @@ def ctaband(title, desc, care=None):
   <div class="{WRAP} flex flex-wrap justify-between items-center gap-x-10 gap-y-6">
     <div><h2 class="{SERIF} text-[clamp(22px,2.2vw,32px)] text-ink">{title}</h2><p class="mt-2.5 text-ink opacity-80">{desc}</p></div>
     <div class="flex flex-wrap gap-2">
-      {kakao_btn()}
       <a class="{btn_cls('ink')}" href="{href}">상담 예약</a>
     </div>
   </div>
@@ -444,45 +447,127 @@ CARE = [
 ]
 H4 = 'mb-3 text-[14px] font-bold text-bronze'
 
-brand = phero('corridor.webp', 'ABOUT ARCÉ', '얼굴을 더하지 않습니다', '흩어진 균형을 제자리로 돌려놓는 것. 아르쎄가 26년간 지켜온 관리의 기준입니다.', [('ARCÉ', None)], '50% 40%') + f'''
-<section id="about" class="py-[clamp(128px,16vw,240px)]" aria-label="아르쎄의 철학">
+FEED = [('consult.webp', '60% 50%', '관리 전, 원장이', '직접 진단합니다', '얼굴 비율과 좌우 균형, 근육의 긴장도를 먼저 분석하고 지금 필요한 관리만 제안합니다.'), ('method-3.webp', '50% 55%', '정교한 손기술 위에', '엄선한 정품 장비', '프랑스 LPG®, 스페인 Termosalud 등 검증된 장비를 손기술과 함께 설계해 관리의 깊이를 더합니다.'), ('method-2.webp', '50% 45%', '대표원장이 직접,', '처음부터 끝까지.', '상담부터 관리, 사후 홈케어 가이드까지 한 분이 책임집니다.')]
+CIRCLES = [('DIAGNOSIS FIRST', '진단이 먼저입니다', '대표원장의 1:1 진단 후 필요한 관리만 제안합니다.'), ('ANATOMY BASED', '해부학에 근거합니다', '근육과 근막의 구조를 따라 관리하는 조막얼굴메소드®'), ('WELL AGEING', '시술 없이 아름답게', '본래의 균형을 회복하는 웰에이징 관리')]
+FIND = [('붓기 · 비대칭 · 턱선', 'program-face.html'), ('탄력과 피부결', 'program-aging.html'), ('목 · 어깨 · 승모근', 'program-body.html'), ('산전 · 산후 회복', 'program-mom.html'), ('조막얼굴메소드®', 'method.html'), ('정품 장비', 'equipment.html')]
+HL = 'bg-[linear-gradient(transparent_58%,#EADFCE_58%)] px-1 -mx-1'
+
+
+def feed_row(i, img, pos, t1, t2, d):
+    rev = i % 2 == 1
+    return f"""    <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-24">
+      <div class="{'lg:order-2' if rev else ''}" data-reveal>
+        <h3 class="{SERIF} text-[clamp(24px,2.4vw,36px)]">{t1}<br><span class="{HL}">{t2}</span></h3>
+        <p class="mt-6 text-sub text-[15px] leading-[1.8] max-w-[26em]">{d}</p>
+      </div>
+      <figure class="relative aspect-[5/4] overflow-hidden rounded-[4px] bg-beige {'lg:order-1' if rev else ''}" data-reveal data-par><img class="w-full h-full object-cover" src="assets/{img}" alt="" loading="lazy" style="object-position:{pos}"></figure>
+    </article>"""
+
+
+brand = phero('corridor.webp', 'ABOUT ARCÉ', '얼굴을 더하지 않습니다', '흩어진 균형을 제자리로 돌려놓는 것. 아르쎄가 26년간 지켜온 관리의 기준입니다.', [('ARCÉ', None)], '50% 40%') + f"""
+<section id="about" class="relative isolate overflow-hidden bg-espresso text-linen py-[clamp(120px,15vw,220px)] text-center before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.72)]" aria-label="아르쎄의 철학">
+  <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover" src="assets/interior-hero.webp" alt="" loading="lazy" style="object-position:50% 50%"></div>
   <div class="{WRAP}">
-    <p class="{SERIF} text-[clamp(28px,4.2vw,60px)] max-w-[13em] [&_.w]:text-mute [&_.w]:transition-colors [&_.w]:duration-[250ms] [&_.w]:{EASE} [&_.w.on]:text-text motion-reduce:[&_.w]:text-text" id="sayT">얼굴을 더하지 않습니다. 흩어진 균형을 제자리로 돌려놓습니다.</p>
-    <p class="mt-10 text-[clamp(16px,1.2vw+10px,22px)] text-sub">처음에는 느리지만, 시간이 갈수록 가속도가 붙는 변화.</p>
+    <p class="font-mark text-[clamp(30px,5vw,72px)] tracking-[.08em] leading-[1.15] text-ivory">FACE CONTOUR, REBALANCED</p>
+    <p class="mt-10 {SERIF} text-[clamp(20px,1.8vw,28px)] text-ivory/90">얼굴을 더하지 않습니다.<br>흩어진 균형을 제자리로 돌려놓습니다.</p>
+    <p class="mt-6 text-[clamp(15px,1vw+10px,18px)] text-champagne">처음에는 느리지만, 시간이 갈수록 가속도가 붙는 변화.</p>
   </div>
 </section>
-<section class="{SEC} bg-mist">
+<section class="{SEC}">
   <div class="{WRAP}">
-    {sh('OUR STANDARD', '아르쎄가 지키는 세 가지 기준')}
-    <ul class="grid border-t border-text lg:grid-cols-3 lg:gap-x-10 lg:border-t-0">
-''' + ''.join(
-    f'''      <li class="grid grid-cols-[56px_minmax(0,1fr)] gap-4 py-8 border-b border-line lg:grid-cols-1 lg:border-t lg:border-t-text lg:border-b-0"><span class="font-display text-[14px] text-bronze pt-1">0{i + 1}</span><div><b class="block text-[clamp(18px,1vw+12px,22px)] tracking-[-.02em]">{t}</b><p class="mt-2 text-sub text-[15px] leading-[1.7]">{d}</p></div></li>
-''' for i, (t, d) in enumerate(VALS)) + f'''    </ul>
+    <div class="grid justify-items-center gap-6 md:grid-cols-3 md:gap-0 md:justify-items-stretch max-w-[1080px] mx-auto">
+""" + ''.join(
+    f"""      <div class="grid place-items-center text-center aspect-square w-full max-w-[280px] md:max-w-[340px] rounded-full {'bg-beige' if i == 1 else 'border border-line'} px-[12%] md:-mx-3" data-reveal><div><p class="font-mark text-[11px] tracking-[.24em] text-bronze">{en}</p><p class="mt-3 {SERIF} text-[clamp(18px,1.4vw,22px)]">{t}</p><p class="mt-3 text-[14px] text-sub leading-[1.7]">{d}</p></div></div>
+""" for i, (en, t, d) in enumerate(CIRCLES)) + f"""    </div>
   </div>
 </section>
-<section id="space" class="py-[clamp(96px,10vw,140px)]" aria-labelledby="spaceT">
-  <div class="{WRAP} flex flex-wrap justify-between items-end gap-x-10 gap-y-4 mb-10">
-    <h2 id="spaceT" class="{SERIF} text-[clamp(28px,3vw,44px)]">아르쎄의 공간</h2>
-    <p class="{SUB_TEXT}">밝고 깨끗한 공간에서, 관리에만 집중하세요.</p>
+<section id="space" class="py-[clamp(96px,10vw,140px)] bg-mist" aria-labelledby="spaceT">
+  <div class="{WRAP} text-center mb-10">
+    <h2 id="spaceT" class="{SERIF} text-[clamp(26px,2.6vw,38px)]">아르쎄의 공간</h2>
+    <p class="mt-3 {SUB_TEXT}">밝고 깨끗한 공간에서, 관리에만 집중하세요.</p>
   </div>
-  <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-gutter scroll-px-gutter cursor-grab overscroll-x-contain" id="gal" tabindex="0" aria-label="매장 사진">
-''' + ''.join(
-    f'''    <figure data-reveal class="group relative flex-none snap-start overflow-hidden rounded-[4px] bg-mist h-[clamp(420px,68vh,720px)] {"aspect-[4/3] max-sm:w-[90vw]" if wide else "aspect-[3/4] max-sm:w-[78vw]"} max-sm:h-auto"><img class="w-full h-full object-cover pointer-events-none transition-transform duration-[600ms] {EASE} group-hover:scale-[1.03]" src="assets/{src}" width="{w}" height="{h}" alt="{alt}" loading="lazy"><figcaption class="absolute left-4 bottom-3.5 text-white text-[14px] font-semibold [text-shadow:0_1px_8px_rgba(0,0,0,.35)]">{cap}</figcaption></figure>
-''' for src, w, h, alt, cap, wide in GAL) + f'''  </div>
+  <div class="{WRAP} max-w-[1100px]">
+    <div class="relative" id="gal" aria-roledescription="carousel" aria-label="매장 사진">
+      <div class="relative aspect-[4/3] md:aspect-[16/9] overflow-hidden rounded-2xl bg-beige">
+""" + ''.join(
+    f"""        <figure class="group absolute inset-0 opacity-0 transition-opacity duration-700 {EASE} [&.on]:opacity-100{' on' if i == 0 else ''}" data-slide aria-hidden="{'false' if i == 0 else 'true'}"><img class="w-full h-full object-cover scale-[1.03] transition-transform duration-[4000ms] ease-out group-[.on]:scale-100" src="assets/{src}" width="{w}" height="{h}" alt="{alt}" loading="lazy"><figcaption class="absolute left-1/2 bottom-5 -translate-x-1/2 rounded-full bg-[rgba(58,48,41,.72)] text-ivory text-[14px] px-6 py-1.5 backdrop-blur-sm">{cap}</figcaption></figure>
+""" for i, (src, w, h, alt, cap, wide) in enumerate(GAL)) + f"""      </div>
+      <button class="absolute left-2 md:-left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 backdrop-blur grid place-items-center text-ink shadow-[0_4px_16px_rgba(52,41,32,.12)]" type="button" data-gal="prev" aria-label="이전 사진"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 3 L5 9 L11 15"/></svg></button>
+      <button class="absolute right-2 md:-right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 backdrop-blur grid place-items-center text-ink shadow-[0_4px_16px_rgba(52,41,32,.12)]" type="button" data-gal="next" aria-label="다음 사진"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3 L13 9 L7 15"/></svg></button>
+      <div class="flex justify-center gap-2 mt-6">""" + ''.join(
+    f'<button class="h-1.5 rounded-full bg-mute transition-all duration-300 w-1.5 [&.on]:w-6 [&.on]:bg-bronze{" on" if i == 0 else ""}" type="button" data-gal-dot aria-label="{i + 1}번째 사진"></button>'
+    for i in range(len(GAL))) + f"""</div>
+    </div>
+  </div>
 </section>
-<section id="care" class="py-[clamp(96px,10vw,140px)]" aria-labelledby="careT">
+<section class="{SEC}">
+  <div class="{WRAP} grid gap-[clamp(96px,10vw,160px)]">
+""" + '\n'.join(feed_row(i, *r) for i, r in enumerate(FEED)) + f"""
+  </div>
+</section>
+<section id="care" class="py-[clamp(96px,10vw,140px)] bg-mist" aria-labelledby="careT">
   <div class="{WRAP} flex flex-wrap justify-between items-end gap-x-10 gap-y-3 mb-10">
     <h2 id="careT" class="{SERIF} text-[clamp(26px,2.6vw,38px)]">관리 현장</h2>
     <p class="{SUB_TEXT}">원장이 직접, 처음부터 끝까지 관리합니다.</p>
   </div>
   <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-gutter scroll-px-gutter lg:max-w-site lg:mx-auto lg:justify-center lg:overflow-visible" id="careRow">
-''' + ''.join(
-    f'''    <figure data-reveal class="flex-[0_0_min(64vw,300px)] snap-start aspect-[9/16] rounded-[4px] overflow-hidden bg-beige lg:flex-[1_1_0] lg:max-w-[340px]"><video class="block w-full h-full object-cover" poster="assets/{n}.jpg" muted loop playsinline preload="none" aria-label="{a}"><source src="assets/{n}.mp4" type="video/mp4"><source src="assets/{n}.webm" type="video/webm"></video></figure>
-''' for n, a in CARE) + f'''  </div>
+""" + ''.join(
+    f"""    <figure data-reveal class="flex-[0_0_min(64vw,300px)] snap-start aspect-[9/16] rounded-[4px] overflow-hidden bg-beige lg:flex-[1_1_0] lg:max-w-[340px]"><video class="block w-full h-full object-cover" poster="assets/{n}.jpg" muted loop playsinline preload="none" aria-label="{a}"><source src="assets/{n}.mp4" type="video/mp4"><source src="assets/{n}.webm" type="video/webm"></video></figure>
+""" for n, a in CARE) + f"""  </div>
+</section>
+<section class="{SEC}">
+  <div class="{WRAP} text-center">
+    <h2 class="{SERIF} text-[clamp(26px,2.6vw,38px)]">고민에 맞춘 관리 프로그램</h2>
+    <div class="mt-10 grid gap-3 grid-cols-2 lg:grid-cols-3 max-w-[960px] mx-auto">
+""" + ''.join(
+    f"""      <a class="flex items-center justify-between gap-3 min-h-[56px] px-5 rounded-md border border-line bg-ivory text-[15px] text-left transition-colors duration-200 hover:border-ink hover:bg-white" href="{h}">{t}{ARROW}</a>
+""" for t, h in FIND) + f"""    </div>
+  </div>
 </section>
 {ctaband('대표원장이 직접, 처음부터 끝까지.', '상담부터 관리, 사후 홈케어 가이드까지 한 분이 책임집니다.')}
-'''
+"""
 page('brand.html', '브랜드 소개 | 아르쎄에스테틱', '얼굴을 더하지 않고 흩어진 균형을 바로잡는 김해 장유 윤곽 전문 에스테틱, 아르쎄. 대표원장 조외현 소개와 공간.', 'brand', brand)
+
+STATS = [('26', 'YEARS', '에스테틱 업계 경력'), ('50,000+', 'CLIENTS', '누적 관리 고객'), ('CIDESCO', 'LICENSE', '국제 시데스코 자격')]
+CV_BLOCKS = [('EDUCATION', '학력 · 직위', CV_EDU), ('CAREER', '경력', CV_CAREER), ('LICENSE', '자격 · 연수', CV_CERT)]
+
+
+def cv_rows(items):
+    out = ''
+    for it in items:
+        if isinstance(it, tuple):
+            out += f'<li class="py-4 border-b border-line">{it[0]}<ul class="mt-2 grid gap-1 pl-4 text-[14px] text-sub">' + ''.join(f'<li>· {x}</li>' for x in it[1]) + '</ul></li>'
+        else:
+            out += f'<li class="py-4 border-b border-line">{it}</li>'
+    return out
+
+
+director = phero('interior-hero.webp', 'DIRECTOR', '원장 약력', '시술 없이 자연스럽게, 건강하고 아름답게 나이 드는 관리.', [('ARCÉ', 'brand.html'), ('원장 약력', None)], '50% 50%') + f"""
+<section class="{SEC}">
+  <div class="{WRAP}">
+    <div class="text-center">
+      <p class="font-mark text-[13px] tracking-[.3em] text-bronze">JO OE HYUN</p>
+      <h2 class="mt-4 {SERIF} text-[clamp(30px,3vw,44px)]">조외현 <span class="text-[.5em] text-sub tracking-normal">대표원장</span></h2>
+      <p class="mt-6 {SERIF} text-[clamp(18px,1.4vw,22px)] text-sub">“시술 없이 자연스럽게,<br>건강하고 아름답게 나이 드는 관리.”</p>
+    </div>
+    <div class="mt-[clamp(56px,7vw,96px)] grid gap-4 md:grid-cols-3 max-w-[1080px] mx-auto">
+""" + ''.join(
+    f"""      <div class="text-center py-10 rounded-2xl bg-mist" data-reveal><p class="font-display text-[clamp(44px,5vw,72px)] leading-none text-bronze tabular-nums"{' data-count' if n.isdigit() else ''}>{n}</p><p class="mt-3 font-mark text-[11px] tracking-[.3em] text-text">{en}</p><p class="mt-2 text-[14px] text-sub">{d}</p></div>
+""" for n, en, d in STATS) + f"""    </div>
+  </div>
+</section>
+<section class="{SEC} bg-mist">
+  <div class="{WRAP} grid gap-[clamp(64px,7vw,104px)] max-w-[1080px]">
+""" + ''.join(
+    f"""    <div class="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-16" data-reveal>
+      <div><p class="font-mark text-[12px] tracking-[.3em] text-bronze">{en}</p><h3 class="mt-3 {SERIF} text-[clamp(22px,2vw,30px)]">{t}</h3></div>
+      <ul class="border-t border-text text-[16px]">{cv_rows(items)}</ul>
+    </div>
+""" for en, t, items in CV_BLOCKS) + f"""  </div>
+</section>
+{ctaband('대표원장이 직접, 처음부터 끝까지.', '상담부터 관리, 사후 홈케어 가이드까지 한 분이 책임집니다.')}
+"""
+page('director.html', '원장 약력 | 아르쎄에스테틱', '아르쎄에스테틱 조외현 대표원장 약력. 에스테틱 업계 26년, 국제 시데스코(CIDESCO) 자격, 한방피부미용학 석사.', 'brand', director)
 
 method = phero('interior-hero.webp', 'SIGNATURE METHOD', '조막얼굴메소드<sup>®</sup>', '해부학을 기반으로 대표원장이 직접 개발하고 상표로 등록한 아르쎄만의 윤곽관리 프로토콜입니다.', [('조막얼굴메소드®', None)], '50% 50%') + f'''
 <section class="{SEC}">
@@ -615,9 +700,9 @@ contact = phero('entrance.webp', 'CONTACT &amp; LOCATION', '상담·오시는 �
     <div>
       <h2 id="resvT" class="{SERIF} text-[clamp(26px,2.6vw,38px)]">상담 문의</h2>
       <p class="mt-4 text-[clamp(16px,1vw+11px,20px)] text-sub">상담 후 결정하셔도 괜찮습니다.</p>
-      <div class="flex flex-wrap gap-2 mt-10">
-        {kakao_btn()}
-        <a class="{btn_cls('line')} js-tel" href="#"><span class="js-tel-text"></span></a>
+      <div class="flex flex-wrap gap-x-8 gap-y-2 mt-8">
+        <a class="{MORE} js-kakao" href="#">카카오톡 상담 {ARROW}</a>
+        <a class="{MORE} js-tel" href="#">전화 <span class="js-tel-text"></span> {ARROW}</a>
       </div>
       <figure class="mt-10 max-w-[420px] aspect-[4/5] overflow-hidden rounded-[4px] bg-beige" data-ph data-par><img class="w-full h-full object-cover" src="assets/consult.webp" width="1080" height="1186" alt="대표원장이 상담실에서 고객과 마주 앉아 상담하는 모습" loading="lazy" style="object-position:60% 50%"></figure>
     </div>

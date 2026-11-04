@@ -243,7 +243,29 @@ const CONFIG = {
     addEventListener('pointermove', e => { if (d) el.scrollLeft = d.s - (e.clientX - d.x); });
     addEventListener('pointerup', () => { if (!d) return; d = null; el.style.scrollSnapType = ''; });
   };
-  dragScroll($('#rvTrack')); dragScroll($('#gal'));
+  dragScroll($('#rvTrack'));
+
+  const gal = $('#gal');
+  if (gal) {
+    const slides = $$('[data-slide]', gal), dots = $$('[data-gal-dot]', gal);
+    let gi = 0, gt = null, gVis = false;
+    const go = i => {
+      gi = (i + slides.length) % slides.length;
+      slides.forEach((sl, k) => { sl.classList.toggle('on', k === gi); sl.setAttribute('aria-hidden', k !== gi); });
+      dots.forEach((d, k) => d.classList.toggle('on', k === gi));
+      clearTimeout(gt); if (!reduce && gVis) gt = setTimeout(() => go(gi + 1), 4500);
+    };
+    $('[data-gal=prev]', gal).addEventListener('click', () => go(gi - 1));
+    $('[data-gal=next]', gal).addEventListener('click', () => go(gi + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    let sx = null;
+    gal.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+    gal.addEventListener('touchend', e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) go(gi + (dx < 0 ? 1 : -1)); sx = null; });
+    io(gal, ([e]) => { gVis = e.isIntersecting; go(gi); }, { threshold: .3 });
+  }
+
+  const toTop = $('#toTop');
+  if (toTop) toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
 
   $$('[data-rv]').forEach(c => { const b = $('[data-rv-body]', c), m = $('[data-rv-more]', c); if (b && m && b.scrollHeight > b.clientHeight + 4) { m.hidden = false; m.addEventListener('click', () => { const o = c.classList.toggle('open'); m.textContent = o ? '접기' : '더보기'; }); } });
   io($('#kw'), ([e], o) => { if (e.isIntersecting) { e.target.classList.add('in'); o.disconnect(); } }, { threshold: .4 });
