@@ -511,9 +511,9 @@ brand = f"""<section id="top" class="relative flex flex-col items-center justify
 </section>
 <section class="{SEC}">
   <div class="{WRAP}">
-    <div class="grid grid-cols-2 gap-3 justify-items-center lg:flex lg:justify-center lg:gap-0 max-w-[1240px] mx-auto">
+    <div class="grid grid-cols-2 lg:grid-cols-4 max-w-[1240px] mx-auto border-t border-text">
 """ + ''.join(
-    f"""      <div class="flex items-center justify-center text-center aspect-square w-full max-w-[300px] lg:w-[300px] lg:flex-none rounded-full {'bg-beige border border-beige' if i % 2 == 1 else 'border border-line'} px-4 sm:px-9 lg:-mx-4" data-reveal><div class="w-full"><svg class="mx-auto w-9 h-9 sm:w-11 sm:h-11 text-bronze" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{CIRCLE_ICON[ic]}</svg><p class="mt-3 font-mark text-[10px] sm:text-[11px] tracking-[.2em] text-bronze">{en}</p><p class="mt-2 text-[15px] sm:text-[18px] font-semibold tracking-[-.02em]">{t}</p><p class="mt-2 text-[12px] sm:text-[13px] text-sub leading-[1.65] max-sm:hidden">{d}</p></div></div>
+    f"""      <div class="group relative pt-8 pb-10 px-5 sm:px-7 border-b border-line {'lg:border-r' if i < 3 else ''} {'max-lg:border-r' if i % 2 == 0 else ''} transition-colors duration-300 hover:bg-white" data-reveal><span class="absolute top-0 left-0 h-[2px] w-0 bg-bronze transition-[width] duration-500 ease-soft group-hover:w-full"></span><div class="flex items-start justify-between"><span class="font-display text-[clamp(36px,3.4vw,52px)] leading-none text-champagne">0{i + 1}</span><svg class="w-8 h-8 sm:w-9 sm:h-9 text-bronze" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{CIRCLE_ICON[ic]}</svg></div><p class="mt-8 font-mark text-[10px] sm:text-[11px] tracking-[.2em] text-bronze">{en}</p><p class="mt-2 text-[16px] sm:text-[19px] font-semibold tracking-[-.02em]">{t}</p><p class="mt-3 text-[13px] sm:text-[14px] text-sub leading-[1.7]">{d.replace('<br>', ' ')}</p></div>
 """ for i, (ic, en, t, d) in enumerate(CIRCLES)) + f"""    </div>
   </div>
 </section>
@@ -605,30 +605,48 @@ director = phero('interior-hero.webp', 'DIRECTOR', '원장 약력', '시술 없�
 """
 page('director.html', '원장 약력 | 아르쎄에스테틱', '아르쎄에스테틱 조외현 대표원장 약력. 에스테틱 업계 26년, 국제 시데스코(CIDESCO) 자격, 한방피부미용학 석사.', 'brand', director)
 
-method = phero('interior-hero.webp', 'SIGNATURE METHOD', '조막얼굴메소드<sup>®</sup>', '해부학을 기반으로 대표원장이 직접 개발하고 상표로 등록한 아르쎄만의 윤곽관리 프로토콜입니다.', [('조막얼굴메소드®', None)], '50% 50%') + f'''
+METHOD_WHY = [('진단', '대표원장의 1:1 얼굴 진단으로 시작합니다'), ('흐름', '저작근·광대 주변·목까지 이어지는 흐름을 함께 관리합니다'), ('설계', '필요한 경우 정품 장비를 더해 관리의 깊이를 설계합니다')]
+method = f"""<section id="top" class="relative isolate flex items-center justify-center text-center min-h-[min(70svh,620px)] overflow-hidden bg-ink text-white before:content-[''] before:absolute before:inset-0 before:-z-[1] before:bg-[rgba(46,38,33,.5)]">
+  <div class="absolute inset-0 -z-[2]" aria-hidden="true" data-par><img class="w-full h-full object-cover will-change-transform" src="assets/method-3.webp" alt="" style="object-position:50% 50%"></div>
+  <div class="{WRAP} pt-hh">
+    <p class="{DISP} text-[clamp(44px,6vw,88px)]">Signature Method</p>
+    <h1 class="mt-3 text-[clamp(18px,1.4vw+10px,24px)] font-semibold tracking-[-.02em]">조막얼굴메소드<sup class="text-[.55em]">®</sup></h1>
+    <p class="mt-3 text-[clamp(14px,.6vw+11px,17px)] text-white/80 max-w-[34em] mx-auto leading-[1.7]">해부학을 기반으로 대표원장이 직접 개발하고 상표로 등록한 아르쎄만의 윤곽관리 프로토콜입니다.</p>
+  </div>
+  <div class="absolute left-1/2 bottom-6 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70" aria-hidden="true"><span class="font-display text-[14px] tracking-[.08em]">Scroll down</span><span class="block w-px h-8 bg-white/50"></span></div>
+</section>
 <section class="{SEC}">
-  <div class="{WRAP} {SPLIT}">
-    <div>
-      {sh('WHY JOMAK METHOD', '얼굴 라인은<br>근육과 근막이 만듭니다')}
-      <p class="{LEAD}">같은 골격이라도 씹는 습관, 자세, 순환 상태에 따라 얼굴의 윤곽은 달라집니다. 조막얼굴메소드®는 윤곽을 흐트러뜨리는 원인을 해부학적으로 찾아 근육과 근막의 균형을 바로잡는 데 집중합니다.</p>
-      <ul class="{CHK} mt-8">
-        <li>대표원장의 1:1 얼굴 진단으로 시작합니다</li>
-        <li>저작근·광대 주변·목까지 이어지는 흐름을 함께 관리합니다</li>
-        <li>필요한 경우 정품 장비를 더해 관리의 깊이를 설계합니다</li>
-      </ul>
+  <div class="{WRAP} grid gap-10 items-center lg:grid-cols-2 lg:gap-20">
+    <figure class="aspect-[4/5] max-h-[620px] w-full overflow-hidden rounded-2xl bg-beige" data-reveal data-par><img class="w-full h-full object-cover" src="assets/consult.webp" alt="대표원장이 상담실에서 고객과 마주 앉아 상담하는 모습" loading="lazy" style="object-position:60% 50%"></figure>
+    <div data-reveal>
+      <h2 class="text-[clamp(26px,2.6vw,38px)] font-semibold tracking-[-.03em] leading-[1.4]">얼굴 라인은<br><span class="{HL}">근육과 근막이 만듭니다</span></h2>
+      <p class="mt-6 font-display text-[48px] leading-[.5] text-champagne" aria-hidden="true">“</p>
+      <p class="mt-3 text-[16px] leading-[1.85] max-w-[32em]">같은 골격이라도 씹는 습관, 자세, 순환 상태에 따라 얼굴의 윤곽은 달라집니다. 조막얼굴메소드®는 윤곽을 흐트러뜨리는 원인을 해부학적으로 찾아 근육과 근막의 균형을 바로잡는 데 집중합니다.</p>
+      <ol class="mt-10 border-t border-text">""" + ''.join(
+    f'<li class="grid grid-cols-[56px_64px_minmax(0,1fr)] items-baseline gap-2 py-5 border-b border-line"><span class="font-display text-[22px] text-champagne">0{i + 1}</span><b class="text-[16px] font-semibold text-bronze">{k}</b><span class="text-[15px] leading-[1.7]">{v}</span></li>'
+    for i, (k, v) in enumerate(METHOD_WHY)) + f"""</ol>
     </div>
-    <figure class="{SPLIT_IMG}" data-ph data-par><img class="w-full h-full object-cover" src="assets/consult.webp" alt="대표원장이 상담실에서 고객과 마주 앉아 상담하는 모습" loading="lazy" style="object-position:60% 50%"></figure>
   </div>
 </section>
-{method_sec()}
-<section class="{SEC}" id="result">
+{method_sec().replace('<h2 id="methodT" class="' + SERIF + ' text-[clamp(28px,3vw,44px)] [&_sup]:text-[.4em] [&_sup]:font-normal [&_sup]:align-top [&_sup]:ml-0.5">조막얼굴메소드<sup>®</sup></h2>', '<h2 id="methodT" class="' + DISP + ' text-[clamp(44px,5vw,72px)] text-ivory">Program Order</h2>')}
+<section class="{SEC} bg-mist" id="result">
   <div class="{WRAP}">
-    {sh('BEFORE &amp; AFTER', '관리 전후 비교', '가운데 손잡이를 좌우로 움직여 관리 전후의 얼굴 라인을 비교해 보세요.')}
+    <div class="text-center mb-[clamp(40px,5vw,64px)]">
+      <h2 class="{DISP} text-[clamp(44px,5vw,72px)] text-ink">Before &amp; After</h2>
+      <p class="mt-4 text-[clamp(16px,1vw+10px,19px)] text-sub">가운데 손잡이를 좌우로 움직여 관리 전후의 얼굴 라인을 비교해 보세요.</p>
+    </div>
     {ba_solo()}
   </div>
 </section>
-{ctaband('내 얼굴의 균형, 진단부터 받아보세요.', '조막얼굴메소드® 상담은 대표원장이 직접 진행합니다.', '조막얼굴 윤곽관리')}
-'''
+<section class="{SEC} text-center">
+  <div class="{WRAP}">
+    <img class="mx-auto w-auto h-[72px]" src="assets/logo.webp" width="260" height="267" alt="" loading="lazy">
+    <h2 class="mt-8 text-[clamp(22px,2.2vw,32px)] font-semibold tracking-[-.03em]">내 얼굴의 균형, 진단부터 받아보세요.</h2>
+    <p class="mt-3 text-sub">조막얼굴메소드® 상담은 대표원장이 직접 진행합니다.</p>
+    <a class="{PILL} mt-8 bg-ink text-ivory border-ink hover:bg-bronze hover:border-bronze" href="contact.html?care=조막얼굴 윤곽관리#reserve">상담 예약 {ARROW}</a>
+  </div>
+</section>
+"""
 page('method.html', '조막얼굴메소드® | 아르쎄에스테틱', '해부학 기반으로 대표원장이 직접 개발하고 상표 등록한 아르쎄의 윤곽관리 프로토콜, 조막얼굴메소드®.', 'method', method, 'assets/interior-hero.webp')
 
 
